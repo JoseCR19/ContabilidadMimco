@@ -1,0 +1,5 @@
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDTO\bin\Debug\ContabilidadDTO.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDTO\bin\Debug\ContabilidadDTO.pdb
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDTO\obj\Debug\ContabilidadDTO.csprojResolveAssemblyReference.cache

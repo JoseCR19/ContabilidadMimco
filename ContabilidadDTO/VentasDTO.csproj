@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2796506B-2AE5-4787-BF36-5C46D1E56E90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ContabilidadDTO</RootNamespace>
+    <AssemblyName>ContabilidadDTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="QRCoder, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.3\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.3\lib\net40\UnityEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbonoBancoCab.cs" />
+    <Compile Include="AbonoBancoDet.cs" />
+    <Compile Include="Asiento.cs" />
+    <Compile Include="AsientoDetalle.cs" />
+    <Compile Include="CajaCab.cs" />
+    <Compile Include="CajaDet.cs" />
+    <Compile Include="CargoBancario.cs" />
+    <Compile Include="CentroCostos.cs" />
+    <Compile Include="CentroLabor.cs" />
+    <Compile Include="Cheque.cs" />
+    <Compile Include="ChequeImpresion.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Compras.cs" />
+    <Compile Include="CuentaBanco.cs" />
+    <Compile Include="CuentaContable.cs" />
+    <Compile Include="CuentasporCobrar.cs" />
+    <Compile Include="DetalleReporte.cs" />
+    <Compile Include="DocumentoCab.cs" />
+    <Compile Include="DocumentoContabilidad.cs" />
+    <Compile Include="DocumentoDet.cs" />
+    <Compile Include="DocumentoElectronicoCab.cs" />
+    <Compile Include="DocumentoElectronicoDet.cs" />
+    <Compile Include="DocumentoIdentidad.cs" />
+    <Compile Include="DocumentoPagoCab.cs" />
+    <Compile Include="DocumentoPagoDet.cs" />
+    <Compile Include="DocumentoReporte.cs" />
+    <Compile Include="DocumentoReporteExcel.cs" />
+    <Compile Include="Ejercicio.cs" />
+    <Compile Include="EstadoSunat.cs" />
+    <Compile Include="EstadoVoucher.cs" />
+    <Compile Include="FacturaAbono.cs" />
+    <Compile Include="FacturaRC.cs" />
+    <Compile Include="FacturaReporteDTO.cs" />
+    <Compile Include="LetraCab.cs" />
+    <Compile Include="LetraDet.cs" />
+    <Compile Include="LetraDetalle.cs" />
+    <Compile Include="LetraReporte.cs" />
+    <Compile Include="LetraReportRC.cs" />
+    <Compile Include="Moneda.cs" />
+    <Compile Include="Monthdto.cs" />
+    <Compile Include="MotivoAnulacion.cs" />
+    <Compile Include="Nacion.cs" />
+    <Compile Include="NotaReporteDTO.cs" />
+    <Compile Include="OperacionBanco.cs" />
+    <Compile Include="OrdenCompraCab.cs" />
+    <Compile Include="OrdenCompraDet.cs" />
+    <Compile Include="OtDTO.cs" />
+    <Compile Include="Pago.cs" />
+    <Compile Include="PagoVoucher.cs" />
+    <Compile Include="PendienteFacturar.cs" />
+    <Compile Include="Periodo.cs" />
+    <Compile Include="Personal.cs" />
+    <Compile Include="PrestamoBancario.cs" />
+    <Compile Include="Producto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor.cs" />
+    <Compile Include="ReporteFacturaC.cs" />
+    <Compile Include="RetencionCab.cs" />
+    <Compile Include="RetencionDet.cs" />
+    <Compile Include="Rubros.cs" />
+    <Compile Include="TipoCambio.cs" />
+    <Compile Include="TipoDocumentoEmision.cs" />
+    <Compile Include="TipoGastos.cs" />
+    <Compile Include="TipoImpuesto.cs" />
+    <Compile Include="TipoNotaCredito.cs" />
+    <Compile Include="TipoNotaDebito.cs" />
+    <Compile Include="TipoPagoVoucher.cs" />
+    <Compile Include="TipoRubros.cs" />
+    <Compile Include="TipoSolicitante.cs" />
+    <Compile Include="Ubigeo.cs" />
+    <Compile Include="UnidadNegocio.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="Ventas.cs" />
+    <Compile Include="Voucher.cs" />
+    <Compile Include="VoucherDet.cs" />
+    <Compile Include="VoucherReporte.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

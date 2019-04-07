@@ -1,0 +1,11 @@
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\ContabilidadDAO.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\ContabilidadDAO.pdb
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\ContabilidadDTO.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\Microsoft.Practices.Unity.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\bin\Debug\ContabilidadDTO.pdb
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\obj\Debug\ContabilidadDAO.csprojResolveAssemblyReference.cache
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\obj\Debug\ContabilidadDAO.dll
+G:\Programas\Proyectos\Contabilidad\Version3\Contabilidad\ContabilidadDAO\obj\Debug\ContabilidadDAO.pdb
