@@ -67,21 +67,51 @@ namespace ContabilidadDAO
                     obj.FechaEntrega = dataReader["FechaReg"].ToString();
                     obj.Moneda = dataReader["Moneda"].ToString();
                     obj.TC = dataReader["TC"].ToString();
+                    obj.HoraEntrega = dataReader["HoraEntrega"].ToString().Trim();
+                    obj.FEntrega = dataReader["FechaEntrega"].ToString().Trim();
                     obj.Total = convertToDouble(dataReader["Total"].ToString());
+                    obj.NroRegistro = dataReader["NroRegistro"].ToString().Trim();
+                    obj.Print = dataReader["Print"].ToString().Trim();
                     objList.Add(obj);
 
                 }
             }
             return objList;
         }
-
-        public List<Voucher> voucherReporte(String CodEnt, DateTime d1, DateTime d2,String ruc)
+        public List<Voucher> voucherReporte2(String CodEnt, DateTime d1, DateTime d2, String ruc)
         {
             List<Voucher> objList = new List<Voucher>();
             Voucher obj;
             Database db = DatabaseFactory.CreateDatabase("Conta");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherReporte",
-                   new object[] { CodEnt, d1, d2,ruc });
+                   new object[] { CodEnt, d1, d2, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Voucher();
+                    obj.NumeroVoucher = dataReader["NroVoucher"].ToString();
+                    obj.FechaEmision = Convert.ToDateTime(dataReader["FechaEmision"].ToString());
+                    obj.NumeroCheque = dataReader["NroCheque"].ToString().Trim();
+                    obj.NumeroCuenta = dataReader["NroCuenta"].ToString().Trim();
+                    obj.Banco = dataReader["Banco"].ToString().Trim();
+                    obj.Moneda = dataReader["Moneda"].ToString();
+                    obj.Solicitante = dataReader["Solicitante"].ToString().Trim();
+                    obj.Monto = convertToDouble(dataReader["MontoPago"].ToString());
+                    obj.Observacion = dataReader["Observacion"].ToString();
+                    objList.Add(obj);
+
+                }
+            }
+            return objList;
+        }
+        public List<Voucher> voucherReporte(String CodEnt, DateTime d1, DateTime d2)
+        {
+            List<Voucher> objList = new List<Voucher>();
+            Voucher obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherChequesProveedor",
+                   new object[] { CodEnt, d1, d2});
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
                 while (dataReader.Read())
@@ -334,7 +364,7 @@ namespace ContabilidadDAO
                     obj.numeroRegistro = dataReader["NroRegistro"].ToString();
                     obj.RazonSocial = dataReader["RazonSocial"].ToString();
                     //obj.FechaEmiRef =Convert.ToDateTime(dataReader["FechaRefe"].ToString());
-                    obj.FechaEmiRef = dataReader["FechaRefe"].ToString();
+                    obj.FechaEmiRef = dataReader["FechaRefe"].ToString().Substring(0,10);
                     objList.Add(obj);
                 }
             }
@@ -888,6 +918,23 @@ namespace ContabilidadDAO
             Database db = DatabaseFactory.CreateDatabase("Conta");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_actualizarRCaLetra",
                    new object[] {CodEnt,NroRegistro,AbonoLetra});
+
+            try
+            {
+                db.ExecuteScalar(dbCommand);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool ActualizarEstadoPrint(String NroRegistro, String Estado, String Usuario)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_actualizarPrint",
+                   new object[] { NroRegistro, Estado, Usuario  });
 
             try
             {

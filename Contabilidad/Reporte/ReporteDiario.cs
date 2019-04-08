@@ -14,9 +14,9 @@ namespace Contabilidad.Reporte
 {
     public partial class ReporteDiario : Form
     {
-        List<FacturaRC> objListaFactura = new List<FacturaRC>();
+        public static List<FacturaRC> objListaFactura = new List<FacturaRC>();
         public static List<ReporteFacturaC> objListaReporte = new List<ReporteFacturaC>();
-        public static List<ReporteFacturaC> objListBusquedaTotal = new List<ReporteFacturaC>();
+        public static List<FacturaRC> objListBusquedaTotal = new List<FacturaRC>();
         ReporteFacturaC objReporte;
         VoucherDAO objVoucherDAO;
         public ReporteDiario()
@@ -27,13 +27,28 @@ namespace Contabilidad.Reporte
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 10);
             objVoucherDAO = new VoucherDAO();
-            objListBusquedaTotal = objListaReporte;
+            //objListBusquedaTotal = objListaReporte;
             gridParams();
             objListaFactura = objVoucherDAO.FacturaCReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value);
-            grd_Voucher.DataSource = null;
             grd_Voucher.DataSource = objListaFactura;
+            objListBusquedaTotal = objListaFactura;
             grd_Voucher.Refresh();
+            impresos();
 
+        }
+        void impresos()
+        {
+            foreach (DataGridViewRow row in grd_Voucher.Rows)
+            {
+                if (Convert.ToString(row.Cells["ESTADO"].Value) == "NO SE IMPRIMIO")
+                {
+
+                }
+                else 
+                {
+                    row.ReadOnly = true;
+                }
+            }
         }
         public void gridParams()
         {
@@ -99,18 +114,23 @@ namespace Contabilidad.Reporte
             grd_Voucher.Columns.Add(idColumn10);
             DataGridViewTextBoxColumn idColumn11 = new DataGridViewTextBoxColumn();
             idColumn11.Name = "Fecha Entrega";
-            idColumn11.DataPropertyName = "FechaEntrega";
+            idColumn11.DataPropertyName = "FEntrega";
             idColumn11.Width = 70;
             idColumn11.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grd_Voucher.Columns.Add(idColumn11);
             DataGridViewTextBoxColumn idColumn12 = new DataGridViewTextBoxColumn();
             idColumn12.Name = "Hora Entrega";
-            idColumn12.DataPropertyName = "FechaEntrega";
+            idColumn12.DataPropertyName = "HoraEntrega";
             idColumn12.Width = 70;
             idColumn12.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grd_Voucher.Columns.Add(idColumn12);
-
-            grd_Voucher.Columns[0].ReadOnly = false;
+            DataGridViewTextBoxColumn idColumn13 = new DataGridViewTextBoxColumn();
+            idColumn13.Name = "ESTADO";
+            idColumn13.DataPropertyName = "Print";
+            idColumn13.Width = 120;
+            idColumn13.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Voucher.Columns.Add(idColumn13);
+            //grd_Voucher.Columns[0].ReadOnly = false;
         }
 
         private void btn_Regresar_Click(object sender, EventArgs e)
@@ -124,7 +144,9 @@ namespace Contabilidad.Reporte
             objListaFactura = objVoucherDAO.FacturaCReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value);
             grd_Voucher.DataSource = null;
             grd_Voucher.DataSource = objListaFactura;
+            objListBusquedaTotal = objListaFactura;
             grd_Voucher.Refresh();
+            impresos();
         }
 
         private void grd_Voucher_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -140,25 +162,34 @@ namespace Contabilidad.Reporte
                 grd_Voucher.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-        void formatearReporte()
-        {
-            objListBusquedaTotal = objListBusquedaTotal.Where(x => x.chkSelc == true).ToList();
-            setDatos(objListBusquedaTotal);
-        }
-        public void setDatos(List<ContabilidadDTO.ReporteFacturaC> objList)
+        public void setDatos(List<ContabilidadDTO.FacturaRC> objList)
         {
             for (int i = 0; i < objList.Count; i++)
             {
                 objReporte = new ReporteFacturaC();
-                objReporte.FechaEmision = objList[i].FechaEmision;  
+                objReporte.FechaEmision = objList[i].FechaEmision;
+                objReporte.FechaVencimiento = objList[i].FechaVencimiento;
+                objReporte.TSD = objList[i].TSD;
+                objReporte.Ruc = objList[i].Ruc+" "+ objList[i].RazonSocial;
+                objReporte.Moneda = objList[i].Moneda;
+                objReporte.TC = objList[i].TC;
+                objReporte.Total = objList[i].Total;
+                objReporte.Abono = objList[i].Abono;
+                objReporte.Saldo = objList[i].Total;
+                objReporte.Usuario = Ventas.UsuarioSession;
+                objReporte.FechaEntrega = objList[i].FechaEntrega.Substring(0,16);
                 objListaReporte.Add(objReporte);
+                objVoucherDAO.ActualizarEstadoPrint(objList[i].NroRegistro, "X", Ventas.UsuarioSession);
             }
 
         }
         private void btn_Reporte_Click(object sender, EventArgs e)
         {
+            objListBusquedaTotal = objListBusquedaTotal.Where(x => x.chkSelc == true).ToList();
+
+            setDatos(objListBusquedaTotal);
             btn_Reporte.Enabled = false;
-            formatearReporte();
+            //formatearReporte();
             ReporteView Check = new ReporteView("RDC"); // ExcelFecha
             Check.Show();
             btn_Reporte.Enabled = true;

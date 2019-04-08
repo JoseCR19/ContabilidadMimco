@@ -75,7 +75,7 @@ namespace Contabilidad.Reporte
             {
                 rucbuscar = txt_Ruc.Text;
             }
-            objListVoucher = objVoucherDAO.voucherReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, rucbuscar);
+            objListVoucher = objVoucherDAO.voucherReporte2(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, rucbuscar);
             grd_Voucher.DataSource = null;
             grd_Voucher.DataSource = objListVoucher;
             grd_Voucher.Refresh();

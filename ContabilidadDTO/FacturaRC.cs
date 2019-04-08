@@ -21,5 +21,10 @@ namespace ContabilidadDTO
         public Double Saldo { set; get; }
         public String FechaEntrega { set; get; }
         public String HoraEntrega { set; get; }
+        public Boolean chkSelc { get; set; }
+        public String NroRegistro { get; set; }
+        public String FEntrega { get; set; }
+        public String Print { get; set; }
+
     }
 }

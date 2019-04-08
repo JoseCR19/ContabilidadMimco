@@ -92,7 +92,7 @@
             this.grd_Voucher.Location = new System.Drawing.Point(29, 131);
             this.grd_Voucher.Name = "grd_Voucher";
             this.grd_Voucher.RowHeadersVisible = false;
-            this.grd_Voucher.Size = new System.Drawing.Size(1072, 326);
+            this.grd_Voucher.Size = new System.Drawing.Size(1236, 326);
             this.grd_Voucher.TabIndex = 144;
             this.grd_Voucher.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Voucher_CellContentClick);
             this.grd_Voucher.CurrentCellDirtyStateChanged += new System.EventHandler(this.grd_Voucher_CurrentCellDirtyStateChanged);
@@ -110,7 +110,7 @@
             // btn_Regresar
             // 
             this.btn_Regresar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Regresar.Location = new System.Drawing.Point(1039, 463);
+            this.btn_Regresar.Location = new System.Drawing.Point(1203, 463);
             this.btn_Regresar.Name = "btn_Regresar";
             this.btn_Regresar.Size = new System.Drawing.Size(62, 46);
             this.btn_Regresar.TabIndex = 155;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 520);
+            this.ClientSize = new System.Drawing.Size(1277, 520);
             this.Controls.Add(this.btn_Regresar);
             this.Controls.Add(this.btn_Reporte);
             this.Controls.Add(this.grd_Voucher);
