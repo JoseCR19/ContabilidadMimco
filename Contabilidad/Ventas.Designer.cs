@@ -54,13 +54,14 @@
             this.cuentasPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDiarioFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentosPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarAbonoBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentosPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentoPorProveedorTotalizadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVentas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,13 +173,13 @@
             // emisionToolStripMenuItem
             // 
             this.emisionToolStripMenuItem.Name = "emisionToolStripMenuItem";
-            this.emisionToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.emisionToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.emisionToolStripMenuItem.Text = "Caja Banco";
             // 
             // liquidaciónToolStripMenuItem
             // 
             this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
-            this.liquidaciónToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.liquidaciónToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.liquidaciónToolStripMenuItem.Text = "Liquidación Voucher";
             // 
             // reportesToolStripMenuItem
@@ -193,7 +194,8 @@
             this.cuentasPorPagarToolStripMenuItem,
             this.cuentasPorCobrarToolStripMenuItem,
             this.reporteDiarioFacturasToolStripMenuItem,
-            this.documentosPorProveedorToolStripMenuItem});
+            this.documentosPorProveedorToolStripMenuItem,
+            this.documentoPorProveedorTotalizadoToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -201,56 +203,62 @@
             // documentosPorFechaToolStripMenuItem
             // 
             this.documentosPorFechaToolStripMenuItem.Name = "documentosPorFechaToolStripMenuItem";
-            this.documentosPorFechaToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.documentosPorFechaToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.documentosPorFechaToolStripMenuItem.Text = "Documentos por Fecha";
             // 
             // documentosPorClienteToolStripMenuItem
             // 
             this.documentosPorClienteToolStripMenuItem.Name = "documentosPorClienteToolStripMenuItem";
-            this.documentosPorClienteToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.documentosPorClienteToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.documentosPorClienteToolStripMenuItem.Text = "Documentos por Cliente";
             // 
             // documentosPorOTToolStripMenuItem
             // 
             this.documentosPorOTToolStripMenuItem.Name = "documentosPorOTToolStripMenuItem";
-            this.documentosPorOTToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.documentosPorOTToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.documentosPorOTToolStripMenuItem.Text = "Documentos por OT";
             // 
             // pendientesPorFacturarToolStripMenuItem
             // 
             this.pendientesPorFacturarToolStripMenuItem.Name = "pendientesPorFacturarToolStripMenuItem";
-            this.pendientesPorFacturarToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.pendientesPorFacturarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.pendientesPorFacturarToolStripMenuItem.Text = "Pendientes por Facturar";
             // 
             // voucherReporteToolStripMenuItem
             // 
             this.voucherReporteToolStripMenuItem.Name = "voucherReporteToolStripMenuItem";
-            this.voucherReporteToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.voucherReporteToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.voucherReporteToolStripMenuItem.Text = "Voucher";
             // 
             // desembolsoPorOTToolStripMenuItem
             // 
             this.desembolsoPorOTToolStripMenuItem.Name = "desembolsoPorOTToolStripMenuItem";
-            this.desembolsoPorOTToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.desembolsoPorOTToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.desembolsoPorOTToolStripMenuItem.Text = "Desembolso por OT";
             // 
             // cuentasPorPagarToolStripMenuItem
             // 
             this.cuentasPorPagarToolStripMenuItem.Name = "cuentasPorPagarToolStripMenuItem";
-            this.cuentasPorPagarToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.cuentasPorPagarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.cuentasPorPagarToolStripMenuItem.Text = "Cuentas por Pagar";
             // 
             // cuentasPorCobrarToolStripMenuItem
             // 
             this.cuentasPorCobrarToolStripMenuItem.Name = "cuentasPorCobrarToolStripMenuItem";
-            this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.cuentasPorCobrarToolStripMenuItem.Text = "Cuentas por Cobrar";
             // 
             // reporteDiarioFacturasToolStripMenuItem
             // 
             this.reporteDiarioFacturasToolStripMenuItem.Name = "reporteDiarioFacturasToolStripMenuItem";
-            this.reporteDiarioFacturasToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.reporteDiarioFacturasToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.reporteDiarioFacturasToolStripMenuItem.Text = "Reporte Diario Facturas";
+            // 
+            // documentosPorProveedorToolStripMenuItem
+            // 
+            this.documentosPorProveedorToolStripMenuItem.Name = "documentosPorProveedorToolStripMenuItem";
+            this.documentosPorProveedorToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.documentosPorProveedorToolStripMenuItem.Text = "Documentos por Proveedor";
             // 
             // mantenimientoToolStripMenuItem
             // 
@@ -296,11 +304,11 @@
             this.registrarAbonoBancoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.registrarAbonoBancoToolStripMenuItem.Text = "Registrar Abono Banco";
             // 
-            // documentosPorProveedorToolStripMenuItem
+            // documentoPorProveedorTotalizadoToolStripMenuItem
             // 
-            this.documentosPorProveedorToolStripMenuItem.Name = "documentosPorProveedorToolStripMenuItem";
-            this.documentosPorProveedorToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.documentosPorProveedorToolStripMenuItem.Text = "Documentos por Proveedor";
+            this.documentoPorProveedorTotalizadoToolStripMenuItem.Name = "documentoPorProveedorTotalizadoToolStripMenuItem";
+            this.documentoPorProveedorTotalizadoToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.documentoPorProveedorTotalizadoToolStripMenuItem.Text = "Documento Por Proveedor Totalizado";
             // 
             // Ventas
             // 
@@ -358,5 +366,6 @@
         private System.Windows.Forms.ToolStripMenuItem canjearLetrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteDiarioFacturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentosPorProveedorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentoPorProveedorTotalizadoToolStripMenuItem;
     }
 }

@@ -77,3 +77,9 @@ G:\sistema\Version11\Contabilidad\ContabilidadDTO\bin\Debug\UnityEngine.dll
 G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
 G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
 G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\ContabilidadDTO.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\ContabilidadDTO.pdb
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\QRCoder.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\UnityEngine.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb

@@ -58,6 +58,7 @@ namespace Contabilidad
             canjearLetrasToolStripMenuItem.Click += CanjearLetrasToolStripMenuItem_Click;
             reporteDiarioFacturasToolStripMenuItem.Click += reporteDiarioFacturasToolStripMenuItem_Click;
             documentosPorProveedorToolStripMenuItem.Click += DocumentosPorProveedorToolStripMenuItem_Click;
+            documentoPorProveedorTotalizadoToolStripMenuItem.Click += DocumentoPorProveedorTotalizadoToolStripMenuItem_Click;
         }
         private void CanjearLetrasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,6 +66,13 @@ namespace Contabilidad
             Facturacion.CanjeLetra Check = new Facturacion.CanjeLetra();
             Check.Show();
         }
+        private void DocumentoPorProveedorTotalizadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
+            Reporte.ReporteFacturaProveedorTotalizado Check = new Reporte.ReporteFacturaProveedorTotalizado();
+            Check.Show();
+        }
+
         private void reporteDiarioFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             reporteDiarioFacturasToolStripMenuItem.Enabled = false;
@@ -266,6 +274,9 @@ namespace Contabilidad
                     break;
                 case "RFPP":
                     documentosPorProveedorToolStripMenuItem.Enabled = true;
+                    break;
+                case "RFPPT":
+                    documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = true;
                     break;
             }
         }

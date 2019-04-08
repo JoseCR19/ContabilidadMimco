@@ -148,3 +148,12 @@ G:\sistema\Version11\Contabilidad\ContabilidadDAO\bin\Debug\ContabilidadDTO.pdb
 G:\sistema\Version11\Contabilidad\ContabilidadDAO\obj\Debug\VentasDAO.csprojResolveAssemblyReference.cache
 G:\sistema\Version11\Contabilidad\ContabilidadDAO\obj\Debug\ContabilidadDAO.dll
 G:\sistema\Version11\Contabilidad\ContabilidadDAO\obj\Debug\ContabilidadDAO.pdb
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\ContabilidadDAO.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\ContabilidadDAO.pdb
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\ContabilidadDTO.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\QRCoder.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\UnityEngine.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\bin\Debug\ContabilidadDTO.pdb
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\obj\Debug\VentasDAO.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\obj\Debug\ContabilidadDAO.dll
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDAO\obj\Debug\ContabilidadDAO.pdb

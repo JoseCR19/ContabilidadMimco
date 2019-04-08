@@ -19,6 +19,7 @@ namespace Contabilidad.Busqueda
         public Retencion formRetencion;
         public CanjeLetraNuevo formCajaLetra;
         public ReporteFacturaProveeodr formReporte;
+        public ReporteVoucher formCheques;
         public static string TipoDocumento;
         ProveedorDAO objProveedorDAO;
         public static List<Proveedor> objListProveedor = new List<Proveedor>();
@@ -33,6 +34,7 @@ namespace Contabilidad.Busqueda
             formRetencion = Retencion.retencionForm;
             formCajaLetra = CanjeLetraNuevo.canjeletranuevo;
             formReporte = ReporteFacturaProveeodr.formReporteProveedor;
+            formCheques = ReporteVoucher.formReporteCheques;
             objListProveedor = objProveedorDAO.listarProveedor();
             objListBusquedaTotal = objListProveedor;
             gridParams();
@@ -88,6 +90,10 @@ namespace Contabilidad.Busqueda
                 else if (TipoDocumento == "PV")
                 {
                     formReporte.setDatos(objListBusquedaTotal[index]);
+                }
+                else if(TipoDocumento =="CH")
+                {
+                    formCheques.setDatos(objListBusquedaTotal[index]);
                 }
                 this.Close();
             }

@@ -555,6 +555,12 @@
     <Compile Include="ReporteView.Designer.cs">
       <DependentUpon>ReporteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ReporteFacturaProveedorTotalizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\ReporteFacturaProveedorTotalizado.Designer.cs">
+      <DependentUpon>ReporteFacturaProveedorTotalizado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteFacturaProveeodr.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -880,6 +886,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteView.resx">
       <DependentUpon>ReporteView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteFacturaProveedorTotalizado.resx">
+      <DependentUpon>ReporteFacturaProveedorTotalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteFacturaProveeodr.resx">
       <DependentUpon>ReporteFacturaProveeodr.cs</DependentUpon>

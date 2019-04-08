@@ -210,7 +210,6 @@ namespace Contabilidad.Reporte
             txt_Dolares.Text = d2.ToString("0.00");
 
         }
-
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             btn_Buscar.Enabled = false;
@@ -326,6 +325,91 @@ namespace Contabilidad.Reporte
                 buscarProveedorForm.ShowDialog();
             }
             btn_Buscar.Enabled = true;
+        }
+
+        private void ReporteFacturaProveeodr_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_ejercicio2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Ruc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_periodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_pdf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grd_Documentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_Dolares_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Total_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

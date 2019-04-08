@@ -107,6 +107,7 @@
             // 
             // txt_Cliente
             // 
+            this.txt_Cliente.BackColor = System.Drawing.Color.White;
             this.txt_Cliente.Location = new System.Drawing.Point(82, 78);
             this.txt_Cliente.Name = "txt_Cliente";
             this.txt_Cliente.Size = new System.Drawing.Size(131, 20);
