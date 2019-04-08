@@ -1,4 +1,5 @@
 ﻿using Contabilidad.CtaXcobrar;
+using Contabilidad.Reporte;
 using ContabilidadDAO;
 using ContabilidadDTO;
 using System;
@@ -17,6 +18,7 @@ namespace Contabilidad
     {
         public Factura formFac;
         public Boleta formBole;
+        public ReporteVoucher formVoucher;
         public ReporteDocumentosPorCliente formReport;
         public LetraCambio formLetraCambio;
         public Retencion formRetencion;
@@ -54,6 +56,10 @@ namespace Contabilidad
             else if (DocumentoTipo == "AB")
             {
                 formAbono = AbonoBanco.AbonoForm;
+            }
+            else if (DocumentoTipo == "VC")
+            {
+                formVoucher = ReporteVoucher.formReporteCheques;
             }
             objClienteDao = new ClienteDAO();
             objListCliente = objClienteDao.listarCliente(Ventas.UNIDADNEGOCIO);
@@ -126,10 +132,14 @@ namespace Contabilidad
                         break;
                     case "A":
                         formLetraCambio.setClienteDatosAval(objListBusquedaTotal[index].ClienteRazonSocial,
-              objListBusquedaTotal[index].ClienteDireccion, objListBusquedaTotal[index].ClienteNDoc, objListBusquedaTotal[index].ClienteCod, objListBusquedaTotal[index].ClienteTelefono);
+              objListBusquedaTotal[index].ClienteDireccion, objListBusquedaTotal[index].ClienteNDoc, objListBusquedaTotal[index].ClienteCod, 
+              objListBusquedaTotal[index].ClienteTelefono);
                         break;
                     case "AB":
                         formAbono.setDatosCliente(objListBusquedaTotal[index].ClienteNDoc, objListBusquedaTotal[index].ClienteRazonSocial, objListBusquedaTotal[index].ClienteCod);
+                        break;
+                    case "VC":
+                        formVoucher.setClienteDatos(objListBusquedaTotal[index].ClienteNDoc);
                         break;
                 }
 

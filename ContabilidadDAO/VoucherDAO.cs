@@ -75,13 +75,13 @@ namespace ContabilidadDAO
             return objList;
         }
 
-        public List<Voucher> voucherReporte(String CodEnt, DateTime d1, DateTime d2)
+        public List<Voucher> voucherReporte(String CodEnt, DateTime d1, DateTime d2,String ruc)
         {
             List<Voucher> objList = new List<Voucher>();
             Voucher obj;
             Database db = DatabaseFactory.CreateDatabase("Conta");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherReporte",
-                   new object[] { CodEnt, d1, d2 });
+                   new object[] { CodEnt, d1, d2,ruc });
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
                 while (dataReader.Read())
@@ -102,7 +102,60 @@ namespace ContabilidadDAO
             }
             return objList;
         }
+        public List<Voucher> voucherReporteCliente(String CodEnt, DateTime d1, DateTime d2, String ruc)
+        {
+            List<Voucher> objList = new List<Voucher>();
+            Voucher obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherReporteCliente",
+                   new object[] { CodEnt, d1, d2, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Voucher();
+                    obj.NumeroVoucher = dataReader["NroVoucher"].ToString();
+                    obj.FechaEmision = Convert.ToDateTime(dataReader["FechaEmision"].ToString());
+                    obj.NumeroCheque = dataReader["NroCheque"].ToString().Trim();
+                    obj.NumeroCuenta = dataReader["NroCuenta"].ToString().Trim();
+                    obj.Banco = dataReader["Banco"].ToString().Trim();
+                    obj.Moneda = dataReader["Moneda"].ToString();
+                    obj.Solicitante = dataReader["Solicitante"].ToString().Trim();
+                    obj.Monto = convertToDouble(dataReader["MontoPago"].ToString());
+                    obj.Observacion = dataReader["Observacion"].ToString();
+                    objList.Add(obj);
 
+                }
+            }
+            return objList;
+        }
+        public List<Voucher> voucherReportePersonal(String CodEnt, DateTime d1, DateTime d2, String ruc)
+        {
+            List<Voucher> objList = new List<Voucher>();
+            Voucher obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherReportePersonal",
+                   new object[] { CodEnt, d1, d2, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Voucher();
+                    obj.NumeroVoucher = dataReader["NroVoucher"].ToString();
+                    obj.FechaEmision = Convert.ToDateTime(dataReader["FechaEmision"].ToString());
+                    obj.NumeroCheque = dataReader["NroCheque"].ToString().Trim();
+                    obj.NumeroCuenta = dataReader["NroCuenta"].ToString().Trim();
+                    obj.Banco = dataReader["Banco"].ToString().Trim();
+                    obj.Moneda = dataReader["Moneda"].ToString();
+                    obj.Solicitante = dataReader["Solicitante"].ToString().Trim();
+                    obj.Monto = convertToDouble(dataReader["MontoPago"].ToString());
+                    obj.Observacion = dataReader["Observacion"].ToString();
+                    objList.Add(obj);
+
+                }
+            }
+            return objList;
+        }
         public List<LetraCab> listarLetra(String CodEnt, DateTime d1, DateTime d2,String Estado,String ruc)
         {
 

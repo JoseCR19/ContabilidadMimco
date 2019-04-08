@@ -889,6 +889,49 @@ namespace ContabilidadDAO
             }
             return objLista;
         }
+        public List<Ventas> documentoPorProveedorTotalziadoAnio(String d1, String d2, String codent, String ruc)
+        {
+            List<Ventas> objLista = new List<Ventas>();
+            Ventas obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_reporteFacturaProveedorTotalizadoAnio",
+                   new object[] { d1, d2, codent, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Ventas();
+                    obj.Ruc = dataReader["Ruc"].ToString().Trim();
+                    obj.RazonSocial = dataReader["Proveedor"].ToString().Trim();
+                    obj.total_soles = convertToDouble(dataReader["Total Facturado Soles"].ToString());
+                    obj.total_dolares = convertToDouble(dataReader["Total Facturado Dolares"].ToString());
+                    objLista.Add(obj);
+                }
+            }
+            return objLista;
+        }
+        public List<Ventas> documentoPorProveedorTotalziado(String d1, String d2, String codent, String ruc)
+        {
+            List<Ventas> objLista = new List<Ventas>();
+            Ventas obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_reporteFacturaProveedorTotalizado",
+                   new object[] { d1, d2, codent, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Ventas();
+                    obj.Ruc = dataReader["Ruc"].ToString().Trim();
+                    obj.RazonSocial = dataReader["Proveedor"].ToString().Trim();
+                    obj.total_soles = convertToDouble(dataReader["Total Facturado Soles"].ToString());
+                    obj.total_dolares = convertToDouble(dataReader["Total Facturado Dolares"].ToString());
+                    objLista.Add(obj);
+                }
+            }
+            return objLista;
+        }
+
         public List<DocumentoCab> documentoPorClienteM(String cliente, String d1, String d2, String moneda, String codent, String tipdoc)
         {
             List<DocumentoCab> objLista = new List<DocumentoCab>();
