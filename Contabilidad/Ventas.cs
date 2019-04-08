@@ -68,9 +68,9 @@ namespace Contabilidad
         }
         private void DocumentoPorProveedorTotalizadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
+            /*documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
             Reporte.ReporteFacturaProveedorTotalizadoCheck = new Reporte.ReporteFacturaProveedorTotalizado();
-            Check.Show();
+            Check.Show();*/
         }
 
         private void reporteDiarioFacturasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace Contabilidad
         private void VoucherReporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             voucherReporteToolStripMenuItem.Enabled = false;
-            Reporte.ReporteVoucher check = new Reporte.ReporteVoucher();
+            Reporte.ReporteChueques check = new Reporte.ReporteChueques();
             check.Show();
         }
         private void ChequeToolStripMenuItem_Click(object sender, EventArgs e)
