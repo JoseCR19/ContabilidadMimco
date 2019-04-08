@@ -83,3 +83,4 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\QRCoder
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\UnityEngine.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
+C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache

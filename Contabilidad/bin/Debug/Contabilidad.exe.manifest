@@ -42,38 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-<<<<<<< HEAD
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4482048">
-=======
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4450816">
->>>>>>> 1803c560db975f6b00a0d519197678e2a6ca5cd7
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4472320">
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>SH5cZwqRBD6dJN01Fb1kOcvV3+N57/RkwwacU51rj8w=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>PPr+kt7OD3Xhf+CebbjaBpVEHRs1XlAsPFjogI4BkOQ=</dsig:DigestValue>
->>>>>>> 1803c560db975f6b00a0d519197678e2a6ca5cd7
+        <dsig:DigestValue>uM44gAlEekGgve7d3+eDSci4OV91XHqn5Lv/osL6LkA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="123392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="123904">
       <assemblyIdentity name="ContabilidadDAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>WXu1+eY07j9YVNBtu54pQsGYuXbzO2fzhlFlDD38rOM=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>UXw5CWaDbK8jtgSamNx0q/xsCl8hl+9SP/531HNwohM=</dsig:DigestValue>
->>>>>>> 1803c560db975f6b00a0d519197678e2a6ca5cd7
+        <dsig:DigestValue>0MwQ89SxLCFrq56SIITUpNU7dhPQV4cjhWVzouCG43s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,11 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>DjsP4SHu6H2GUrcUj8c65prQj7Q7tSaHeppAQC8YSjU=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>X2OZ7dD6taneTlY2V04IlHFWk+pqHSbTSAvLJ48s68A=</dsig:DigestValue>
->>>>>>> 1803c560db975f6b00a0d519197678e2a6ca5cd7
+        <dsig:DigestValue>hLSDqofWrD/T5UPEoeHbye3+8F0vaCzOWhGxKY4kXSQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
