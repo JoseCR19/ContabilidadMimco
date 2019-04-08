@@ -69,7 +69,7 @@ namespace Contabilidad
         private void DocumentoPorProveedorTotalizadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
-            Reporte.ReporteFacturaProveedorTotalizado Check = new Reporte.ReporteFacturaProveedorTotalizado();
+            Reporte.ReporteFacturaProveedorTotalizadoCheck = new Reporte.ReporteFacturaProveedorTotalizado();
             Check.Show();
         }
 

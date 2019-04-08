@@ -531,6 +531,12 @@
     <Compile Include="Reporte\ReportDocumentosPorOt.Designer.cs">
       <DependentUpon>ReportDocumentosPorOt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ReporteChueques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\ReporteChueques.Designer.cs">
+      <DependentUpon>ReporteChueques.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -554,12 +560,6 @@
     </Compile>
     <Compile Include="ReporteView.Designer.cs">
       <DependentUpon>ReporteView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte\ReporteFacturaProveedorTotalizado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporte\ReporteFacturaProveedorTotalizado.Designer.cs">
-      <DependentUpon>ReporteFacturaProveedorTotalizado.cs</DependentUpon>
     </Compile>
     <Compile Include="Reporte\ReporteFacturaProveeodr.cs">
       <SubType>Form</SubType>
@@ -601,6 +601,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\DocumentoExcel.cs">
       <AutoGen>True</AutoGen>
@@ -880,6 +881,9 @@
     <EmbeddedResource Include="Reporte\ReportDocumentosPorOt.resx">
       <DependentUpon>ReportDocumentosPorOt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteChueques.resx">
+      <DependentUpon>ReporteChueques.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteDiario.resx">
       <DependentUpon>ReporteDiario.cs</DependentUpon>
     </EmbeddedResource>
@@ -891,9 +895,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteView.resx">
       <DependentUpon>ReporteView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte\ReporteFacturaProveedorTotalizado.resx">
-      <DependentUpon>ReporteFacturaProveedorTotalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteFacturaProveeodr.resx">
       <DependentUpon>ReporteFacturaProveeodr.cs</DependentUpon>
