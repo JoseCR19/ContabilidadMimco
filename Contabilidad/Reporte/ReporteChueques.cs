@@ -105,7 +105,7 @@ namespace Contabilidad.Reporte
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-            Ventas.formVentas.setEnabledItems("VR");
+            Ventas.formVentas.setEnabledItems("RPCH");
         }
 
         private void btn_excel_Click(object sender, EventArgs e)

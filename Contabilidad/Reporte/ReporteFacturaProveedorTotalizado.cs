@@ -260,5 +260,36 @@ namespace Contabilidad.Reporte
                 btn_excel.Enabled = true;
             }
         }
+        void formatearReporte()
+        {
+            for (int i = 0; i < objListaDocCab.Count; i++)
+            {
+                objReporte = new ReporteFacturaC();
+                objReporte.Ruc = objListaDocCab[i].Ruc.ToString().Trim();
+                objReporte.RazonSocial = objListaDocCab[i].RazonSocial.ToString().Trim();
+                objReporte.TotalSoles = Convert.ToDouble(objListaDocCab[i].total_soles.ToString("G"));
+                objReporte.TotalDolares = Convert.ToDouble(objListaDocCab[i].total_dolares.ToString());
+                objReporte.Anio = cmb_ejercicio2.SelectedValue.ToString();
+                if (cmb_periodo.SelectedValue.ToString() == "13")
+                {
+                    objReporte.Mes = "Todos";
+                }
+                else
+                {
+                    objReporte.Mes = cmb_periodo.SelectedValue.ToString();
+                }
+                objListaVenReporte.Add(objReporte);
+            }
+        }
+
+
+        private void btn_Reporte_Click_1(object sender, EventArgs e)
+        {
+            btn_Reporte.Enabled = true;
+            formatearReporte();
+            ReporteView Check = new ReporteView("RFTP"); // ExcelCliente
+            Check.Show();
+            btn_Reporte.Enabled = true;
+        }
     }
 }

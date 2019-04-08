@@ -5408,6 +5408,10 @@ namespace Contabilidad.Datasets {
             
             private global::System.Data.DataColumn columnUsuario;
             
+            private global::System.Data.DataColumn columnAnio;
+            
+            private global::System.Data.DataColumn columnMes;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReporteDiarioDataTable() {
@@ -5563,6 +5567,22 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AnioColumn {
+                get {
+                    return this.columnAnio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MesColumn {
+                get {
+                    return this.columnMes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5598,7 +5618,24 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteDiarioRow AddReporteDiarioRow(string FechaEmision, string FechaVencimiento, string TSD, string RUC, string RazonSocial, string Moneda, string TC, string Total, string Abono, string Saldo, string FechaEntrega, string HoraEntrega, string TotalSoles, string TotalDolares, string Usuario) {
+            public ReporteDiarioRow AddReporteDiarioRow(
+                        string FechaEmision, 
+                        string FechaVencimiento, 
+                        string TSD, 
+                        string RUC, 
+                        string RazonSocial, 
+                        string Moneda, 
+                        string TC, 
+                        string Total, 
+                        string Abono, 
+                        string Saldo, 
+                        string FechaEntrega, 
+                        string HoraEntrega, 
+                        string TotalSoles, 
+                        string TotalDolares, 
+                        string Usuario, 
+                        string Anio, 
+                        string Mes) {
                 ReporteDiarioRow rowReporteDiarioRow = ((ReporteDiarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FechaEmision,
@@ -5615,7 +5652,9 @@ namespace Contabilidad.Datasets {
                         HoraEntrega,
                         TotalSoles,
                         TotalDolares,
-                        Usuario};
+                        Usuario,
+                        Anio,
+                        Mes};
                 rowReporteDiarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteDiarioRow);
                 return rowReporteDiarioRow;
@@ -5653,6 +5692,8 @@ namespace Contabilidad.Datasets {
                 this.columnTotalSoles = base.Columns["TotalSoles"];
                 this.columnTotalDolares = base.Columns["TotalDolares"];
                 this.columnUsuario = base.Columns["Usuario"];
+                this.columnAnio = base.Columns["Anio"];
+                this.columnMes = base.Columns["Mes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5688,6 +5729,10 @@ namespace Contabilidad.Datasets {
                 base.Columns.Add(this.columnTotalDolares);
                 this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsuario);
+                this.columnAnio = new global::System.Data.DataColumn("Anio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAnio);
+                this.columnMes = new global::System.Data.DataColumn("Mes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMes);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11249,6 +11294,38 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Anio {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteDiario.AnioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Anio\' de la tabla \'ReporteDiario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteDiario.AnioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Mes {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteDiario.MesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Mes\' de la tabla \'ReporteDiario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteDiario.MesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechaEmisionNull() {
                 return this.IsNull(this.tableReporteDiario.FechaEmisionColumn);
             }
@@ -11425,6 +11502,30 @@ namespace Contabilidad.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUsuarioNull() {
                 this[this.tableReporteDiario.UsuarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAnioNull() {
+                return this.IsNull(this.tableReporteDiario.AnioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAnioNull() {
+                this[this.tableReporteDiario.AnioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMesNull() {
+                return this.IsNull(this.tableReporteDiario.MesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMesNull() {
+                this[this.tableReporteDiario.MesColumn] = global::System.Convert.DBNull;
             }
         }
         

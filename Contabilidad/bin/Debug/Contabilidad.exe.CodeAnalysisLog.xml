@@ -10,133 +10,78 @@
        <Types>
         <Type Name="DataSet1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+ChequeRepDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.ChequeRepDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.ChequeRepDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+DocumentoExcelDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.DocumentoExcelDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.DocumentoExcelDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+DocumentoPorFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.DocumentoPorFechaDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.DocumentoPorFechaDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+FacturaFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.FacturaFechaDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.FacturaFechaDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+LetraReporteDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.LetraReporteDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.LetraReporteDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+LetraRepRCDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.LetraRepRCDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.LetraRepRCDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+NotaCreditoFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.NotaCreditoFechaDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.NotaCreditoFechaDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+PendientexFacturarDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.PendientexFacturarDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.PendientexFacturarDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+ReporteDiarioDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.ReporteDiarioDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.ReporteDiarioDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+VoucherRepDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'DataSet1.VoucherRepDataTable'.</Issue>
-=======
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.VoucherRepDataTable'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>
@@ -146,13 +91,8 @@
        <Types>
         <Type Name="ShanuDGVHelper" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-<<<<<<< HEAD
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-08 14:47:14Z" FixCategory="NonBreaking">
-           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'ShanuDGVHelper' because it creates members of the following IDisposable types: 'DataGridView', 'DateTimePicker'.</Issue>
-=======
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-08 18:00:05Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-04-08 23:26:54Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implemente IDisposable en 'ShanuDGVHelper' porque crea miembros de los tipos IDisposable siguientes: 'DataGridView', 'DateTimePicker'.</Issue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
           </Message>
          </Messages>
         </Type>

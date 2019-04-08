@@ -41,13 +41,16 @@
             this.dpickerFin = new System.Windows.Forms.DateTimePicker();
             this.dpickerInicio = new System.Windows.Forms.DateTimePicker();
             this.VOUCHER = new System.Windows.Forms.TabControl();
-            this.CHEQUES = new System.Windows.Forms.TabPage();
-            this.COBRANZA = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.PROVEEDOR = new System.Windows.Forms.TabPage();
             this.label21 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_Ruc = new System.Windows.Forms.TextBox();
+            this.CLIENTE = new System.Windows.Forms.TabPage();
+            this.dpickerFin1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_buscarC = new System.Windows.Forms.Button();
+            this.btn_BuscarOT = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_Cliente = new System.Windows.Forms.TextBox();
             this.dpickerInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,11 +60,8 @@
             this.txt_Total1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dgv_cobranza = new System.Windows.Forms.DataGridView();
-            this.btn_BuscarOT = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_Cliente = new System.Windows.Forms.TextBox();
-            this.btn_buscarC = new System.Windows.Forms.Button();
-            this.dpickerFin1 = new System.Windows.Forms.DateTimePicker();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dpickerFin3 = new System.Windows.Forms.DateTimePicker();
             this.btn_prestamos = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -76,20 +76,36 @@
             this.txt_total2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dgv_personal = new System.Windows.Forms.DataGridView();
+            this.dtp_fin5 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_banco = new System.Windows.Forms.TextBox();
+            this.dtp_inicio4 = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_BancoDolares = new System.Windows.Forms.TextBox();
+            this.txt_bancoSoles = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).BeginInit();
             this.VOUCHER.SuspendLayout();
-            this.CHEQUES.SuspendLayout();
-            this.COBRANZA.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.PROVEEDOR.SuspendLayout();
+            this.CLIENTE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(306, 445);
+            this.label3.Location = new System.Drawing.Point(383, 446);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 143;
@@ -99,7 +115,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(533, 444);
+            this.label17.Location = new System.Drawing.Point(610, 445);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(87, 13);
             this.label17.TabIndex = 142;
@@ -108,7 +124,7 @@
             // txt_Dolares
             // 
             this.txt_Dolares.Enabled = false;
-            this.txt_Dolares.Location = new System.Drawing.Point(626, 441);
+            this.txt_Dolares.Location = new System.Drawing.Point(703, 442);
             this.txt_Dolares.Name = "txt_Dolares";
             this.txt_Dolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_Dolares.Size = new System.Drawing.Size(100, 20);
@@ -117,7 +133,7 @@
             // txt_Total
             // 
             this.txt_Total.Enabled = false;
-            this.txt_Total.Location = new System.Drawing.Point(393, 441);
+            this.txt_Total.Location = new System.Drawing.Point(470, 442);
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_Total.Size = new System.Drawing.Size(100, 20);
@@ -126,7 +142,7 @@
             // btn_Cerrar
             // 
             this.btn_Cerrar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Cerrar.Location = new System.Drawing.Point(1004, 522);
+            this.btn_Cerrar.Location = new System.Drawing.Point(1183, 518);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(49, 43);
             this.btn_Cerrar.TabIndex = 139;
@@ -159,7 +175,7 @@
             this.grd_Voucher.Location = new System.Drawing.Point(26, 105);
             this.grd_Voucher.Name = "grd_Voucher";
             this.grd_Voucher.ReadOnly = true;
-            this.grd_Voucher.Size = new System.Drawing.Size(988, 326);
+            this.grd_Voucher.Size = new System.Drawing.Size(1184, 326);
             this.grd_Voucher.TabIndex = 136;
             // 
             // label2
@@ -202,97 +218,41 @@
             // 
             // VOUCHER
             // 
-            this.VOUCHER.Controls.Add(this.CHEQUES);
-            this.VOUCHER.Controls.Add(this.COBRANZA);
+            this.VOUCHER.Controls.Add(this.PROVEEDOR);
+            this.VOUCHER.Controls.Add(this.CLIENTE);
             this.VOUCHER.Controls.Add(this.tabPage3);
             this.VOUCHER.Controls.Add(this.tabPage4);
             this.VOUCHER.Location = new System.Drawing.Point(12, 12);
             this.VOUCHER.Name = "VOUCHER";
             this.VOUCHER.SelectedIndex = 0;
-            this.VOUCHER.Size = new System.Drawing.Size(1045, 504);
+            this.VOUCHER.Size = new System.Drawing.Size(1224, 504);
             this.VOUCHER.TabIndex = 144;
             // 
-            // CHEQUES
+            // PROVEEDOR
             // 
-            this.CHEQUES.Controls.Add(this.label21);
-            this.CHEQUES.Controls.Add(this.button1);
-            this.CHEQUES.Controls.Add(this.txt_Ruc);
-            this.CHEQUES.Controls.Add(this.dpickerInicio);
-            this.CHEQUES.Controls.Add(this.label3);
-            this.CHEQUES.Controls.Add(this.label1);
-            this.CHEQUES.Controls.Add(this.label17);
-            this.CHEQUES.Controls.Add(this.label2);
-            this.CHEQUES.Controls.Add(this.txt_Dolares);
-            this.CHEQUES.Controls.Add(this.dpickerFin);
-            this.CHEQUES.Controls.Add(this.txt_Total);
-            this.CHEQUES.Controls.Add(this.btn_Buscar);
-            this.CHEQUES.Controls.Add(this.btn_excel);
-            this.CHEQUES.Controls.Add(this.grd_Voucher);
-            this.CHEQUES.Location = new System.Drawing.Point(4, 22);
-            this.CHEQUES.Name = "CHEQUES";
-            this.CHEQUES.Padding = new System.Windows.Forms.Padding(3);
-            this.CHEQUES.Size = new System.Drawing.Size(1037, 478);
-            this.CHEQUES.TabIndex = 0;
-            this.CHEQUES.Text = "Cheques";
-            this.CHEQUES.UseVisualStyleBackColor = true;
-            this.CHEQUES.Click += new System.EventHandler(this.Cheues_Click);
-            this.CHEQUES.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CHEQUES_MouseClick);
-            // 
-            // COBRANZA
-            // 
-            this.COBRANZA.Controls.Add(this.dpickerFin1);
-            this.COBRANZA.Controls.Add(this.btn_buscarC);
-            this.COBRANZA.Controls.Add(this.btn_BuscarOT);
-            this.COBRANZA.Controls.Add(this.label8);
-            this.COBRANZA.Controls.Add(this.txt_Cliente);
-            this.COBRANZA.Controls.Add(this.dpickerInicio1);
-            this.COBRANZA.Controls.Add(this.label4);
-            this.COBRANZA.Controls.Add(this.label5);
-            this.COBRANZA.Controls.Add(this.label6);
-            this.COBRANZA.Controls.Add(this.label7);
-            this.COBRANZA.Controls.Add(this.txt_Dolares1);
-            this.COBRANZA.Controls.Add(this.txt_Total1);
-            this.COBRANZA.Controls.Add(this.button3);
-            this.COBRANZA.Controls.Add(this.dgv_cobranza);
-            this.COBRANZA.Location = new System.Drawing.Point(4, 22);
-            this.COBRANZA.Name = "COBRANZA";
-            this.COBRANZA.Padding = new System.Windows.Forms.Padding(3);
-            this.COBRANZA.Size = new System.Drawing.Size(1037, 478);
-            this.COBRANZA.TabIndex = 1;
-            this.COBRANZA.Text = "Cobranza";
-            this.COBRANZA.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1037, 478);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Prestamos";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dpickerFin3);
-            this.tabPage4.Controls.Add(this.btn_prestamos);
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Controls.Add(this.txt_personal);
-            this.tabPage4.Controls.Add(this.dpickerInicio2);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.label12);
-            this.tabPage4.Controls.Add(this.label13);
-            this.tabPage4.Controls.Add(this.txt_dolares2);
-            this.tabPage4.Controls.Add(this.txt_total2);
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.dgv_personal);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1037, 478);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Cheques Prestamos";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.PROVEEDOR.Controls.Add(this.label21);
+            this.PROVEEDOR.Controls.Add(this.button1);
+            this.PROVEEDOR.Controls.Add(this.txt_Ruc);
+            this.PROVEEDOR.Controls.Add(this.dpickerInicio);
+            this.PROVEEDOR.Controls.Add(this.label3);
+            this.PROVEEDOR.Controls.Add(this.label1);
+            this.PROVEEDOR.Controls.Add(this.label17);
+            this.PROVEEDOR.Controls.Add(this.label2);
+            this.PROVEEDOR.Controls.Add(this.txt_Dolares);
+            this.PROVEEDOR.Controls.Add(this.dpickerFin);
+            this.PROVEEDOR.Controls.Add(this.txt_Total);
+            this.PROVEEDOR.Controls.Add(this.btn_Buscar);
+            this.PROVEEDOR.Controls.Add(this.btn_excel);
+            this.PROVEEDOR.Controls.Add(this.grd_Voucher);
+            this.PROVEEDOR.Location = new System.Drawing.Point(4, 22);
+            this.PROVEEDOR.Name = "PROVEEDOR";
+            this.PROVEEDOR.Padding = new System.Windows.Forms.Padding(3);
+            this.PROVEEDOR.Size = new System.Drawing.Size(1216, 478);
+            this.PROVEEDOR.TabIndex = 0;
+            this.PROVEEDOR.Text = "Proveedor";
+            this.PROVEEDOR.UseVisualStyleBackColor = true;
+            this.PROVEEDOR.Click += new System.EventHandler(this.Cheues_Click);
+            this.PROVEEDOR.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CHEQUES_MouseClick);
             // 
             // label21
             // 
@@ -322,6 +282,76 @@
             this.txt_Ruc.Name = "txt_Ruc";
             this.txt_Ruc.Size = new System.Drawing.Size(133, 20);
             this.txt_Ruc.TabIndex = 145;
+            // 
+            // CLIENTE
+            // 
+            this.CLIENTE.Controls.Add(this.dpickerFin1);
+            this.CLIENTE.Controls.Add(this.btn_buscarC);
+            this.CLIENTE.Controls.Add(this.btn_BuscarOT);
+            this.CLIENTE.Controls.Add(this.label8);
+            this.CLIENTE.Controls.Add(this.txt_Cliente);
+            this.CLIENTE.Controls.Add(this.dpickerInicio1);
+            this.CLIENTE.Controls.Add(this.label4);
+            this.CLIENTE.Controls.Add(this.label5);
+            this.CLIENTE.Controls.Add(this.label6);
+            this.CLIENTE.Controls.Add(this.label7);
+            this.CLIENTE.Controls.Add(this.txt_Dolares1);
+            this.CLIENTE.Controls.Add(this.txt_Total1);
+            this.CLIENTE.Controls.Add(this.button3);
+            this.CLIENTE.Controls.Add(this.dgv_cobranza);
+            this.CLIENTE.Location = new System.Drawing.Point(4, 22);
+            this.CLIENTE.Name = "CLIENTE";
+            this.CLIENTE.Padding = new System.Windows.Forms.Padding(3);
+            this.CLIENTE.Size = new System.Drawing.Size(1216, 478);
+            this.CLIENTE.TabIndex = 1;
+            this.CLIENTE.Text = "Cliente";
+            this.CLIENTE.UseVisualStyleBackColor = true;
+            // 
+            // dpickerFin1
+            // 
+            this.dpickerFin1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpickerFin1.Location = new System.Drawing.Point(677, 74);
+            this.dpickerFin1.Name = "dpickerFin1";
+            this.dpickerFin1.Size = new System.Drawing.Size(100, 20);
+            this.dpickerFin1.TabIndex = 159;
+            // 
+            // btn_buscarC
+            // 
+            this.btn_buscarC.Location = new System.Drawing.Point(832, 71);
+            this.btn_buscarC.Name = "btn_buscarC";
+            this.btn_buscarC.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscarC.TabIndex = 158;
+            this.btn_buscarC.Text = "Buscar";
+            this.btn_buscarC.UseVisualStyleBackColor = true;
+            this.btn_buscarC.Click += new System.EventHandler(this.btn_buscarC_Click);
+            // 
+            // btn_BuscarOT
+            // 
+            this.btn_BuscarOT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BuscarOT.Image = global::Contabilidad.Properties.Resources.lupamedio;
+            this.btn_BuscarOT.Location = new System.Drawing.Point(284, 77);
+            this.btn_BuscarOT.Name = "btn_BuscarOT";
+            this.btn_BuscarOT.Size = new System.Drawing.Size(38, 23);
+            this.btn_BuscarOT.TabIndex = 157;
+            this.btn_BuscarOT.UseVisualStyleBackColor = true;
+            this.btn_BuscarOT.Click += new System.EventHandler(this.btn_BuscarOT_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(76, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.TabIndex = 156;
+            this.label8.Text = "Cliente : ";
+            // 
+            // txt_Cliente
+            // 
+            this.txt_Cliente.Location = new System.Drawing.Point(146, 77);
+            this.txt_Cliente.Name = "txt_Cliente";
+            this.txt_Cliente.Size = new System.Drawing.Size(131, 20);
+            this.txt_Cliente.TabIndex = 155;
             // 
             // dpickerInicio1
             // 
@@ -404,54 +434,54 @@
             this.dgv_cobranza.Location = new System.Drawing.Point(24, 111);
             this.dgv_cobranza.Name = "dgv_cobranza";
             this.dgv_cobranza.ReadOnly = true;
-            this.dgv_cobranza.Size = new System.Drawing.Size(988, 326);
+            this.dgv_cobranza.Size = new System.Drawing.Size(1186, 326);
             this.dgv_cobranza.TabIndex = 148;
             // 
-            // btn_BuscarOT
+            // tabPage3
             // 
-            this.btn_BuscarOT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_BuscarOT.Image = global::Contabilidad.Properties.Resources.lupamedio;
-            this.btn_BuscarOT.Location = new System.Drawing.Point(284, 77);
-            this.btn_BuscarOT.Name = "btn_BuscarOT";
-            this.btn_BuscarOT.Size = new System.Drawing.Size(38, 23);
-            this.btn_BuscarOT.TabIndex = 157;
-            this.btn_BuscarOT.UseVisualStyleBackColor = true;
-            this.btn_BuscarOT.Click += new System.EventHandler(this.btn_BuscarOT_Click);
+            this.tabPage3.Controls.Add(this.dtp_fin5);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.txt_banco);
+            this.tabPage3.Controls.Add(this.dtp_inicio4);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.txt_BancoDolares);
+            this.tabPage3.Controls.Add(this.txt_bancoSoles);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1216, 478);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Bancos";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // tabPage4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(76, 83);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 156;
-            this.label8.Text = "Cliente : ";
-            // 
-            // txt_Cliente
-            // 
-            this.txt_Cliente.Location = new System.Drawing.Point(146, 77);
-            this.txt_Cliente.Name = "txt_Cliente";
-            this.txt_Cliente.Size = new System.Drawing.Size(131, 20);
-            this.txt_Cliente.TabIndex = 155;
-            // 
-            // btn_buscarC
-            // 
-            this.btn_buscarC.Location = new System.Drawing.Point(832, 71);
-            this.btn_buscarC.Name = "btn_buscarC";
-            this.btn_buscarC.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscarC.TabIndex = 158;
-            this.btn_buscarC.Text = "Buscar";
-            this.btn_buscarC.UseVisualStyleBackColor = true;
-            this.btn_buscarC.Click += new System.EventHandler(this.btn_buscarC_Click);
-            // 
-            // dpickerFin1
-            // 
-            this.dpickerFin1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpickerFin1.Location = new System.Drawing.Point(677, 74);
-            this.dpickerFin1.Name = "dpickerFin1";
-            this.dpickerFin1.Size = new System.Drawing.Size(100, 20);
-            this.dpickerFin1.TabIndex = 159;
+            this.tabPage4.Controls.Add(this.dpickerFin3);
+            this.tabPage4.Controls.Add(this.btn_prestamos);
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Controls.Add(this.txt_personal);
+            this.tabPage4.Controls.Add(this.dpickerInicio2);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.label12);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.txt_dolares2);
+            this.tabPage4.Controls.Add(this.txt_total2);
+            this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.dgv_personal);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1216, 478);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Personal";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dpickerFin3
             // 
@@ -582,25 +612,157 @@
             this.dgv_personal.Size = new System.Drawing.Size(988, 326);
             this.dgv_personal.TabIndex = 163;
             // 
+            // dtp_fin5
+            // 
+            this.dtp_fin5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fin5.Location = new System.Drawing.Point(668, 74);
+            this.dtp_fin5.Name = "dtp_fin5";
+            this.dtp_fin5.Size = new System.Drawing.Size(100, 20);
+            this.dtp_fin5.TabIndex = 173;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(823, 71);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 172;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Image = global::Contabilidad.Properties.Resources.lupamedio;
+            this.button6.Location = new System.Drawing.Point(275, 77);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(38, 23);
+            this.button6.TabIndex = 171;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(67, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 170;
+            this.label14.Text = "Bancos : ";
+            // 
+            // txt_banco
+            // 
+            this.txt_banco.Location = new System.Drawing.Point(137, 77);
+            this.txt_banco.Name = "txt_banco";
+            this.txt_banco.Size = new System.Drawing.Size(131, 20);
+            this.txt_banco.TabIndex = 169;
+            // 
+            // dtp_inicio4
+            // 
+            this.dtp_inicio4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_inicio4.Location = new System.Drawing.Point(437, 74);
+            this.dtp_inicio4.Name = "dtp_inicio4";
+            this.dtp_inicio4.Size = new System.Drawing.Size(100, 20);
+            this.dtp_inicio4.TabIndex = 160;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(295, 451);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 13);
+            this.label15.TabIndex = 168;
+            this.label15.Text = "Total Soles:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(370, 81);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 13);
+            this.label16.TabIndex = 161;
+            this.label16.Text = "Desde : ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(522, 450);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(87, 13);
+            this.label18.TabIndex = 167;
+            this.label18.Text = "Total Dólares:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(587, 81);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 13);
+            this.label19.TabIndex = 162;
+            this.label19.Text = "Hasta : ";
+            // 
+            // txt_BancoDolares
+            // 
+            this.txt_BancoDolares.Enabled = false;
+            this.txt_BancoDolares.Location = new System.Drawing.Point(615, 447);
+            this.txt_BancoDolares.Name = "txt_BancoDolares";
+            this.txt_BancoDolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_BancoDolares.Size = new System.Drawing.Size(100, 20);
+            this.txt_BancoDolares.TabIndex = 166;
+            // 
+            // txt_bancoSoles
+            // 
+            this.txt_bancoSoles.Enabled = false;
+            this.txt_bancoSoles.Location = new System.Drawing.Point(382, 447);
+            this.txt_bancoSoles.Name = "txt_bancoSoles";
+            this.txt_bancoSoles.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_bancoSoles.Size = new System.Drawing.Size(100, 20);
+            this.txt_bancoSoles.TabIndex = 165;
+            // 
+            // button7
+            // 
+            this.button7.Image = global::Contabilidad.Properties.Resources.excel1;
+            this.button7.Location = new System.Drawing.Point(497, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(51, 43);
+            this.button7.TabIndex = 164;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 111);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(1186, 326);
+            this.dataGridView1.TabIndex = 163;
+            // 
             // ReporteVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 565);
+            this.ClientSize = new System.Drawing.Size(1248, 565);
             this.Controls.Add(this.VOUCHER);
             this.Controls.Add(this.btn_Cerrar);
             this.Name = "ReporteVoucher";
             this.Text = "ReporteVoucher";
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).EndInit();
             this.VOUCHER.ResumeLayout(false);
-            this.CHEQUES.ResumeLayout(false);
-            this.CHEQUES.PerformLayout();
-            this.COBRANZA.ResumeLayout(false);
-            this.COBRANZA.PerformLayout();
+            this.PROVEEDOR.ResumeLayout(false);
+            this.PROVEEDOR.PerformLayout();
+            this.CLIENTE.ResumeLayout(false);
+            this.CLIENTE.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -620,8 +782,8 @@
         private System.Windows.Forms.DateTimePicker dpickerFin;
         private System.Windows.Forms.DateTimePicker dpickerInicio;
         private System.Windows.Forms.TabControl VOUCHER;
-        private System.Windows.Forms.TabPage CHEQUES;
-        private System.Windows.Forms.TabPage COBRANZA;
+        private System.Windows.Forms.TabPage PROVEEDOR;
+        private System.Windows.Forms.TabPage CLIENTE;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label21;
@@ -658,5 +820,19 @@
         private System.Windows.Forms.TextBox txt_total2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dgv_personal;
+        private System.Windows.Forms.DateTimePicker dtp_fin5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_banco;
+        private System.Windows.Forms.DateTimePicker dtp_inicio4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txt_BancoDolares;
+        private System.Windows.Forms.TextBox txt_bancoSoles;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -111,8 +111,16 @@ namespace Contabilidad
                     crystalReportViewer1.ReportSource = cr15;
                     cr15.SetDataSource(Reporte.ReporteDiario.objListaReporte);
                     break;
-
-
+                case "RFMP":
+                    ReporteMensualProveedor cr16 = new ReporteMensualProveedor();
+                    crystalReportViewer1.ReportSource = cr16;
+                    cr16.SetDataSource(Reporte.ReporteFacturaProveeodr.objListaVenReporte);
+                    break;
+                case "RFTP":
+                    ReporteTotalizadoProveedor cr17 = new ReporteTotalizadoProveedor();
+                    crystalReportViewer1.ReportSource = cr17;
+                    cr17.SetDataSource(Reporte.ReporteFacturaProveedorTotalizado.objListaVenReporte);
+                    break;
             }
         }
     }

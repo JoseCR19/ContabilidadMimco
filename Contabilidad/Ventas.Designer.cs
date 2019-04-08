@@ -56,13 +56,13 @@
             this.reporteDiarioFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentosPorProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentoPorProveedorTotalizadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteChequesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarAbonoBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteChequesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVentas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,6 +268,12 @@
             this.documentoPorProveedorTotalizadoToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.documentoPorProveedorTotalizadoToolStripMenuItem.Text = "Documento Por Proveedor Totalizado";
             // 
+            // reporteChequesToolStripMenuItem
+            // 
+            this.reporteChequesToolStripMenuItem.Name = "reporteChequesToolStripMenuItem";
+            this.reporteChequesToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.reporteChequesToolStripMenuItem.Text = "Reporte Cheques";
+            // 
             // mantenimientoToolStripMenuItem
             // 
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -311,12 +317,6 @@
             this.registrarAbonoBancoToolStripMenuItem.Name = "registrarAbonoBancoToolStripMenuItem";
             this.registrarAbonoBancoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.registrarAbonoBancoToolStripMenuItem.Text = "Registrar Abono Banco";
-            // 
-            // reporteChequesToolStripMenuItem
-            // 
-            this.reporteChequesToolStripMenuItem.Name = "reporteChequesToolStripMenuItem";
-            this.reporteChequesToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
-            this.reporteChequesToolStripMenuItem.Text = "Reporte Cheques";
             // 
             // Ventas
             // 

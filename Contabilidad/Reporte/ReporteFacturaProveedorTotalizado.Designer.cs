@@ -53,6 +53,7 @@
             this.btn_Reporte.Size = new System.Drawing.Size(43, 43);
             this.btn_Reporte.TabIndex = 114;
             this.btn_Reporte.UseVisualStyleBackColor = true;
+            this.btn_Reporte.Click += new System.EventHandler(this.btn_Reporte_Click_1);
             // 
             // btn_pdf
             // 

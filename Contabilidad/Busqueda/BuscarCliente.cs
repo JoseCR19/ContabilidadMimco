@@ -61,6 +61,10 @@ namespace Contabilidad
             {
                 formVoucher = ReporteVoucher.formReporteCheques;
             }
+            else if(DocumentoTipo == "BAN")
+            {
+                formVoucher = ReporteVoucher.formReporteCheques;
+            }
             objClienteDao = new ClienteDAO();
             objListCliente = objClienteDao.listarCliente(Ventas.UNIDADNEGOCIO);
             objListBusquedaTotal = objListCliente;
@@ -141,6 +145,8 @@ namespace Contabilidad
                     case "VC":
                         formVoucher.setClienteDatos(objListBusquedaTotal[index].ClienteNDoc);
                         break;
+                    //case "BAN":
+                    //    formVoucher.setBancoDatos(objListBusquedaTotal[index].c)
                 }
 
                 
