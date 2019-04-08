@@ -5406,6 +5406,8 @@ namespace Contabilidad.Datasets {
             
             private global::System.Data.DataColumn columnTotalDolares;
             
+            private global::System.Data.DataColumn columnUsuario;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReporteDiarioDataTable() {
@@ -5553,6 +5555,14 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UsuarioColumn {
+                get {
+                    return this.columnUsuario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5588,7 +5598,7 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteDiarioRow AddReporteDiarioRow(string FechaEmision, string FechaVencimiento, string TSD, string RUC, string RazonSocial, string Moneda, string TC, string Total, string Abono, string Saldo, string FechaEntrega, string HoraEntrega, string TotalSoles, string TotalDolares) {
+            public ReporteDiarioRow AddReporteDiarioRow(string FechaEmision, string FechaVencimiento, string TSD, string RUC, string RazonSocial, string Moneda, string TC, string Total, string Abono, string Saldo, string FechaEntrega, string HoraEntrega, string TotalSoles, string TotalDolares, string Usuario) {
                 ReporteDiarioRow rowReporteDiarioRow = ((ReporteDiarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FechaEmision,
@@ -5604,7 +5614,8 @@ namespace Contabilidad.Datasets {
                         FechaEntrega,
                         HoraEntrega,
                         TotalSoles,
-                        TotalDolares};
+                        TotalDolares,
+                        Usuario};
                 rowReporteDiarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteDiarioRow);
                 return rowReporteDiarioRow;
@@ -5641,6 +5652,7 @@ namespace Contabilidad.Datasets {
                 this.columnHoraEntrega = base.Columns["HoraEntrega"];
                 this.columnTotalSoles = base.Columns["TotalSoles"];
                 this.columnTotalDolares = base.Columns["TotalDolares"];
+                this.columnUsuario = base.Columns["Usuario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5674,6 +5686,8 @@ namespace Contabilidad.Datasets {
                 base.Columns.Add(this.columnTotalSoles);
                 this.columnTotalDolares = new global::System.Data.DataColumn("TotalDolares", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDolares);
+                this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsuario);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11219,6 +11233,22 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Usuario {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteDiario.UsuarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Usuario\' de la tabla \'ReporteDiario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteDiario.UsuarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechaEmisionNull() {
                 return this.IsNull(this.tableReporteDiario.FechaEmisionColumn);
             }
@@ -11383,6 +11413,18 @@ namespace Contabilidad.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalDolaresNull() {
                 this[this.tableReporteDiario.TotalDolaresColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUsuarioNull() {
+                return this.IsNull(this.tableReporteDiario.UsuarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUsuarioNull() {
+                this[this.tableReporteDiario.UsuarioColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -1280,3 +1280,4 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilid
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilidad.exe.manifest
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilidad.application
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteFacturaProveedorTotalizado.resources
+G:\sistema\Version11\Contabilidad\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteChueques.resources

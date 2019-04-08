@@ -67,7 +67,11 @@ namespace ContabilidadDAO
                     obj.FechaEntrega = dataReader["FechaReg"].ToString();
                     obj.Moneda = dataReader["Moneda"].ToString();
                     obj.TC = dataReader["TC"].ToString();
+                    obj.HoraEntrega = dataReader["HoraEntrega"].ToString().Trim();
+                    obj.FEntrega = dataReader["FechaEntrega"].ToString().Trim();
                     obj.Total = convertToDouble(dataReader["Total"].ToString());
+                    obj.NroRegistro = dataReader["NroRegistro"].ToString().Trim();
+                    obj.Print = dataReader["Print"].ToString().Trim();
                     objList.Add(obj);
 
                 }
@@ -360,7 +364,7 @@ namespace ContabilidadDAO
                     obj.numeroRegistro = dataReader["NroRegistro"].ToString();
                     obj.RazonSocial = dataReader["RazonSocial"].ToString();
                     //obj.FechaEmiRef =Convert.ToDateTime(dataReader["FechaRefe"].ToString());
-                    obj.FechaEmiRef = dataReader["FechaRefe"].ToString();
+                    obj.FechaEmiRef = dataReader["FechaRefe"].ToString().Substring(0,10);
                     objList.Add(obj);
                 }
             }
@@ -914,6 +918,23 @@ namespace ContabilidadDAO
             Database db = DatabaseFactory.CreateDatabase("Conta");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_actualizarRCaLetra",
                    new object[] {CodEnt,NroRegistro,AbonoLetra});
+
+            try
+            {
+                db.ExecuteScalar(dbCommand);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool ActualizarEstadoPrint(String NroRegistro, String Estado, String Usuario)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_actualizarPrint",
+                   new object[] { NroRegistro, Estado, Usuario  });
 
             try
             {

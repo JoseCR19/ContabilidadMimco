@@ -24,5 +24,7 @@ namespace ContabilidadDTO
         public String HoraEntrega { set; get; }
         public Double TotalSoles { get; set; }
         public Double TotalDolares { get; set; }
+        public String Usuario { get; set; }
+
     }
 }
