@@ -59,6 +59,7 @@ namespace Contabilidad
             reporteDiarioFacturasToolStripMenuItem.Click += reporteDiarioFacturasToolStripMenuItem_Click;
             documentosPorProveedorToolStripMenuItem.Click += DocumentosPorProveedorToolStripMenuItem_Click;
             documentoPorProveedorTotalizadoToolStripMenuItem.Click += DocumentoPorProveedorTotalizadoToolStripMenuItem_Click;
+            reporteChequesToolStripMenuItem.Click += ReporteChequesToolStripMenuItem_Click;
         }
         private void CanjearLetrasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -68,10 +69,17 @@ namespace Contabilidad
         }
         private void DocumentoPorProveedorTotalizadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
-            Reporte.ReporteFacturaProveedorTotalizadoCheck = new Reporte.ReporteFacturaProveedorTotalizado();
-            Check.Show();*/  
+            documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = false;
+            Reporte.ReporteFacturaProveedorTotalizado Check = new Reporte.ReporteFacturaProveedorTotalizado();
+            Check.Show();
         }
+        private void ReporteChequesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reporteChequesToolStripMenuItem.Enabled = false;
+            Reporte.ReporteVoucher Check = new Reporte.ReporteVoucher();
+            Check.Show();
+        }
+  
 
         private void reporteDiarioFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -277,6 +285,9 @@ namespace Contabilidad
                     break;
                 case "RFPPT":
                     documentoPorProveedorTotalizadoToolStripMenuItem.Enabled = true;
+                    break;
+                case "RPCH":
+                    reporteChequesToolStripMenuItem.Enabled = true;
                     break;
             }
         }

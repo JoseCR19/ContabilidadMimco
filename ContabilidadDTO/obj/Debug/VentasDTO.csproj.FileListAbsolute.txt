@@ -83,3 +83,4 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\UnityEn
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache
+G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache

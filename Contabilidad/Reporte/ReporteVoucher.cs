@@ -1,6 +1,7 @@
 ﻿using Contabilidad.Report;
 using ContabilidadDAO;
 using ContabilidadDTO;
+using Contabilidad.LoV;
 using Contabilidad.Busqueda;
 using CrystalDecisions.Shared;
 using Spire.Xls;
@@ -137,7 +138,7 @@ namespace Contabilidad.Reporte
             DataGridViewTextBoxColumn idObservacion = new DataGridViewTextBoxColumn();
             idObservacion.Name = "Observación";
             idObservacion.DataPropertyName = "Observacion";
-            idObservacion.Width = 70;
+            idObservacion.Width = 200;
             idObservacion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grd_Voucher.Columns.Add(idObservacion);
 
@@ -192,7 +193,7 @@ namespace Contabilidad.Reporte
             DataGridViewTextBoxColumn idObservacion = new DataGridViewTextBoxColumn();
             idObservacion.Name = "Observación";
             idObservacion.DataPropertyName = "Observacion";
-            idObservacion.Width = 70;
+            idObservacion.Width = 200;
             idObservacion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_cobranza.Columns.Add(idObservacion);
 
@@ -371,6 +372,10 @@ namespace Contabilidad.Reporte
             txt_Cliente.Text = ruc;
 
         }
+        public void setBancoDatos(string ruc,string des)
+        {
+            txt_banco.Text = ruc;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         { 
@@ -420,6 +425,15 @@ namespace Contabilidad.Reporte
             dgv_personal.Refresh();
             llenarSumatorias();
             btn_prestamos.Enabled = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            btn_Buscar.Enabled = false;
+            using (var buscarBancoForm = new LoVSolicita("06"))
+            {
+                buscarBancoForm.ShowDialog();
+            }
         }
     }
 }

@@ -25,6 +25,8 @@ namespace ContabilidadDTO
         public Double TotalSoles { get; set; }
         public Double TotalDolares { get; set; }
         public String Usuario { get; set; }
+        public String Anio { get; set; }
+        public String Mes { get; set; }
 
     }
 }

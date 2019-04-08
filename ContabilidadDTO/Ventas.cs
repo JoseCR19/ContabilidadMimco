@@ -55,6 +55,9 @@ namespace ContabilidadDTO
         public Double total_dolares { get; set; }
         public Double AbonoLetra { get; set; }
 
+        public String Anio { get; set; }
+        public String Mes { get; set; }
+
 
 
 

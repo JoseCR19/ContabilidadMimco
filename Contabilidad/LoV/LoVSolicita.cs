@@ -16,6 +16,7 @@ namespace Contabilidad.LoV
     {
         String codigoSolicita = "";
         Caja.EmisionVoucher emisionForm;
+        Reporte.ReporteVoucher reportevoucher;
         public static List<Proveedor> objListProveedor = new List<Proveedor>();
         public static List<Proveedor> objListProveedorRUC = new List<Proveedor>();
         public static List<Proveedor> objListProveedorRazon = new List<Proveedor>();
@@ -39,6 +40,7 @@ namespace Contabilidad.LoV
         CuentaBanco objBanco;
         Cliente objCliente;
 
+
         int index = 0;
 
         public LoVSolicita(String SolicitaCod)
@@ -48,6 +50,7 @@ namespace Contabilidad.LoV
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 20);
             emisionForm = Caja.EmisionVoucher.formEmision;
+            reportevoucher = Reporte.ReporteVoucher.formReporteCheques;
             codigoSolicita = SolicitaCod;
             objLoVDao = new LoVDAO();
             objPersonal = new Personal();
@@ -91,6 +94,13 @@ namespace Contabilidad.LoV
                     grdSolicita.DataSource = objListaCliente;
                     grdSolicita.Refresh();
                     break;
+                case "06":
+                    lbl_Solicita.Text = "Nombre del Banco";
+                    gridParamsBanco();
+                    grdSolicita.DataSource = objListaBanco;
+                    grdSolicita.Refresh();
+                    break;
+
             }
         }
         void gridParamsProveedor()
@@ -205,6 +215,13 @@ namespace Contabilidad.LoV
                     emisionForm.setSolicitaCliente(objCliente.ClienteNDoc, objCliente.ClienteRazonSocial);
                     this.Close();
                     break;
+                case "06":
+                    objBanco = new CuentaBanco();
+                    objBanco = objListaBancoTotal[index];
+                    reportevoucher.setBancoDatos(objBanco.Codigo, objBanco.Descripcion);
+                    break;
+
+
             }
         }
 
@@ -239,6 +256,12 @@ namespace Contabilidad.LoV
                     objListaClienteRazon = objListaCliente.Where(t => t.ClienteRazonSocial.Contains(busqueda)).ToList();
                     objListaClienteTotal = objListaClienteRUC.Union(objListaClienteRazon).ToList().OrderBy(x => x.ClienteRazonSocial).ToList();
                     grdSolicita.DataSource = objListaClienteTotal;
+                    grdSolicita.Refresh();
+                    break;
+                case "06":
+                    objListaBancoNombre = objListaBanco.Where(t => t.Descripcion.Contains(busqueda)).ToList();
+                    objListaBancoTotal = objListaBancoNombre;
+                    grdSolicita.DataSource = objListaBancoTotal;
                     grdSolicita.Refresh();
                     break;
             }

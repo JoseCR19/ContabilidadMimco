@@ -42,58 +42,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-<<<<<<< HEAD
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4472320">
-=======
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4480512">
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4669952">
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>uM44gAlEekGgve7d3+eDSci4OV91XHqn5Lv/osL6LkA=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>kQHmMa/n82nWeHPi097QySVVEaI+YGyQBQnBhM1FVIg=</dsig:DigestValue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
+        <dsig:DigestValue>Ybx44C1KUvRecWlHPcWDQkK4ugYUAuB/alvrWdoXMfM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-<<<<<<< HEAD
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="123904">
-=======
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="124928">
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
       <assemblyIdentity name="ContabilidadDAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>0MwQ89SxLCFrq56SIITUpNU7dhPQV4cjhWVzouCG43s=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>vvmWwLzXaeqcrRAK2v0DF7BtfoGSTWAAZRh4AOEThNA=</dsig:DigestValue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
+        <dsig:DigestValue>8SElsIZZhc9GVeaTh6l2++5CgDzm97dkCT8Zv00e3AA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDTO.dll" size="136704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDTO.dll" size="137216">
       <assemblyIdentity name="ContabilidadDTO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>hLSDqofWrD/T5UPEoeHbye3+8F0vaCzOWhGxKY4kXSQ=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>AtCOXH3UetFxoklN8kjjmfw6HE7nQlbJOZjnwBE4Rcs=</dsig:DigestValue>
->>>>>>> 3782fcd7196cdd509ce14b1f7fe78db7eb59492c
+        <dsig:DigestValue>Z/8sGka94A9T4FQtRAYrjMDVElnsF/PTL9WWUe4Y0dA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

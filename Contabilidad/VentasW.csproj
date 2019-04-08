@@ -531,6 +531,12 @@
     <Compile Include="Reporte\ReportDocumentosPorOt.Designer.cs">
       <DependentUpon>ReportDocumentosPorOt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ReporteChueques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\ReporteChueques.Designer.cs">
+      <DependentUpon>ReporteChueques.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -880,6 +886,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReportDocumentosPorOt.resx">
       <DependentUpon>ReportDocumentosPorOt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteChueques.resx">
+      <DependentUpon>ReporteChueques.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteDiario.resx">
       <DependentUpon>ReporteDiario.cs</DependentUpon>
