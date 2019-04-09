@@ -202,7 +202,6 @@ namespace Contabilidad.Caja
                     else
                     {
                         row.Cells[9].Value = "0.00";
-                        row.Cells[8].Value = "0.00";
                     }
                 }
 

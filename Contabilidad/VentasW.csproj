@@ -671,9 +671,15 @@
     </Compile>
     <Compile Include="Report\ReporteMensualProveedor.cs">
       <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteMensualProveedor.rpt</DependentUpon>
     </Compile>
     <Compile Include="Report\ReporteTotalizadoProveedor.cs">
       <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteTotalizadoProveedor.rpt</DependentUpon>
     </Compile>
     <Compile Include="Report\VoucherRptDolar.cs">
       <DependentUpon>VoucherRptDolar.rpt</DependentUpon>
@@ -975,6 +981,14 @@
     <EmbeddedResource Include="Report\ReporteDiarioC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteDiarioC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReporteMensualProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteMensualProveedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReporteTotalizadoProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteTotalizadoProveedor.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\VoucherRptDolar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

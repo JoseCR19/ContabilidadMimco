@@ -110,7 +110,7 @@ namespace ContabilidadDAO
             List<Voucher> objList = new List<Voucher>();
             Voucher obj;
             Database db = DatabaseFactory.CreateDatabase("Conta");
-            DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherChequesProveedor",
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_voucherReporte",
                    new object[] { CodEnt, d1, d2});
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {

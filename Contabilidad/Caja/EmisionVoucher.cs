@@ -151,6 +151,7 @@ namespace Contabilidad.Caja
                 {
                     cmb_Operacion.SelectedValue = "03";
                     txt_NroCheque.Visible = true;
+                    dpick_FechaEmision.Enabled = true;
                 }
                 if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
                 {
@@ -267,6 +268,16 @@ namespace Contabilidad.Caja
                 lbl_Cheque.Visible = false;
                 txt_NroCheque.Visible = false;
             }
+            if (cmb_Operacion.SelectedValue.ToString() == "01" || cmb_Operacion.SelectedValue.ToString() == "02")
+            {
+                dpick_FechaEmision.Enabled = true;
+            }
+            else
+            {
+                dpick_FechaEmision.Enabled = false;
+
+            }
+            
         }
         void sumatoriaver()
         {
@@ -854,12 +865,18 @@ namespace Contabilidad.Caja
             if (rb_Metales.Checked)
             {
                 Ventas.UNIDADNEGOCIO = "01";
-            }else
+            }
+            else
             {
                 Ventas.UNIDADNEGOCIO = "02";
-            }  
+            }
             ListaEmisionVoucher Check = new ListaEmisionVoucher();
             Check.Show();
+            btn_SaveData.Enabled = true;
+
+
+            
+
         }
         public void tipoCambio(String date)
         {
@@ -1270,8 +1287,45 @@ namespace Contabilidad.Caja
                         {
                             objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
                         }
-                        MessageBox.Show("Voucher Guardado exitosamente");
                         btn_SaveData.Enabled = true;
+                        string MessageBoxTitle = "Voucher";
+                        string MessageBoxContent = "Voucher Guardado exitosamente,¿Desea Imprimir?";
+
+                        DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                String reportetipo = "";
+                                btn_Reporte.Enabled = false;
+                                objListaVoucherReporte = new List<VoucherReporte>();
+
+                                formatearVoucher();
+                                if (objVoucher.MonedaCod == "USD")
+                                {
+                                    reportetipo = "VOD";
+                                }
+                                else
+                                {
+                                    reportetipo = "VO";
+                                }
+                                ReporteView Check1 = new ReporteView(reportetipo); // listar factura
+                                Check1.Show();
+                                btn_Reporte.Enabled = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR :" + ex.Message);
+                                btn_Reporte.Enabled = true;
+                            }
+
+                        }
+                        else
+                        {
+                        this.Close();
+                        ListaEmisionVoucher check = new ListaEmisionVoucher();
+                        check.Show();
+                        }
                     }
                 }
                 else
@@ -1342,22 +1396,49 @@ namespace Contabilidad.Caja
                         {
                             objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
                         }
-                        MessageBox.Show("Voucher Guardado exitosamente");
                         btn_SaveData.Enabled = true;
-                    }
+
+                        string MessageBoxTitle = "Voucher";
+                        string MessageBoxContent = "Voucher Guardado exitosamente,¿Desea Imprimir?";
+
+                        DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                String reportetipo = "";
+                                btn_Reporte.Enabled = false;
+                                objListaVoucherReporte = new List<VoucherReporte>();
+
+                                formatearVoucher();
+                                if (objVoucher.MonedaCod == "USD")
+                                {
+                                    reportetipo = "VOD";
+                                }
+                                else
+                                {
+                                    reportetipo = "VO";
+                                }
+                                ReporteView Check1 = new ReporteView(reportetipo); // listar factura
+                                Check1.Show();
+                                btn_Reporte.Enabled = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("ERROR :" + ex.Message);
+                                btn_Reporte.Enabled = true;
+                            }
+
+                        }
+                        else
+                        {
+                            this.Close();
+                            ListaEmisionVoucher check = new ListaEmisionVoucher();
+                            check.Show();
+                        }
+                }
 
                 }
-                this.Close();
-                ListaEmisionVoucher check = new ListaEmisionVoucher();
-                check.Show();
-            /*}
-            else
-            {
-                MessageBox.Show("Seleccione tipo de Movimiento");
-            }*/
-
-
-
         }
 
         private void btn_Modificar_Click(object sender, EventArgs e)
@@ -1366,7 +1447,15 @@ namespace Contabilidad.Caja
             change = "C";
             //contador = objListaVoucherDet.Max(x => x.Item) +1;
             habilitaCampos(false, true);
-            dpick_FechaEmision.Enabled = false;
+            if(cmb_Operacion.SelectedValue.ToString()=="01" || cmb_Operacion.SelectedValue.ToString() == "02")
+            {
+                dpick_FechaEmision.Enabled = true;
+            }
+            else
+            {
+                dpick_FechaEmision.Enabled = false;
+            }
+            
             habilitarBotones(true, false);
             btn_SaveData.Enabled = true;
         }
@@ -1649,6 +1738,7 @@ namespace Contabilidad.Caja
                 MessageBox.Show("ERROR :" + ex.Message);
                 btn_Reporte.Enabled = true;
             }
+
         }
 
         public void gridCheke()

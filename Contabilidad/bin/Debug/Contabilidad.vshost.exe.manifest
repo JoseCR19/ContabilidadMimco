@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4669952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4653056">
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mdGkzbUuYR5tkAKcGKPceDaHrFcnCxZPgi3XqZ79kMc=</dsig:DigestValue>
+        <dsig:DigestValue>iyg0uqk23oh/m7a+X2IUdjwOcVmtqLN+znYbO9wfJf4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jmtrBn3fEOEW6fGx7DEdQi/q5MHg6tAEt7hBNqVe0Ho=</dsig:DigestValue>
+        <dsig:DigestValue>tM46F7zXbShpZHxy6JCd5Ue0ZZU56vwcAJO1Z38OXNo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z/8sGka94A9T4FQtRAYrjMDVElnsF/PTL9WWUe4Y0dA=</dsig:DigestValue>
+        <dsig:DigestValue>wWrRAG4AIH+47lKlYHowa9c5NTjv+g7FHJ7LGc//J94=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
