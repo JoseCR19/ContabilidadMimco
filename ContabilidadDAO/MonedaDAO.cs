@@ -97,9 +97,6 @@ namespace ContabilidadDAO
                         cambio = double.Parse(d, CultureInfo.InvariantCulture);
                     else
                         cambio = Convert.ToDouble(d.Replace(".", systemSeparator.ToString()).Replace(",", systemSeparator.ToString()));
-
-
-
                 }
             }
             return cambio;
