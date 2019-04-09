@@ -183,5 +183,34 @@ namespace Contabilidad.Caja
                 }
             }*/
         }
+        public void multiplica()
+        {
+            bool tp;
+            decimal total = 0;
+            decimal cambio = 0;
+            foreach (DataGridViewRow row in grdDocumento.Rows)
+            {
+                tp = Convert.ToBoolean(row.Cells[0].Value);
+                if (row.Cells[7].Value.ToString() == "USD")
+                {
+                    if (tp)
+                    {
+                        total = Convert.ToDecimal(row.Cells[6].Value);
+                        cambio = Convert.ToDecimal(row.Cells[8].Value);
+                        row.Cells[9].Value = total * cambio;
+                    }
+                    else
+                    {
+                        row.Cells[9].Value = "0.00";
+                        row.Cells[8].Value = "0.00";
+                    }
+                }
+
+            }
+        }
+        private void grdDocumento_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            multiplica();
+        }
     }
 }

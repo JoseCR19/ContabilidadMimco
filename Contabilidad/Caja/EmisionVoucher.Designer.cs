@@ -108,6 +108,7 @@
             this.grd_VoucherDet.Size = new System.Drawing.Size(782, 230);
             this.grd_VoucherDet.TabIndex = 85;
             this.grd_VoucherDet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_VoucherDet_CellContentClick);
+            this.grd_VoucherDet.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_VoucherDet_CellEndEdit);
             this.grd_VoucherDet.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.grd_VoucherDet_DataError);
             this.grd_VoucherDet.Click += new System.EventHandler(this.grd_VoucherDet_Click);
             // 

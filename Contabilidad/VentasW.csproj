@@ -669,6 +669,12 @@
       <DependentUpon>ReporteDiarioC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\ReporteMensualProveedor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReporteTotalizadoProveedor.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\VoucherRptDolar.cs">
       <DependentUpon>VoucherRptDolar.rpt</DependentUpon>
       <AutoGen>True</AutoGen>

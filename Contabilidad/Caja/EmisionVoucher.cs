@@ -2711,6 +2711,11 @@ namespace Contabilidad.Caja
 
         }
 
+        private void grd_VoucherDet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void label15_Click(object sender, EventArgs e)
         {
 

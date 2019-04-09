@@ -124,32 +124,6 @@ namespace Contabilidad.Facturacion
             dpick_Fecha.Value = objV.FecRep;
             txt_NumeroDcto.Enabled = false;
             txt_nroregletra.Text = objV.NroRegistro.Trim();
-            //txt_NroVoucher.Text = objV.NumeroVoucher;
-            //txt_BancoCod.Text = objV.BancoCod;
-            //txt_Banco.Text = objV.Banco;
-            //txt_NroCheque.Text = objV.NumeroCheque;
-            //txt_NroCuenta.Text = objV.NumeroCuenta;
-            //txt_Solicitante.Text = objV.Solicitante;
-            //txt_SolicitanteCod.Text = objV.SolicitaCod;
-            //txt_Observacion.Text = objV.Observacion;
-            //dpick_FechaEmision.Value = objV.FechaEmision;
-            //dpick_FechaPago.Value = objV.FechaPago;
-            //xperiodo = dpick_FechaPago.Value.Month.ToString();
-            //cmb_periodo.SelectedValue = xperiodo;
-            //xejercicio = dpick_FechaPago.Value.Year.ToString();
-            //cmb_ejercicio2.SelectedValue = xejercicio;
-            //txt_MontoTotal.Text = objV.Monto.ToString("G");
-            //double d = Convert.ToDouble(txt_MontoTotal.Text);
-            //txt_MontoTotal.Text = d.ToString(".00");
-            //cmb_Moneda.SelectedValue = objV.MonedaCod;
-            //if (rb_Metales.Checked)
-            //{
-            //    Ventas.UNIDADNEGOCIO = "01";
-            //}
-            //else
-            //{
-            //    Ventas.UNIDADNEGOCIO = "02";
-            //}
 
         }
         public void comboMoneda()
@@ -322,12 +296,7 @@ namespace Contabilidad.Facturacion
             grd_facturas.Columns[8].ReadOnly = false;
             grd_facturas.Columns[9].ReadOnly = true;
 
-            /* grd_facturas.Columns[5].Visible = false;
-             grd_facturas.Columns[6].Visible = false;
-             grd_facturas.Columns[7].Visible = false;
-             grd_facturas.Columns[8].Visible = false;
-             grd_facturas.Columns[9].Visible = false;
-             grd_facturas.Columns[10].Visible = false;*/
+ 
 
             for (int i = 0; i < objList.Count; i++)
             {
@@ -350,38 +319,6 @@ namespace Contabilidad.Facturacion
                 objLetrarDet.AbonoLetra = objList[i].AbonoLetra;
                 objLetrarDet.EstRepDet = "P";
 
-                /*
-                objVoucherDet.CodOtReal = objList[i].CodOtReal;
-                objVoucherDet.NroOt = objList[i].NroOt;
-                objVoucherDet.NroOtReal = objList[i].NroOtReal;
-                objVoucherDet.Descripcion = objList[i].Serie.Trim() + "-" + objList[i].Numero.Trim();
-                objVoucherDet.Documento = objList[i].Ruc;
-                objVoucherDet.RazonSocial = objList[i].RazonSocial;
-                objVoucherDet.Importe = objList[i].Pago;
-                objVoucherDet.numeroRegistro = objList[i].VentasId;
-                objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
-                objVoucherDet.Item = i + 1;
-                objVoucherDet.xret = objList[i].xret;
-                objVoucherDet.xper = objList[i].xper;
-                objVoucherDet.xbue = objList[i].xbue;
-                objVoucherDet.xdetra = objList[i].xdetra;
-                objVoucherDet.DirOt = objList[i].DirOt;
-                objVoucherDet.DirOtReal = objList[i].DirOtReal;
-                objVoucherDet.TipDocRef = objList[i].TipoDocumento;
-
-                if (objList[i].xret.ToString() == "TRET" && objList[i].xbue.ToString() == "TBUE" && objList[i].xdetra.ToString() == "no")
-                {
-                    porcentaje = true;
-                }
-                else if (objList[i].xret.ToString() == "TRET" && objList[i].xdetra.ToString() == "no")
-                {
-                    cont++;
-                }
-                else if (objList[i].xbue.ToString() == "TBUE" && objList[i].xdetra.ToString() == "no")
-                {
-                    cont++;
-                }
-                objLetrarDet.TotalDocumento = objList[i].Total;*/
                 if (Ventas.UNIDADNEGOCIO=="01")
                 {
                     objLetrarDet.CodEnt = "01";
@@ -420,8 +357,6 @@ namespace Contabilidad.Facturacion
         void habilitarBotones(bool bhabilita1, bool bhabilita2)
         {
             btn_Add.Enabled = bhabilita1;
-            /*btn_Editar.Enabled = bhabilita1;
-            btn_Guardar.Enabled = bhabilita2;*/
             btn_Rest.Enabled = bhabilita1;
         }
 

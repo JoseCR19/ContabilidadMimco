@@ -45,6 +45,7 @@
             this.grdDocumento.Size = new System.Drawing.Size(899, 316);
             this.grdDocumento.TabIndex = 8;
             this.grdDocumento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDocumento_CellContentClick);
+            this.grdDocumento.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDocumento_CellEndEdit);
             // 
             // label1
             // 
