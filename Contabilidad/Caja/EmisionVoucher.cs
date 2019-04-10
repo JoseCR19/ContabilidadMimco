@@ -112,6 +112,7 @@ namespace Contabilidad.Caja
             // gridParams();
             txt_SolicitanteCod.TextChanged += Txt_SolicitanteCod_TextChanged;
             dpick_FechaPago.ValueChanged += Dpick_FechaPago_ValueChanged;
+
             xperiodo = dpick_FechaPago.Value.Month.ToString();
             cmb_periodo.SelectedValue = xperiodo;
             xejercicio = dpick_FechaPago.Value.Year.ToString();
@@ -215,7 +216,10 @@ namespace Contabilidad.Caja
                 lbl_Cheque.Visible = false;
                 txt_NroCheque.Visible = false;
             }
-
+            if(cmb_Operacion.SelectedValue.ToString() == "01" || cmb_Operacion.SelectedValue.ToString() == "02")
+            {
+                dpick_FechaEmision.Enabled = true;
+            }
 
 
             tipoCambio(dpick_FechaPago.Value.ToShortDateString());
@@ -2808,6 +2812,16 @@ namespace Contabilidad.Caja
 
         private void grd_VoucherDet_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dpick_FechaEmision_ValueChanged(object sender, EventArgs e)
+        {
+            dpick_FechaPago.Value = dpick_FechaEmision.Value;
+            xperiodo = dpick_FechaPago.Value.Month.ToString();
+            cmb_periodo.SelectedValue = xperiodo;
+            xejercicio = dpick_FechaPago.Value.Year.ToString();
+            cmb_ejercicio2.SelectedValue = xejercicio;
 
         }
 

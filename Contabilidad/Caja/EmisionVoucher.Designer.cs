@@ -197,6 +197,7 @@
             this.dpick_FechaEmision.Name = "dpick_FechaEmision";
             this.dpick_FechaEmision.Size = new System.Drawing.Size(82, 20);
             this.dpick_FechaEmision.TabIndex = 97;
+            this.dpick_FechaEmision.ValueChanged += new System.EventHandler(this.dpick_FechaEmision_ValueChanged);
             // 
             // cmb_Moneda
             // 
