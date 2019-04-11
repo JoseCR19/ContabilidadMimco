@@ -261,10 +261,6 @@ namespace Contabilidad.Caja
             grv_detalle.Columns[1].ReadOnly = true;
             grv_detalle.Columns[2].ReadOnly = true;
             grv_detalle.Columns[3].ReadOnly = true;
-
-
-
-
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -291,100 +287,115 @@ namespace Contabilidad.Caja
             
             decimal cambio;
             decimal totalsoles;
-            foreach (DataGridViewRow row in grdDocumento.Rows)
+            if(TipoDocumento== "LETRA")
             {
-                hola = Convert.ToBoolean(row.Cells[0].Value);
-                if (row.Cells[7].Value.ToString() == "USD")
+                foreach(DataGridViewRow row in grdDocumento.Rows)
                 {
-                    if (hola)
-                    {
-                        cambio = Convert.ToDecimal(row.Cells[8].Value.ToString());
-                        totalsoles = Convert.ToDecimal(row.Cells[6].Value.ToString());
-                        row.Cells[13].Value = Math.Round(totalsoles*cambio,2);
-                        objListVentasDetalle = objVoucherDao.listarDocumentosVentasDetalle(row.Cells[17].Value.ToString());
-                        grv_detalle.DataSource = objListVentasDetalle;
-
-                        if (Convert.ToString(row.Cells["Ot"].Value)== "Ot Vacio")
-                        {
-                                
-                        }
-                        else
-                        {
-                            if (objListVentasDetalle.Count>1)
-                            {
-                                foreach(DataGridViewRow row2 in grv_detalle.Rows)
-                                {
-                                    if(Convert.ToString(row2.Cells["NroOt"].Value) == Convert.ToString(row.Cells["Ot"].Value))
-                                    {
-                                        countdet++;
-                                    }
-                                }
-                            }
-                        }
-                        if (countdet == objListVentasDetalle.Count)
-                        {
-                            row.Cells["Ot"].Value = row.Cells["Ot"].Value;
-                        }
-                        else
-                        {
-                            row.Cells["Ot"].Value = "Ot - Varios";
-                            row.Cells["NroOt"].Value = "Ot - Varios";
-                            row.Cells["Dirección"].Value = "Ot - Varios";
-                        }
-
-
-                        //grv_detalle.Refresh();
-                    }
-                    else
-                    {
-                        //grv_detalle.DataSource = null;
-                        grv_detalle.Refresh();
-                        row.Cells[13].Value = "0.00";
-                    }
-                }
-                else
-                {
-                    if (hola)
+                    hola = Convert.ToBoolean(row.Cells[0].Value);
+                    if(hola)
                     {
                         row.Cells[13].Value = row.Cells[6].Value;
-                        objListVentasDetalle = objVoucherDao.listarDocumentosVentasDetalle(row.Cells[15].Value.ToString());
-                        grv_detalle.DataSource = objListVentasDetalle;
-                        grv_detalle.Refresh();
-                        if (Convert.ToString(row.Cells["Ot"].Value) == "Ot Vacio")
-                        {
-                            
-                        }
-                        else
-                        {
-                            if (objListVentasDetalle.Count > 1)
-                            {
-                                foreach (DataGridViewRow row2 in grv_detalle.Rows)
-                                {
-                                    if (Convert.ToString(row2.Cells["NroOt"].Value) == Convert.ToString(row.Cells["Ot"].Value))
-                                    {
-                                        countdet++;
-                                    }
-                                }
-                            }
-                        }
-                        if (countdet == objListVentasDetalle.Count)
-                        {
-                            row.Cells["Ot"].Value = row.Cells["Ot"].Value;
-                        }
-                        else
-                        {
-                            row.Cells["Ot"].Value = "Ot - Varios";
-                            row.Cells["NroOt"].Value = "Ot - Varios";
-                            row.Cells["Dirección"].Value = "Ot - Varios";
-                        }
-                    }
-                    else
-                    {
-
-                        row.Cells[13].Value = "0.00";
                     }
                 }
             }
+            else
+            {
+                foreach (DataGridViewRow row in grdDocumento.Rows)
+                {
+                    hola = Convert.ToBoolean(row.Cells[0].Value);
+                    if (row.Cells[7].Value.ToString() == "USD")
+                    {
+                        if (hola)
+                        {
+                            cambio = Convert.ToDecimal(row.Cells[8].Value.ToString());
+                            totalsoles = Convert.ToDecimal(row.Cells[6].Value.ToString());
+                            row.Cells[13].Value = Math.Round(totalsoles * cambio, 2);
+                            objListVentasDetalle = objVoucherDao.listarDocumentosVentasDetalle(row.Cells[17].Value.ToString());
+                            grv_detalle.DataSource = objListVentasDetalle;
+
+                            if (Convert.ToString(row.Cells["Ot"].Value) == "Ot Vacio")
+                            {
+
+                            }
+                            else
+                            {
+                                if (objListVentasDetalle.Count > 1)
+                                {
+                                    foreach (DataGridViewRow row2 in grv_detalle.Rows)
+                                    {
+                                        if (Convert.ToString(row2.Cells["NroOt"].Value) == Convert.ToString(row.Cells["Ot"].Value))
+                                        {
+                                            countdet++;
+                                        }
+                                    }
+                                }
+                            }
+                            if (countdet == objListVentasDetalle.Count)
+                            {
+                                row.Cells["Ot"].Value = row.Cells["Ot"].Value;
+                            }
+                            else
+                            {
+                                row.Cells["Ot"].Value = "Ot - Varios";
+                                row.Cells["NroOt"].Value = "Ot - Varios";
+                                row.Cells["Dirección"].Value = "Ot - Varios";
+                            }
+
+
+                            //grv_detalle.Refresh();
+                        }
+                        else
+                        {
+                            //grv_detalle.DataSource = null;
+                            grv_detalle.Refresh();
+                            row.Cells[13].Value = "0.00";
+                        }
+                    }
+                    else
+                    {
+                        if (hola)
+                        {
+                            row.Cells[13].Value = row.Cells[6].Value;
+                            objListVentasDetalle = objVoucherDao.listarDocumentosVentasDetalle(row.Cells[15].Value.ToString());
+                            grv_detalle.DataSource = objListVentasDetalle;
+                            grv_detalle.Refresh();
+                            if (Convert.ToString(row.Cells["Ot"].Value) == "Ot Vacio")
+                            {
+
+                            }
+                            else
+                            {
+                                if (objListVentasDetalle.Count > 1)
+                                {
+                                    foreach (DataGridViewRow row2 in grv_detalle.Rows)
+                                    {
+                                        if (Convert.ToString(row2.Cells["NroOt"].Value) == Convert.ToString(row.Cells["Ot"].Value))
+                                        {
+                                            countdet++;
+                                        }
+                                    }
+                                }
+                            }
+                            if (countdet == objListVentasDetalle.Count)
+                            {
+                                row.Cells["Ot"].Value = row.Cells["Ot"].Value;
+                            }
+                            else
+                            {
+                                row.Cells["Ot"].Value = "Ot - Varios";
+                                row.Cells["NroOt"].Value = "Ot - Varios";
+                                row.Cells["Dirección"].Value = "Ot - Varios";
+                            }
+                        }
+                        else
+                        {
+
+                            row.Cells[13].Value = "0.00";
+                        }
+                    }
+                }
+            }
+            
 
 
         }

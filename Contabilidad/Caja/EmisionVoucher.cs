@@ -78,7 +78,7 @@ namespace Contabilidad.Caja
         public static String TipoOperacionBanco = "Q";
         String TipoMovimiento = "Q";
         String estado;
-        String xperiodo, xejercicio;       
+        String xperiodo, xejercicio;
         public EmisionVoucher()
         {
             InitializeComponent();
@@ -137,9 +137,10 @@ namespace Contabilidad.Caja
                     objListaVoucherDet = objVoucherDao.listarVoucherDet(objVoucher.NumeroVoucher, Ventas.UNIDADNEGOCIO);
                     llenarDetalle(objListaVoucherDet);
                 }
-                if (objListaVoucherDet.Count>0) {
+                if (objListaVoucherDet.Count > 0)
+                {
                     sumatoria();
-                }                
+                }
                 btn_SaveData.Enabled = false;
                 btn_Modificar.Visible = true;
 
@@ -216,7 +217,7 @@ namespace Contabilidad.Caja
                 lbl_Cheque.Visible = false;
                 txt_NroCheque.Visible = false;
             }
-            if(cmb_Operacion.SelectedValue.ToString() == "01" || cmb_Operacion.SelectedValue.ToString() == "02")
+            if (cmb_Operacion.SelectedValue.ToString() == "01" || cmb_Operacion.SelectedValue.ToString() == "02")
             {
                 dpick_FechaEmision.Enabled = true;
             }
@@ -232,7 +233,7 @@ namespace Contabilidad.Caja
 
             txt_MovCod.TextChanged += Txt_MovCod_TextChanged;
 
-             grd_VoucherDet.CellClick += Grd_VoucherDet_CellClick;
+            grd_VoucherDet.CellClick += Grd_VoucherDet_CellClick;
 
             cmb_Operacion.SelectedIndexChanged += Cmb_Operacion_SelectedIndexChanged;
 
@@ -265,7 +266,7 @@ namespace Contabilidad.Caja
             {
                 lbl_Cheque.Visible = true;
                 txt_NroCheque.Visible = true;
-               
+
             }
             else
             {
@@ -281,7 +282,7 @@ namespace Contabilidad.Caja
                 dpick_FechaEmision.Enabled = false;
 
             }
-            
+
         }
         void sumatoriaver()
         {
@@ -397,11 +398,11 @@ namespace Contabilidad.Caja
             double Total = 0;
             if (Convert.ToInt32(objListaVoucherDet.Sum(x => x.Importe)) >= 700.00)
             {
-                treinta =Convert.ToInt32(objListaVoucherDet.Sum(x => x.Importe)) * 0.03;
+                treinta = Convert.ToInt32(objListaVoucherDet.Sum(x => x.Importe)) * 0.03;
                 Total = objListaVoucherDet.Sum(x => x.Importe) + treinta;
                 txt_30.Text = treinta.ToString("G");
                 txt_Total.Text = Total.ToString("G");
-                txt_MontoTotal.Text =objVoucherDao.convertToDouble(Total.ToString()).ToString();
+                txt_MontoTotal.Text = objVoucherDao.convertToDouble(Total.ToString()).ToString();
                 double d = Convert.ToDouble(txt_MontoTotal.Text);
                 txt_MontoTotal.Text = d.ToString("0.00");
                 double d1 = Convert.ToDouble(txt_Total.Text);
@@ -425,7 +426,7 @@ namespace Contabilidad.Caja
         {
             try
             {
-                
+
 
                 index = grd_VoucherDet.SelectedCells[0].RowIndex;
                 objVoucherDet = objListaVoucherDet[index];
@@ -437,7 +438,7 @@ namespace Contabilidad.Caja
                 txt_Importe.Text = objVoucherDet.Importe.ToString("#0.00");
 
             }
-            catch 
+            catch
             {
 
             }
@@ -457,7 +458,7 @@ namespace Contabilidad.Caja
             {
 
             }
-            if (TipoMovimiento == "07" || TipoMovimiento == "01" || TipoMovimiento == "09" || TipoMovimiento=="10" || TipoMovimiento=="02")
+            if (TipoMovimiento == "07" || TipoMovimiento == "01" || TipoMovimiento == "09" || TipoMovimiento == "10" || TipoMovimiento == "02")
             {
 
                 lbl_orden.Visible = true;
@@ -682,25 +683,25 @@ namespace Contabilidad.Caja
             cmb_periodo.SelectedValue = xperiodo;
             xejercicio = dpick_FechaPago.Value.Year.ToString();
             cmb_ejercicio2.SelectedValue = xejercicio;
-            txt_MontoTotal.Text =objV.Monto.ToString("G");
-            
+            txt_MontoTotal.Text = objV.Monto.ToString("G");
+
             double d = Convert.ToDouble(txt_MontoTotal.Text);
             txt_MontoTotal.Text = d.ToString(".00");
             cmb_Moneda.SelectedValue = objV.MonedaCod;
             txt_Movimiento.Text = objV.TipoMovimiento;
-            if (txt_Movimiento.Text=="PROVEEDOR")
+            if (txt_Movimiento.Text == "PROVEEDOR")
             {
                 txt_MovCod.Text = "01";
             }
-            else if(txt_Movimiento.Text == "DETRACCIONES")
+            else if (txt_Movimiento.Text == "DETRACCIONES")
             {
                 txt_MovCod.Text = "02";
             }
-            else if(txt_Movimiento.Text == "PLANILLA")
+            else if (txt_Movimiento.Text == "PLANILLA")
             {
                 txt_MovCod.Text = "03";
             }
-            else if(txt_Movimiento.Text == "PLANILLA")
+            else if (txt_Movimiento.Text == "PLANILLA")
             {
                 txt_MovCod.Text = "04";
             }
@@ -728,7 +729,8 @@ namespace Contabilidad.Caja
             if (rb_Metales.Checked)
             {
                 Ventas.UNIDADNEGOCIO = "01";
-            }else
+            }
+            else
             {
                 Ventas.UNIDADNEGOCIO = "02";
             }
@@ -843,13 +845,13 @@ namespace Contabilidad.Caja
             objPeriodo.Id = "12";
             objPeriodo.Descripcion = "12";
             objListaPeriodo.Add(objPeriodo);
-            cmb_periodo.DataSource= objListaPeriodo;
+            cmb_periodo.DataSource = objListaPeriodo;
             cmb_periodo.ValueMember = "Id";
             cmb_periodo.DisplayMember = "Descripcion";
             cmb_periodo.Refresh();
 
         }
-        
+
 
         void cmbSolicitante()
         {
@@ -879,7 +881,7 @@ namespace Contabilidad.Caja
             btn_SaveData.Enabled = true;
 
 
-            
+
 
         }
         public void tipoCambio(String date)
@@ -909,7 +911,7 @@ namespace Contabilidad.Caja
             habilitaCampos(true, false);
             Operacion = "N";
             change = "C";
-            
+
             //limpiarCampos();
             /*if ( txt_BancoCod.Text !="")
             {*/
@@ -918,7 +920,7 @@ namespace Contabilidad.Caja
             if (TipoMovimiento == "01")
             {
                 string ruc = "NN";
-                
+
                 string moneda = "";
                 string monedadoc = "";
                 if (cmb_TipoSolicitante.SelectedValue.ToString() == "02")
@@ -937,7 +939,7 @@ namespace Contabilidad.Caja
                 }
                 estado = "c";
                 RegCompra = "CARGO";
-                AgregarCajaChica Check = new AgregarCajaChica(ruc,RegCompra/*,moneda,monedadoc*/);
+                AgregarCajaChica Check = new AgregarCajaChica(ruc, RegCompra/*,moneda,monedadoc*/);
                 Check.Show();
 
             }
@@ -952,18 +954,19 @@ namespace Contabilidad.Caja
                     ruc = txt_SolicitanteCod.Text;
                     moneda = cmb_Moneda.SelectedValue.ToString();
                     detraccion = true;
-                    
+
                 }
-                
-                
+
+
                 if (detraccion == true)
                 {
                     AgregarDetracionFactura Check = new AgregarDetracionFactura(ruc);
                     Check.Show();
                 }
-                else {
+                else
+                {
 
-                    
+
                     AgregarDetracciones Check1 = new AgregarDetracciones();
                     Check1.Show();
                 }
@@ -1026,7 +1029,7 @@ namespace Contabilidad.Caja
                 AgregarAbonoFactura Check = new AgregarAbonoFactura(ruc/*,moneda,monedadoc*/);
                 Check.Show();
             }
-            else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento.ToString() == "07"  && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
+            else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento.ToString() == "07" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
             {
                 txt_NroOt.Enabled = true;
                 txt_Descripcion.Enabled = true;
@@ -1037,11 +1040,11 @@ namespace Contabilidad.Caja
                 gridCheke();
                 btn_Guardar.Enabled = true;
 
-            /*} else
-            {
-                MessageBox.Show("Debe colocar el Monto y el Banco");
-                habilitaCamposAgregar(true,false);
-            }*/
+                /*} else
+                {
+                    MessageBox.Show("Debe colocar el Monto y el Banco");
+                    habilitaCamposAgregar(true,false);
+                }*/
             }
             else if (cmb_Operacion.SelectedValue.ToString() == "03" || cmb_Operacion.SelectedValue.ToString() == "02" && TipoMovimiento.ToString() == "10" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
             {
@@ -1064,11 +1067,11 @@ namespace Contabilidad.Caja
         }
 
         private void btn_Guardar_Click(object sender, EventArgs e)
-       {
-            int count=0;
+        {
+            int count = 0;
             if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento == "07" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
             {
-                if (editar==true)
+                if (editar == true)
                 {
                     objListaVoucherDet[index].Importe = Convert.ToInt32(txt_Importe.Text.ToString());
                     grd_VoucherDet.DataSource = null;
@@ -1079,7 +1082,8 @@ namespace Contabilidad.Caja
                     sumatoria();
                     editar = false;
                 }
-                else {
+                else
+                {
                     objvou = new VoucherDet();
                     objvou.Importe = Math.Round(convertToDouble(txt_Importe.Text), 2, MidpointRounding.AwayFromZero);
                     objvou.NroOt = txt_NroOt.Text;
@@ -1113,7 +1117,7 @@ namespace Contabilidad.Caja
             }
             else if (cmb_Operacion.SelectedValue.ToString() == "02" && TipoMovimiento == "10" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
             {
-                if (editar==true)
+                if (editar == true)
                 {
                     objvou = new VoucherDet();
                     objvou.Importe = Math.Round(convertToDouble(txt_Importe.Text), 2, MidpointRounding.AwayFromZero);
@@ -1143,7 +1147,8 @@ namespace Contabilidad.Caja
                     habilitarBotones(false, true);
                     sumatoria();
                 }
-                else {
+                else
+                {
                     objListaVoucherDet[index].Importe = Convert.ToInt32(txt_Importe.Text.ToString());
                     grd_VoucherDet.DataSource = null;
                     grd_VoucherDet.DataSource = objListaVoucherDet;
@@ -1204,7 +1209,7 @@ namespace Contabilidad.Caja
 
         private void btn_SaveData_Click(object sender, EventArgs e)
         {
-            
+
             string msg = "";
             correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
             btn_SaveData.Enabled = false;
@@ -1214,7 +1219,7 @@ namespace Contabilidad.Caja
                  btn_SaveData.Enabled = true;
                  return;
              }*/
-            
+
             objVoucher = new Voucher();
             objVoucher.BancoCod = txt_BancoCod.Text;
             objVoucher.CodEnt = Ventas.UNIDADNEGOCIO;
@@ -1236,7 +1241,8 @@ namespace Contabilidad.Caja
             if (OperacionGuardar == "M")
             {
                 objVoucher.NumeroVoucher = txt_NroVoucher.Text;
-            }else
+            }
+            else
             {
                 objVoucher.NumeroVoucher = correlativo;
             }
@@ -1245,166 +1251,59 @@ namespace Contabilidad.Caja
             bool insert;
             /*if (txt_Movimiento.Text != "")
             {*/
-                if (OperacionGuardar == "M")
+            if (OperacionGuardar == "M")
+            {
+
+                insert = objVoucherDao.updateVoucherCab(objVoucher, Ventas.UsuarioSession);
+                if (insert)
                 {
-
-                    insert = objVoucherDao.updateVoucherCab(objVoucher, Ventas.UsuarioSession);
-                    if (insert)
-                    {
-                    }
-                    else
-                    {
-                        msg = "Hubo un problema al modificar";
-                        MessageBox.Show(msg);
-                        btn_SaveData.Enabled = true;
-                        return;
-                    }
-                    objVoucherDao.deleteVoucherDet(objVoucher.NumeroVoucher, Ventas.UNIDADNEGOCIO);
-
-                    for (int i = 0; i < objListaVoucherDet.Count; i++)
-                    {
-                        objListaVoucherDet[i].CodEnt = "01";
-                        insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
-                        if (insert == false)
-                        {
-                            MessageBox.Show("Error al guardar");
-                            btn_SaveData.Enabled = true;
-                            break;
-                        }
-                        else
-                        {
-                            if (TipoMovimiento == "01" || TipoMovimiento == "07")
-                            {
-                                objPagoVoucherDao.ActualizarPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].TotalDocumento, objListaVoucherDet[i].Importe);
-                            }
-                            else if (TipoMovimiento == "09")
-                            {
-
-                                objPagoVoucherDao.ActualizarAbono(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
-
-                            }
-                        }
-                    }
-                    if (insert)
-                    {
-                        if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03")
-                        {
-                            objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
-                        }
-                        MessageBox.Show("Voucher Guardado exitosamente");
-                        btn_SaveData.Enabled = true;
-                    /*string MessageBoxTitle = "Voucher";
-                    string MessageBoxContent = "Voucher Guardado exitosamente,¿Desea Imprimir?";
-
-                    DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            String reportetipo = "";
-                            btn_Reporte.Enabled = false;
-                            objListaVoucherReporte = new List<VoucherReporte>();
-
-                            formatearVoucher();
-                            if (objVoucher.MonedaCod == "USD")
-                            {
-                                reportetipo = "VOD";
-                            }
-                            else
-                            {
-                                reportetipo = "VO";
-                            }
-                            ReporteView Check1 = new ReporteView(reportetipo); // listar factura
-                            Check1.Show();
-                            btn_Reporte.Enabled = true;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("ERROR :" + ex.Message);
-                            btn_Reporte.Enabled = true;
-                        }
-
-                    }
-                    else
-                    {
-                    this.Close();
-                    ListaEmisionVoucher check = new ListaEmisionVoucher();
-                    check.Show();
-                    }*/
                 }
-            }
                 else
-                {   /*se inserta la cabecera del voucher*/
-                       
-                    insert = objVoucherDao.insertarVoucherCab(objVoucher, Ventas.UsuarioSession);
-                    if (insert)
+                {
+                    msg = "Hubo un problema al modificar";
+                    MessageBox.Show(msg);
+                    btn_SaveData.Enabled = true;
+                    return;
+                }
+                objVoucherDao.deleteVoucherDet(objVoucher.NumeroVoucher, Ventas.UNIDADNEGOCIO);
+
+                for (int i = 0; i < objListaVoucherDet.Count; i++)
+                {
+                    objListaVoucherDet[i].CodEnt = "01";
+                    insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
+                    if (insert == false)
                     {
-
-
-
+                        MessageBox.Show("Error al guardar");
+                        btn_SaveData.Enabled = true;
+                        break;
                     }
                     else
                     {
-                        msg = "Hubo un problema al guardar";
-                        MessageBox.Show(msg);
-                        btn_SaveData.Enabled = true;
-                        return;
-                    }
-                    /*se recorre todo el formulario para poder insertar en las tablas*/
-                    for (int i = 0; i < objListaVoucherDet.Count; i++)
-                    {
-                        objListaVoucherDet[i].CodEnt = "01";
-                        /*se genera el detalle del voucher*/
-                        insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
-                        /*se inserta el Prestamo Bancario*/
-                        /*objVoucherDao.insertarPrestamoBancario(objListPrestamoBancario[i],"01");*/
-
-                        if (insert == false)
-                        {
-                            MessageBox.Show("Error al guardar");
-                            btn_SaveData.Enabled = true;
-                            break;
-                        }
-                        else
-                        {
                         if (TipoMovimiento == "01" || TipoMovimiento == "07")
                         {
-                            objPagoVoucherDao.registrarPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].TotalDocumento, objListaVoucherDet[i].Importe);
-
+                            objPagoVoucherDao.ActualizarPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].TotalDocumento, objListaVoucherDet[i].Importe);
                         }
                         else if (TipoMovimiento == "09")
                         {
-                            //String Serie;
-                            //Serie = objListaVoucherDet[i].Descripcion.Substring(0, 4);
-                            //String Nro;
-                            ////Nro = objListaVoucherDet[i].Descripcion.Substring(5, 8);
-                            objPagoVoucherDao.registrarAbono(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
 
-                        }
-                        else if (TipoMovimiento == "02" && cmb_TipoSolicitante.SelectedValue.ToString() == "05")
-                        {
-
-                            objPagoVoucherDao.registrarDetraccionFactura(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
-
-                        }
-                        else if (TipoMovimiento == "02")
-                        {
-                            objPagoVoucherDao.registrarDetraccionPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].Importe);
-                        }
-
+                            objPagoVoucherDao.ActualizarAbono(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
 
                         }
                     }
-                    if (insert)
+                }
+                if (insert)
+                {
+                    if (String.IsNullOrEmpty(txt_NroCheque.Text))
                     {
-                        if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03")
-                        {
-                            objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
-                        }
+
+                    }
+                    else if (!String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "02" || !String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "03")
+                    {
+                        objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
+                    }
                     MessageBox.Show("Voucher Guardado exitosamente");
                     btn_SaveData.Enabled = true;
-
-                    /*string MessageBoxTitle = "Voucher";
+                    string MessageBoxTitle = "Voucher";
                     string MessageBoxContent = "Voucher Guardado exitosamente,¿Desea Imprimir?";
 
                     DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
@@ -1439,12 +1338,135 @@ namespace Contabilidad.Caja
                     else
                     {
                         this.Close();
-                        ListaEmisionVoucher check = new ListaEmisionVoucher();
-                        check.Show();
-                    }*/
+                        ListaEmisionVoucher check2 = new ListaEmisionVoucher();
+                        check2.Show();
+                    }
                 }
+            }
+            else
+            {   /*se inserta la cabecera del voucher*/
+
+                insert = objVoucherDao.insertarVoucherCab(objVoucher, Ventas.UsuarioSession);
+                if (insert)
+                {
+
+
 
                 }
+                else
+                {
+                    msg = "Hubo un problema al guardar";
+                    MessageBox.Show(msg);
+                    btn_SaveData.Enabled = true;
+                    return;
+                }
+                /*se recorre todo el formulario para poder insertar en las tablas*/
+                for (int i = 0; i < objListaVoucherDet.Count; i++)
+                {
+                    objListaVoucherDet[i].CodEnt = "01";
+                    /*se genera el detalle del voucher*/
+                    insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
+                    /*se inserta el Prestamo Bancario*/
+                    /*objVoucherDao.insertarPrestamoBancario(objListPrestamoBancario[i],"01");*/
+
+                    if (insert == false)
+                    {
+                        MessageBox.Show("Error al guardar");
+                        btn_SaveData.Enabled = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (TipoMovimiento == "01" || TipoMovimiento == "07")
+                        {
+                            objPagoVoucherDao.registrarPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].TotalDocumento, objListaVoucherDet[i].Importe);
+
+                        }
+                        else if (TipoMovimiento == "09")
+                        {
+                            objPagoVoucherDao.registrarAbono(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
+
+                        }
+                        else if (TipoMovimiento == "02" && cmb_TipoSolicitante.SelectedValue.ToString() == "05")
+                        {
+                            bool tp;
+                            double total = 0;
+                            double cambio = 0;
+                            if (objListaVoucherDet[i].Moneda == "USD")
+                            {
+                                total = objListaVoucherDet[i].Importe;
+                                cambio = objListaVoucherDet[i].TC;
+                                objListaVoucherDet[i].Importe = total / cambio;
+                                objListaVoucherDet[i].ImporteReporte = total;
+                                objPagoVoucherDao.registrarDetraccionFactura(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
+                            }
+                            else
+                            {
+                                objPagoVoucherDao.registrarDetraccionFactura(objListaVoucherDet[i].SerieDocRef, objListaVoucherDet[i].NumeroDocRef, objListaVoucherDet[i].Importe);
+                            }
+                        }
+                        else if (TipoMovimiento == "02")
+                        {
+                            objPagoVoucherDao.registrarDetraccionPago(objListaVoucherDet[i].numeroRegistro, objListaVoucherDet[i].Importe);
+                        }
+
+
+                    }
+                }
+                if (insert)
+                {
+                    if (String.IsNullOrEmpty(txt_NroCheque.Text))
+                    {
+
+                    }
+                    else if (!String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "02" || !String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "03")
+                    {
+                        objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
+                    }
+                    /*MessageBox.Show("Voucher Guardado exitosamente");*/
+                    btn_SaveData.Enabled = true;
+
+                    string MessageBoxTitle = "Voucher";
+                    string MessageBoxContent = "Voucher Guardado exitosamente,¿Desea Imprimir?";
+
+                    DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            String reportetipo = "";
+                            btn_Reporte.Enabled = false;
+                            objListaVoucherReporte = new List<VoucherReporte>();
+
+                            formatearVoucher();
+                            if (objVoucher.MonedaCod == "USD")
+                            {
+                                reportetipo = "VOD";
+                            }
+                            else
+                            {
+                                reportetipo = "VO";
+                            }
+                            ReporteView Check1 = new ReporteView(reportetipo); // listar factura
+                            Check1.Show();
+                            btn_Reporte.Enabled = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR :" + ex.Message);
+                            btn_Reporte.Enabled = true;
+                        }
+
+                    }
+                    else
+                    {
+                        this.Close();
+                        ListaEmisionVoucher check2 = new ListaEmisionVoucher();
+                        check2.Show();
+                    }
+                }
+
+            }
             this.Close();
             ListaEmisionVoucher check = new ListaEmisionVoucher();
             check.Show();
@@ -1456,7 +1478,7 @@ namespace Contabilidad.Caja
             change = "C";
             //contador = objListaVoucherDet.Max(x => x.Item) +1;
             habilitaCampos(false, true);
-            if(cmb_Operacion.SelectedValue.ToString()=="01" || cmb_Operacion.SelectedValue.ToString() == "02")
+            if (cmb_Operacion.SelectedValue.ToString() == "01" || cmb_Operacion.SelectedValue.ToString() == "02")
             {
                 dpick_FechaEmision.Enabled = true;
             }
@@ -1464,7 +1486,7 @@ namespace Contabilidad.Caja
             {
                 dpick_FechaEmision.Enabled = false;
             }
-            
+
             habilitarBotones(true, false);
             btn_SaveData.Enabled = true;
         }
@@ -1516,7 +1538,7 @@ namespace Contabilidad.Caja
         }
         void formatearVoucher()
         {
-            if(objListaVoucherDet.Count>=1)
+            if (objListaVoucherDet.Count >= 1)
             {
                 for (int i = 0; i < objListaVoucherDet.Count; i++)
                 {
@@ -1525,8 +1547,16 @@ namespace Contabilidad.Caja
                     objVoucherReporte.Banco = objVoucher.Banco;
                     objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
                     objVoucherReporte.Monto = txt_Total.Text /*.Substring(3)*/;
-                    objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda.TrimEnd();
-                    objVoucherReporte.NroCheque = objVoucher.NumeroCheque;
+                    if(cmb_Moneda.SelectedValue.ToString()=="PEN")
+                    {
+                        objVoucher.Moneda = "SOLES";
+                    }
+                    else
+                    {
+                        objVoucher.Moneda = "DOLARES AMERICANOS";
+                    }
+                    objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
+                    /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
                     correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                     if (OperacionGuardar == "M" || ListaEmisionVoucher.operacionVoucher == "V")
                     {
@@ -1553,10 +1583,20 @@ namespace Contabilidad.Caja
                     {
                         objVoucherReporte.Anulado = "A N U L A D O";
                     }
-                    objVoucherReporte.Descripcion =txt_Movimiento.Text;
-                    objVoucherReporte.FechaEmision= objListaVoucherDet[i].FechaEmiRef.ToString();
-
-                    objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    objVoucherReporte.Descripcion = txt_Movimiento.Text;
+                    objVoucherReporte.FechaEmision = objListaVoucherDet[i].FechaEmiRef.ToString();
+                    if(OperacionGuardar=="M")
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    }
+                    else if(OperacionGuardar == "A")
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    }
+                    else
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].ImporteReporte.ToString("0.00");
+                    }
 
                     objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
 
@@ -1614,7 +1654,7 @@ namespace Contabilidad.Caja
         }
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
-           String root = @"N:\VOUCHER";
+            String root = @"N:\VOUCHER";
             if (!Directory.Exists(root))
             {
                 Directory.CreateDirectory(root);
@@ -1829,14 +1869,14 @@ namespace Contabilidad.Caja
             grd_VoucherDet.Columns.Add(idColumn3);
 
 
-                objVoucherDet = new VoucherDet();
+            objVoucherDet = new VoucherDet();
 
-                objVoucherDet.NroOt = "";
-                objVoucherDet.Descripcion = "Préstamo Bancario-" + obj.Banco;
-                objVoucherDet.Documento = obj.CodigoPrestamo;
-                objVoucherDet.RazonSocial = obj.Banco;
-                objVoucherDet.Importe = obj.Monto;
-                objVoucherDet.numeroRegistro = obj.CodigoPrestamo;
+            objVoucherDet.NroOt = "";
+            objVoucherDet.Descripcion = "Préstamo Bancario-" + obj.Banco;
+            objVoucherDet.Documento = obj.CodigoPrestamo;
+            objVoucherDet.RazonSocial = obj.Banco;
+            objVoucherDet.Importe = obj.Monto;
+            objVoucherDet.numeroRegistro = obj.CodigoPrestamo;
             correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
             if (OperacionGuardar == "M")
             {
@@ -1847,7 +1887,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.NumeroVoucher = correlativo;
             }
             objVoucherDet.Item = 1;
-                objListaVoucherDet.Add(objVoucherDet);
+            objListaVoucherDet.Add(objVoucherDet);
 
 
 
@@ -1921,7 +1961,7 @@ namespace Contabilidad.Caja
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
                 objVoucherDet.Item = i + 1;
-               
+
                 objListaVoucherDet.Add(objVoucherDet);
 
             }
@@ -2011,7 +2051,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.FechaEmiRef = objList[i].FechaEmision;
                 objVoucherDet.RazonSocial = objList[i].RazonSocial;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
-                if (OperacionGuardar=="M")
+                if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
                 }
@@ -2020,7 +2060,7 @@ namespace Contabilidad.Caja
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
 
-                
+
                 objVoucherDet.Item = i + 1;
                 objVoucherDet.TotalDocumento = objList[i].Total;
                 if (rb_Metales.Checked)
@@ -2082,7 +2122,7 @@ namespace Contabilidad.Caja
         public void setDatosCajaChica(List<ContabilidadDTO.Ventas> objList)
         {
             bool porcentaje = false;
-            int cont=0;
+            int cont = 0;
             //objListaVoucherDet = new List<VoucherDet>();
             if (grd_VoucherDet.Columns.Count > 1)
             {
@@ -2095,7 +2135,7 @@ namespace Contabilidad.Caja
 
             //  objListaFacturaAbono = objList;
             grd_VoucherDet.AutoGenerateColumns = false;
-            DataGridViewTextBoxColumn idColumnOT= new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn idColumnOT = new DataGridViewTextBoxColumn();
             idColumnOT.Name = "N° OT";
             idColumnOT.DataPropertyName = "NroOt";
             idColumnOT.Width = 100;
@@ -2117,7 +2157,7 @@ namespace Contabilidad.Caja
             DataGridViewTextBoxColumn idColumnR = new DataGridViewTextBoxColumn();
             idColumnR.Name = "Razon Social";
             idColumnR.DataPropertyName = "RazonSocial";
-            idColumnR.Width =300;
+            idColumnR.Width = 300;
             grd_VoucherDet.Columns.Add(idColumnR);
             DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
             idColumn3.Name = "Importe";
@@ -2174,12 +2214,12 @@ namespace Contabilidad.Caja
                 objVoucherDet.CodOtReal = objList[i].CodOtReal;
                 objVoucherDet.NroOt = objList[i].NroOt;
                 objVoucherDet.NroOtReal = objList[i].NroOtReal;
-                objVoucherDet.Descripcion = objList[i].Serie.Trim()+"-"+ objList[i].Numero.Trim();
+                objVoucherDet.Descripcion = objList[i].Serie.Trim() + "-" + objList[i].Numero.Trim();
                 objVoucherDet.Documento = objList[i].Ruc;
                 objVoucherDet.RazonSocial = objList[i].RazonSocial;
                 objVoucherDet.Importe = objList[i].Pago;
                 objVoucherDet.numeroRegistro = objList[i].VentasId;
-                objVoucherDet.FechaEmiRef =objList[i].FechaEmision;
+                objVoucherDet.FechaEmiRef = objList[i].FechaEmision;
                 objVoucherDet.RazonSocial = objList[i].RazonSocial;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                 if (OperacionGuardar == "M")
@@ -2190,7 +2230,7 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                objVoucherDet.Item = i+1;
+                objVoucherDet.Item = i + 1;
                 objVoucherDet.xret = objList[i].xret;
                 objVoucherDet.xper = objList[i].xper;
                 objVoucherDet.xbue = objList[i].xbue;
@@ -2198,7 +2238,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.DirOt = objList[i].DirOt;
                 objVoucherDet.DirOtReal = objList[i].DirOtReal;
                 objVoucherDet.TipDocRef = objList[i].TipoDocumento;
-                
+
                 if (objList[i].xret.ToString() == "TRET" && objList[i].xbue.ToString() == "TBUE" && objList[i].xdetra.ToString() == "no")
                 {
                     porcentaje = true;
@@ -2216,10 +2256,11 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.CodEnt = "01";
                 }
-                else{
+                else
+                {
                     objVoucherDet.CodEnt = "02";
                 }
-     
+
                 objListaVoucherDet.Add(objVoucherDet);
             }
             grd_VoucherDet.DataSource = null;
@@ -2231,10 +2272,11 @@ namespace Contabilidad.Caja
 
                 sumatoria30();
             }
-            else {
+            else
+            {
                 sumatoria();
             }
-            
+
 
         }
 
@@ -2300,7 +2342,7 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objVoucherDet.TotalDocumento = objList[i].Total;
                 objVoucherDet.SerieDocRef = objList[i].Serie;
@@ -2369,6 +2411,16 @@ namespace Contabilidad.Caja
             idColumn3.DefaultCellStyle.Format = ".00";
             idColumn3.Width = 80;
             grd_VoucherDet.Columns.Add(idColumn3);
+            DataGridViewTextBoxColumn idColumn5 = new DataGridViewTextBoxColumn();
+            idColumn5.Name = "Tipo Cambio";
+            idColumn5.DataPropertyName = "TC";
+            idColumn5.Width = 80;
+            grd_VoucherDet.Columns.Add(idColumn5);
+            DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
+            idColumn6.Name = "Moneda";
+            idColumn6.DataPropertyName = "Moneda";
+            idColumn6.Width = 80;
+            grd_VoucherDet.Columns.Add(idColumn6);
 
             for (int i = 0; i < objList.Count; i++)
             {
@@ -2380,16 +2432,19 @@ namespace Contabilidad.Caja
                 objVoucherDet.RazonSocial = objList[i].RazonSocial;
                 objVoucherDet.FechaEmiRef = objList[i].Fecha;
                 objVoucherDet.Importe = objList[i].TotalSoles;
+                objVoucherDet.TC = objList[i].TipoCambio;
+                objVoucherDet.Moneda = objList[i].MonedaCod;
                 //objVoucherDet.numeroRegistro = objList[i].VentasId;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                 if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
-                }else
+                }
+                else
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objVoucherDet.TotalDocumento = objList[i].Total;
                 objVoucherDet.SerieDocRef = objList[i].Serie;
@@ -2466,7 +2521,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.RazonSocial = "";
                 objVoucherDet.Importe = objList[i].Monto;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
-                if (OperacionGuardar=="M")
+                if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
                 }
@@ -2474,7 +2529,7 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objListaVoucherDet.Add(objVoucherDet);
 
@@ -2484,7 +2539,7 @@ namespace Contabilidad.Caja
             grd_VoucherDet.Refresh();
             sumatoria();
         }
-        
+
 
         public void setDatosImpuestos(List<TipoImpuesto> objList)
         {
@@ -2538,15 +2593,16 @@ namespace Contabilidad.Caja
                 objVoucherDet.RazonSocial = "";
                 objVoucherDet.Importe = objList[i].Pago;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
-                if (OperacionGuardar=="M")
+                if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
 
-                }else
+                }
+                else
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objListaVoucherDet.Add(objVoucherDet);
 
@@ -2608,7 +2664,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.RazonSocial = objList[i].Nombre;
                 objVoucherDet.Importe = objList[i].Pago;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
-                if (OperacionGuardar=="M")
+                if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
                 }
@@ -2616,7 +2672,7 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objListaVoucherDet.Add(objVoucherDet);
 
@@ -2678,7 +2734,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.RazonSocial = objList[i].Nombre;
                 objVoucherDet.Importe = objList[i].Pago;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
-                if (OperacionGuardar=="M")
+                if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
                 }
@@ -2686,7 +2742,7 @@ namespace Contabilidad.Caja
                 {
                     objVoucherDet.NumeroVoucher = correlativo;
                 }
-                
+
                 objVoucherDet.Item = i + 1;
                 objListaVoucherDet.Add(objVoucherDet);
 
@@ -2704,8 +2760,8 @@ namespace Contabilidad.Caja
             objListaVoucherDet = new List<VoucherDet>();
             objVoucher = null;
             objVoucher = new Voucher();
-            habilitaCampos(true,true);
-            habilitarBotones(true,false);
+            habilitaCampos(true, true);
+            habilitarBotones(true, false);
         }
 
         private void btn_Rest_Click(object sender, EventArgs e)
@@ -2770,12 +2826,12 @@ namespace Contabilidad.Caja
 
         private void txt_MontoTotal_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txt_Total_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void grd_VoucherDet_Click(object sender, EventArgs e)

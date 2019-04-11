@@ -192,10 +192,10 @@ namespace Contabilidad
 
         private void Txt_Porcentaje_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            /*if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-            }
+            }*/
         }
 
         private void Chk_Detraccion_CheckedChanged(object sender, EventArgs e)
@@ -707,6 +707,7 @@ namespace Contabilidad
             btn_SaveData.Enabled = true;
             cmb_Pago.Enabled = true;
             btn_BuscarAval.Enabled = true;
+            cmb_TipoDocumento.Enabled = true;
         }
 
         private void LetraCambio_Load(object sender, EventArgs e)

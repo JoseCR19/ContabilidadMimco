@@ -101,7 +101,7 @@ namespace Contabilidad.Caja
             DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
             idColumn3.Name = "Importe";
             idColumn3.DefaultCellStyle.Format = "0.00";
-            idColumn3.DataPropertyName = "Total";
+            idColumn3.DataPropertyName = "Saldo";
             idColumn3.Width = 80;
             grdDocumento.Columns.Add(idColumn3);
 
@@ -116,7 +116,6 @@ namespace Contabilidad.Caja
             DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
             idColumn8.Name = "Cambio";
             idColumn8.DataPropertyName = "TipoCambio";
-            idColumn3.DefaultCellStyle.Format = "0.000";
             idColumn8.Width = 60;
             grdDocumento.Columns.Add(idColumn8);
 
@@ -150,7 +149,7 @@ namespace Contabilidad.Caja
                     {
                         total =Convert.ToDecimal(row.Cells[6].Value);
                         cambio = Convert.ToDecimal(row.Cells[8].Value);
-                        row.Cells[9].Value =total * cambio;
+                        //row.Cells[9].Value =total * cambio;
                     }
                     else
                     {
@@ -203,7 +202,7 @@ namespace Contabilidad.Caja
                     {
                         total = Convert.ToDecimal(row.Cells[6].Value);
                         cambio = Convert.ToDecimal(row.Cells[8].Value);
-                        row.Cells[9].Value = total * cambio;
+                        //row.Cells[9].Value = total * cambio;
                     }
                     else
                     {

@@ -137,7 +137,6 @@
             // 
             // dpick_Fecha
             // 
-            this.dpick_Fecha.Enabled = false;
             this.dpick_Fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpick_Fecha.Location = new System.Drawing.Point(230, 9);
             this.dpick_Fecha.Name = "dpick_Fecha";

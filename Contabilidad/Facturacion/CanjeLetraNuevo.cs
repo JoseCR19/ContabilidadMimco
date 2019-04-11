@@ -452,6 +452,7 @@ namespace Contabilidad.Facturacion
 
             }
             else {
+                objLetra.NroRegistro = txt_nroregletra.Text;
                 insert = objVoucherDao.insertarLetraCab(objLetra, Ventas.UsuarioSession);
                 if(insert)
                 {

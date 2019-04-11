@@ -601,7 +601,7 @@ namespace ContabilidadDAO
                     obj.Total = convertToDouble(dataReader["Total"].ToString().Trim());
                     obj.Fecha = Convert.ToDateTime(dataReader["Fecha"].ToString().Trim()).ToString("dd/MM/yyyy");
                     obj.FechaVcto = Convert.ToDateTime(dataReader["FechaVcto"].ToString().Trim()).ToString("dd/MM/yyyy");
-                    obj.Saldo = convertToDouble(dataReader["Total"].ToString().Trim());
+                    obj.Saldo = convertToDouble(dataReader["Saldo"].ToString().Trim());
                     obj.MonedaCod = dataReader["Moneda"].ToString().Trim();
                     obj.NroOt = dataReader["NroOt"].ToString().Trim();
                     obj.TipoCambio = convertToDouble(dataReader["Cambio"].ToString().Trim());

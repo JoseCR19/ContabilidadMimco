@@ -12,6 +12,7 @@ namespace ContabilidadDTO
         public String CodEnt { get; set; }
         public int Item { get; set; }
         public Double Importe { get; set; }
+        public Double ImporteReporte { get; set; }
         public String Descripcion { get; set; }
         public String SerieDocRef { get; set; }
         public String NumeroDocRef { get; set; }
@@ -38,6 +39,9 @@ namespace ContabilidadDTO
         public String xdetra { get; set; }
 
         public String FechaEmiRef { get; set; }
+
+        public Double TC { get; set; }
+        public String Moneda { get; set; }
 
     }
 }
