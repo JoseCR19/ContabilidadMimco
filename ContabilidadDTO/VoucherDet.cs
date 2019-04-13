@@ -42,6 +42,7 @@ namespace ContabilidadDTO
 
         public Double TC { get; set; }
         public String Moneda { get; set; }
+        public String TAOB { get; set; }
 
     }
 }

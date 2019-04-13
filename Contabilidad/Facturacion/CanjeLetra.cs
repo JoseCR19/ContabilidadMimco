@@ -19,11 +19,14 @@ namespace Contabilidad.Facturacion
 {
     public partial class CanjeLetra : Form
     {
+        public static CanjeLetra formReporteProveedor;
         public List<LetraCab> objListLetra = new List<LetraCab>();
+        public List<LetraCab> objReporteListLetra = new List<LetraCab>();
         List<LetraDetalle> objListaLetraDet = new List<LetraDetalle>();
         public static LetraCab objVoucher = new LetraCab();
         public static LetraDetalle objLetraDetalle = new LetraDetalle();
-       
+        public static List<ReporteFacturaC> objListaVenReporte = new List<ReporteFacturaC>();
+        ReporteFacturaC objReporte;
         VoucherDAO objVoucherDao;
         int index = 0;
         ChequeImpresion objCheque = new ChequeImpresion();
@@ -32,6 +35,7 @@ namespace Contabilidad.Facturacion
         public CanjeLetra()
         {
             InitializeComponent();
+            formReporteProveedor = this;
             this.Text = "CANJE LETRAS";
             this.ControlBox = false;
             this.StartPosition = FormStartPosition.Manual;
@@ -41,9 +45,13 @@ namespace Contabilidad.Facturacion
             d1 = new DateTime(d2.Year, d2.Month, 1);
             dpickerInicio.Value = d1;
             gridParams();
+            gridParams2();
             objVoucherDao = new VoucherDAO();
             objListLetra = objVoucherDao.listarLetra(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, "NN",txt_Ruc.Text);
+            objReporteListLetra = objVoucherDao.ReportelistarLetra(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, "NN", txt_Ruc.Text);
+            dgv_reporte.DataSource = objReporteListLetra;
             grd_letra.DataSource = objListLetra;
+            dgv_reporte.Refresh();
             grd_letra.Refresh();
             cmbEstado();
         }
@@ -116,7 +124,93 @@ namespace Contabilidad.Facturacion
             idColumn7.DataPropertyName = "Anulado";
             idColumn7.Width = 80;
             grd_letra.Columns.Add(idColumn7);
+            DataGridViewTextBoxColumn idColumn15 = new DataGridViewTextBoxColumn();
+            idColumn15.Name = "F.Ven";
+            idColumn15.DataPropertyName = "Fec_Ven";
+            idColumn15.Width = 80;
+            grd_letra.Columns.Add(idColumn15);
             foreach (DataGridViewColumn col in grd_letra.Columns)
+            {
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                //col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+            }
+
+        }
+        public void gridParams2()
+        {
+            dgv_reporte.AutoGenerateColumns = false;
+
+            DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
+            idColumn1.Name = "NroRegistro";
+            idColumn1.DataPropertyName = "NroRegistro";
+            idColumn1.Width = 70;
+            dgv_reporte.Columns.Add(idColumn1);
+            DataGridViewTextBoxColumn idColumn2 = new DataGridViewTextBoxColumn();
+            idColumn2.Name = "Tipo";
+            idColumn2.DataPropertyName = "TipoDoc";
+            idColumn2.Width = 30;
+            dgv_reporte.Columns.Add(idColumn2);
+            DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
+            idColumn3.Name = "Serie";
+            idColumn3.DataPropertyName = "SerieDoc";
+            idColumn3.Width = 60;
+            dgv_reporte.Columns.Add(idColumn3);
+            DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
+            idColumn6.Name = "Documento";
+            idColumn6.DataPropertyName = "NroDoc";
+            idColumn6.Width = 90;
+            dgv_reporte.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
+            idColumn8.Name = "RUC";
+            idColumn8.DataPropertyName = "Ruc";
+            idColumn8.Width = 80;
+            dgv_reporte.Columns.Add(idColumn8);
+            DataGridViewTextBoxColumn idColumn9 = new DataGridViewTextBoxColumn();
+            idColumn9.Name = "Razón Social";
+            idColumn9.DataPropertyName = "NomProv";
+            idColumn9.Width = 140;
+            dgv_reporte.Columns.Add(idColumn9);
+            DataGridViewTextBoxColumn idColumn10 = new DataGridViewTextBoxColumn();
+            idColumn10.Name = "Importe Total";
+            idColumn10.DataPropertyName = "ImporteTotal";
+            idColumn10.DefaultCellStyle.Format = "0#.#0";
+            idColumn10.Width = 80;
+            dgv_reporte.Columns.Add(idColumn10);
+            DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
+            idColumn4.Name = "Importe Letra";
+            idColumn4.DataPropertyName = "Monto";
+            idColumn4.DefaultCellStyle.Format = "0#.#0";
+            idColumn4.Width = 80;
+            dgv_reporte.Columns.Add(idColumn4);
+            DataGridViewTextBoxColumn idColumn11 = new DataGridViewTextBoxColumn();
+            idColumn11.Name = "Abono";
+            idColumn11.DataPropertyName = "Abono";
+            idColumn11.DefaultCellStyle.Format = "0#.#0";
+            idColumn11.Width = 80;
+            dgv_reporte.Columns.Add(idColumn11);
+            DataGridViewTextBoxColumn idColumn12 = new DataGridViewTextBoxColumn();
+            idColumn12.Name = "Saldo";
+            idColumn12.DataPropertyName = "Saldo";
+            idColumn12.DefaultCellStyle.Format = "0#.#0";
+            idColumn12.Width = 80;
+            dgv_reporte.Columns.Add(idColumn12);
+            //idColumn4.HeaderCell.
+            DataGridViewTextBoxColumn idColumn5 = new DataGridViewTextBoxColumn();
+            idColumn5.Name = "Moneda";
+            idColumn5.DataPropertyName = "Moneda";
+            idColumn5.Width = 60;
+            dgv_reporte.Columns.Add(idColumn5);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Estado";
+            idColumn7.DataPropertyName = "Anulado";
+            idColumn7.Width = 80;
+            dgv_reporte.Columns.Add(idColumn7);
+            DataGridViewTextBoxColumn idColumn15 = new DataGridViewTextBoxColumn();
+            idColumn15.Name = "F.Ven";
+            idColumn15.DataPropertyName = "Fec_Ven";
+            idColumn15.Width = 80;
+            dgv_reporte.Columns.Add(idColumn15);
+            foreach (DataGridViewColumn col in dgv_reporte.Columns)
             {
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 //col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -310,6 +404,55 @@ namespace Contabilidad.Facturacion
                 this.Hide();
                 check.Show();
             }
+        }
+        void formatearReporte()
+        {
+            for (int i = 0; i < objReporteListLetra.Count; i++)
+            {
+                objReporte = new ReporteFacturaC();
+                objReporte.Ruc = objReporteListLetra[i].Ruc.ToString().Trim();
+                objReporte.RazonSocial = objReporteListLetra[i].NomProv.ToString().Trim();
+                objReporte.FechaVencimiento = objReporteListLetra[i].Fec_Ven.ToString().Trim().Substring(0,10);
+                objReporte.TSD = objReporteListLetra[i].TipoDoc.ToString().Trim() + " "+ objReporteListLetra[i].SerieDoc.ToString().Trim() + "-" + objReporteListLetra[i].NroDoc.ToString().Trim();
+                objReporte.Total = Convert.ToDouble(objReporteListLetra[i].Monto.ToString("G"));
+                objReporte.Moneda = objReporteListLetra[i].Moneda.ToString();
+                objReporte.TC = objReporteListLetra[i].TipoCambio.ToString();
+                objReporte.Abono =Convert.ToDouble(objReporteListLetra[i].Abono.ToString("G"));
+                objReporte.Saldo = Convert.ToDouble(objReporteListLetra[i].Saldo.ToString("G"));
+                objListaVenReporte.Add(objReporte);
+            }
+        }
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btn_pdf_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_reporteletras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Reporte_Click_1(object sender, EventArgs e)
+        {
+            btn_Reporte.Enabled = true;
+            formatearReporte();
+            ReporteView Check = new ReporteView("RLV"); // ExcelCliente
+            Check.Show();
+            btn_Reporte.Enabled = true;
+        }
+
+        private void btn_reporteletras_Click_1(object sender, EventArgs e)
+        {
+            objReporteListLetra = objVoucherDao.ReportelistarLetra(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, cmb_Estado.SelectedValue.ToString(), txt_Ruc.Text);
+            dgv_reporte.DataSource = null;
+            dgv_reporte.DataSource = objReporteListLetra;
+            dgv_reporte.Refresh();
         }
     }
 }

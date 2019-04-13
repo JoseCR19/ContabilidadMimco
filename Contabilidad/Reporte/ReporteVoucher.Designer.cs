@@ -61,6 +61,20 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dgv_cobranza = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dtp_fin5 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_banco = new System.Windows.Forms.TextBox();
+            this.dtp_inicio4 = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_BancoDolares = new System.Windows.Forms.TextBox();
+            this.txt_bancoSoles = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dpickerFin3 = new System.Windows.Forms.DateTimePicker();
             this.btn_prestamos = new System.Windows.Forms.Button();
@@ -76,29 +90,15 @@
             this.txt_total2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dgv_personal = new System.Windows.Forms.DataGridView();
-            this.dtp_fin5 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_banco = new System.Windows.Forms.TextBox();
-            this.dtp_inicio4 = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_BancoDolares = new System.Windows.Forms.TextBox();
-            this.txt_bancoSoles = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).BeginInit();
             this.VOUCHER.SuspendLayout();
             this.PROVEEDOR.SuspendLayout();
             this.CLIENTE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -460,6 +460,136 @@
             this.tabPage3.Text = "Bancos";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // dtp_fin5
+            // 
+            this.dtp_fin5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fin5.Location = new System.Drawing.Point(668, 74);
+            this.dtp_fin5.Name = "dtp_fin5";
+            this.dtp_fin5.Size = new System.Drawing.Size(100, 20);
+            this.dtp_fin5.TabIndex = 173;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(823, 71);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 172;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Image = global::Contabilidad.Properties.Resources.lupamedio;
+            this.button6.Location = new System.Drawing.Point(275, 77);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(38, 23);
+            this.button6.TabIndex = 171;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(67, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 13);
+            this.label14.TabIndex = 170;
+            this.label14.Text = "Bancos : ";
+            // 
+            // txt_banco
+            // 
+            this.txt_banco.Location = new System.Drawing.Point(137, 77);
+            this.txt_banco.Name = "txt_banco";
+            this.txt_banco.Size = new System.Drawing.Size(131, 20);
+            this.txt_banco.TabIndex = 169;
+            // 
+            // dtp_inicio4
+            // 
+            this.dtp_inicio4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_inicio4.Location = new System.Drawing.Point(437, 74);
+            this.dtp_inicio4.Name = "dtp_inicio4";
+            this.dtp_inicio4.Size = new System.Drawing.Size(100, 20);
+            this.dtp_inicio4.TabIndex = 160;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(295, 451);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 13);
+            this.label15.TabIndex = 168;
+            this.label15.Text = "Total Soles:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(370, 81);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 13);
+            this.label16.TabIndex = 161;
+            this.label16.Text = "Desde : ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(522, 450);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(87, 13);
+            this.label18.TabIndex = 167;
+            this.label18.Text = "Total Dólares:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(587, 81);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 13);
+            this.label19.TabIndex = 162;
+            this.label19.Text = "Hasta : ";
+            // 
+            // txt_BancoDolares
+            // 
+            this.txt_BancoDolares.Enabled = false;
+            this.txt_BancoDolares.Location = new System.Drawing.Point(615, 447);
+            this.txt_BancoDolares.Name = "txt_BancoDolares";
+            this.txt_BancoDolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_BancoDolares.Size = new System.Drawing.Size(100, 20);
+            this.txt_BancoDolares.TabIndex = 166;
+            // 
+            // txt_bancoSoles
+            // 
+            this.txt_bancoSoles.Enabled = false;
+            this.txt_bancoSoles.Location = new System.Drawing.Point(382, 447);
+            this.txt_bancoSoles.Name = "txt_bancoSoles";
+            this.txt_bancoSoles.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_bancoSoles.Size = new System.Drawing.Size(100, 20);
+            this.txt_bancoSoles.TabIndex = 165;
+            // 
+            // button7
+            // 
+            this.button7.Image = global::Contabilidad.Properties.Resources.excel1;
+            this.button7.Location = new System.Drawing.Point(497, 12);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(51, 43);
+            this.button7.TabIndex = 164;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(15, 111);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(1186, 326);
+            this.dataGridView1.TabIndex = 163;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dpickerFin3);
@@ -612,135 +742,6 @@
             this.dgv_personal.Size = new System.Drawing.Size(988, 326);
             this.dgv_personal.TabIndex = 163;
             // 
-            // dtp_fin5
-            // 
-            this.dtp_fin5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fin5.Location = new System.Drawing.Point(668, 74);
-            this.dtp_fin5.Name = "dtp_fin5";
-            this.dtp_fin5.Size = new System.Drawing.Size(100, 20);
-            this.dtp_fin5.TabIndex = 173;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(823, 71);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 172;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = global::Contabilidad.Properties.Resources.lupamedio;
-            this.button6.Location = new System.Drawing.Point(275, 77);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(38, 23);
-            this.button6.TabIndex = 171;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(67, 83);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(61, 13);
-            this.label14.TabIndex = 170;
-            this.label14.Text = "Bancos : ";
-            // 
-            // txt_banco
-            // 
-            this.txt_banco.Location = new System.Drawing.Point(137, 77);
-            this.txt_banco.Name = "txt_banco";
-            this.txt_banco.Size = new System.Drawing.Size(131, 20);
-            this.txt_banco.TabIndex = 169;
-            // 
-            // dtp_inicio4
-            // 
-            this.dtp_inicio4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_inicio4.Location = new System.Drawing.Point(437, 74);
-            this.dtp_inicio4.Name = "dtp_inicio4";
-            this.dtp_inicio4.Size = new System.Drawing.Size(100, 20);
-            this.dtp_inicio4.TabIndex = 160;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(295, 451);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 13);
-            this.label15.TabIndex = 168;
-            this.label15.Text = "Total Soles:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(370, 81);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 13);
-            this.label16.TabIndex = 161;
-            this.label16.Text = "Desde : ";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(522, 450);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 13);
-            this.label18.TabIndex = 167;
-            this.label18.Text = "Total Dólares:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(587, 81);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(52, 13);
-            this.label19.TabIndex = 162;
-            this.label19.Text = "Hasta : ";
-            // 
-            // txt_BancoDolares
-            // 
-            this.txt_BancoDolares.Enabled = false;
-            this.txt_BancoDolares.Location = new System.Drawing.Point(615, 447);
-            this.txt_BancoDolares.Name = "txt_BancoDolares";
-            this.txt_BancoDolares.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txt_BancoDolares.Size = new System.Drawing.Size(100, 20);
-            this.txt_BancoDolares.TabIndex = 166;
-            // 
-            // txt_bancoSoles
-            // 
-            this.txt_bancoSoles.Enabled = false;
-            this.txt_bancoSoles.Location = new System.Drawing.Point(382, 447);
-            this.txt_bancoSoles.Name = "txt_bancoSoles";
-            this.txt_bancoSoles.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txt_bancoSoles.Size = new System.Drawing.Size(100, 20);
-            this.txt_bancoSoles.TabIndex = 165;
-            // 
-            // button7
-            // 
-            this.button7.Image = global::Contabilidad.Properties.Resources.excel1;
-            this.button7.Location = new System.Drawing.Point(497, 12);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(51, 43);
-            this.button7.TabIndex = 164;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 111);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1186, 326);
-            this.dataGridView1.TabIndex = 163;
-            // 
             // ReporteVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,10 +760,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

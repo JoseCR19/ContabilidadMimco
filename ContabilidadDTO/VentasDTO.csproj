@@ -94,6 +94,7 @@
     <Compile Include="Nacion.cs" />
     <Compile Include="NotaReporteDTO.cs" />
     <Compile Include="OperacionBanco.cs" />
+    <Compile Include="OperacionesBancarias.cs" />
     <Compile Include="OrdenCompraCab.cs" />
     <Compile Include="OrdenCompraDet.cs" />
     <Compile Include="OtDTO.cs" />

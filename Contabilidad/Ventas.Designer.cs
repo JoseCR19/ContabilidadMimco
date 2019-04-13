@@ -63,6 +63,7 @@
             this.chequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarAbonoBancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteLetraClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuVentas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,7 +198,8 @@
             this.reporteDiarioFacturasToolStripMenuItem,
             this.documentosPorProveedorToolStripMenuItem,
             this.documentoPorProveedorTotalizadoToolStripMenuItem,
-            this.reporteChequesToolStripMenuItem});
+            this.reporteChequesToolStripMenuItem,
+            this.reporteLetraClienteToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -318,6 +320,13 @@
             this.registrarAbonoBancoToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.registrarAbonoBancoToolStripMenuItem.Text = "Registrar Abono Banco";
             // 
+            // reporteLetraClienteToolStripMenuItem
+            // 
+            this.reporteLetraClienteToolStripMenuItem.Name = "reporteLetraClienteToolStripMenuItem";
+            this.reporteLetraClienteToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.reporteLetraClienteToolStripMenuItem.Text = "Reporte Letra Cliente";
+            this.reporteLetraClienteToolStripMenuItem.Click += new System.EventHandler(this.reporteLetraClienteToolStripMenuItem_Click);
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,5 +385,6 @@
         private System.Windows.Forms.ToolStripMenuItem documentosPorProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentoPorProveedorTotalizadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteChequesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteLetraClienteToolStripMenuItem;
     }
 }

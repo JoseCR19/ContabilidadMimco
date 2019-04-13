@@ -42,38 +42,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4654592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4751872">
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TtHD4/momWP6MWpsMItDnj918Mjz8YX1hFwthjKrNQc=</dsig:DigestValue>
+        <dsig:DigestValue>0p2aZiN8/MpchCsDOsqbpIZ1FuyrtzvTbrlYAHudmcs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="124928">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDAO.dll" size="128000">
       <assemblyIdentity name="ContabilidadDAO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6Wa6gM1UPWLX9zqfPnDE1mEslvZcjv95jd4Ubq0h9xk=</dsig:DigestValue>
+        <dsig:DigestValue>zY04oB+z+f7bdctwdp+m7bRIU+pVMlzAwSv1SKfVtU4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDTO.dll" size="137728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ContabilidadDTO.dll" size="138752">
       <assemblyIdentity name="ContabilidadDTO" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZPYz1B7Ahqt0km4awC9W+OwM519DgXBc3YCLqYgqaq0=</dsig:DigestValue>
+        <dsig:DigestValue>nzGWIB2ohgx7GjywzK6462YlZNx8ukWa32iiFF0nrNU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

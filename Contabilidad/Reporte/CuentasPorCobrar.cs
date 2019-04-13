@@ -29,6 +29,9 @@ namespace Contabilidad.Reporte
             this.Text = "REPORTE DOCUMENTOS POR COBRAR";
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(20, 20);
+            cmbUnidadNegocio2();
+            gridParams2();
+            cbxanio2();
             DateTime d1, d2;
             d2 = DateTime.Now;
             d1 = new DateTime(d2.Year, d2.Month, 1);
@@ -36,8 +39,11 @@ namespace Contabilidad.Reporte
             gridParams();
             cmbUnidadNegocio();
             objVoucherDao = new VoucherDAO();
-            /*objListVentas = objVoucherDao.ListarCuentasPorCobrar(Ventas.UNIDADNEGOCIO, cbx_anio.SelectedValue.ToString() + cbx_mes.SelectedValue.ToString(), DateTime.DaysInMonth(Convert.ToInt32(cbx_anio.SelectedValue.ToString()), Convert.ToInt32(cbx_mes.SelectedValue.ToString())).ToString());*/
-            
+            objListVentas = objVoucherDao.ListarCuentasPorCobrarPorVencer(Ventas.UNIDADNEGOCIO, 0);
+            grd_Documentos2.DataSource = null;
+            grd_Documentos2.DataSource = objListVentas;
+            grd_Documentos2.Refresh();
+            sumatorias2();
 
             grd_Documentos.DataSource = objListVentas;
             grd_Documentos.Refresh();
@@ -168,8 +174,6 @@ namespace Contabilidad.Reporte
             cbx_anio.ValueMember = "value";
             cbx_anio.DataSource = objListAnio;
             cbx_anio.DropDownStyle = ComboBoxStyle.DropDownList;
-
-
         }
         void gridParams()
         {
@@ -355,6 +359,187 @@ namespace Contabilidad.Reporte
 
         private void btn_excel_Click(object sender, EventArgs e)
         {
+
+        }
+
+        void sumatorias()
+        {
+            txt_Dolares.Text = objListVentas.Where(x => x.MonedaCod == "USD").Sum(x => x.Saldo).ToString("C").Substring(3);
+            txt_Total.Text = objListVentas.Where(x => x.MonedaCod == "PEN").Sum(x => x.Saldo).ToString("C").Substring(3);
+        }
+        void sumatorias2()
+        {
+            txt_Dolares2.Text = objListVentas.Where(x => x.MonedaCod == "USD").Sum(x => x.Saldo).ToString("C").Substring(3);
+            txt_Total2.Text = objListVentas.Where(x => x.MonedaCod == "PEN").Sum(x => x.Saldo).ToString("C").Substring(3);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+        void gridParams2()
+        {
+            grd_Documentos2.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn idColumn0 = new DataGridViewTextBoxColumn();
+            idColumn0.Name = "Serie";
+            idColumn0.Width = 60;
+            idColumn0.DataPropertyName = "Serie";
+            grd_Documentos2.Columns.Add(idColumn0);
+            DataGridViewTextBoxColumn idColumnRuc = new DataGridViewTextBoxColumn();
+            idColumnRuc.Name = "RUC";
+            idColumnRuc.Width = 80;
+            idColumnRuc.DataPropertyName = "ruc";
+            grd_Documentos2.Columns.Add(idColumnRuc);
+            DataGridViewTextBoxColumn idColumnnro = new DataGridViewTextBoxColumn();
+            idColumnnro.Name = "Número";
+            idColumnnro.Width = 70;
+            idColumnnro.DataPropertyName = "Numero";
+            grd_Documentos2.Columns.Add(idColumnnro);
+            DataGridViewTextBoxColumn idColumn2 = new DataGridViewTextBoxColumn();
+            idColumn2.Name = "Razon Social";
+            idColumn2.Width = 200;
+            idColumn2.DataPropertyName = "RazonSocial";
+            grd_Documentos2.Columns.Add(idColumn2);
+            DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
+            idColumn1.Name = "Fecha";
+            idColumn1.Width = 90;
+            idColumn1.DataPropertyName = "Fecha";
+            grd_Documentos2.Columns.Add(idColumn1);
+            DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
+            idColumn3.Name = "F. Vcto";
+            idColumn3.Width = 80;
+            idColumn3.DataPropertyName = "FechaVcto";
+            grd_Documentos2.Columns.Add(idColumn3);
+            DataGridViewTextBoxColumn idColumnMoneda = new DataGridViewTextBoxColumn();
+            idColumnMoneda.Name = "Moneda";
+            idColumnMoneda.Width = 60;
+            idColumnMoneda.DataPropertyName = "MonedaCod";
+            idColumnMoneda.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumnMoneda);
+            DataGridViewTextBoxColumn idColumn5 = new DataGridViewTextBoxColumn();
+            idColumn5.Name = "Total";
+            idColumn5.Width = 80;
+            idColumn5.DataPropertyName = "Total";
+            idColumn5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumn5);
+            DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
+            idColumn6.Name = "Saldo";
+            idColumn6.Width = 80;
+            idColumn6.DataPropertyName = "Saldo";
+            idColumn6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Total Soles";
+            idColumn7.Width = 80;
+            idColumn7.DataPropertyName = "Total_soles";
+            idColumn7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumn7);
+            DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
+            idColumn8.Name = "Total Dolares";
+            idColumn8.Width = 80;
+            idColumn8.DataPropertyName = "Total_dolares";
+            idColumn8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumn8);
+            DataGridViewTextBoxColumn idColumn9 = new DataGridViewTextBoxColumn();
+            idColumn9.Name = "Ttipo de Cambio";
+            idColumn9.Width = 80;
+            idColumn9.DataPropertyName = "Cambio";
+            idColumn9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grd_Documentos2.Columns.Add(idColumn9);
+        }
+        void cbxanio2()
+        {
+            List<Anio> objListAnio = new List<Anio>();
+            Anio objA = new Anio();
+            objA.anio = "0";
+            objA.value = "0";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "30";
+            objA.value = "30";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "45";
+            objA.value = "45";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "90";
+            objA.value = "90";
+            objListAnio.Add(objA);
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "120";
+            objA.value = "120";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "180";
+            objA.value = "180";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            objA.anio = "MAS";
+            objA.value = "MAS";
+            objListAnio.Add(objA);
+
+            objA = null;
+            objA = new Anio();
+
+            cbx_dias.DisplayMember = "anio";
+            cbx_dias.ValueMember = "value";
+            cbx_dias.DataSource = objListAnio;
+            cbx_dias.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+        void cmbUnidadNegocio2()
+        {
+            List<UnidadNegocio> objList = new List<UnidadNegocio>();
+            UnidadNegocio obj = new UnidadNegocio();
+            obj.Codigo = "01";
+            obj.Negocio = "Metales";
+            objList.Add(obj);
+
+            obj = new UnidadNegocio();
+            obj.Codigo = "02";
+            obj.Negocio = "Galvanizado";
+            objList.Add(obj);
+
+            cmb_UnidadNegocio2.DataSource = objList;
+            cmb_UnidadNegocio2.ValueMember = "Codigo";
+            cmb_UnidadNegocio2.DisplayMember = "Negocio";
+            cmb_UnidadNegocio2.Refresh();
+        }
+
+        private void btn_Buscar2_Click(object sender, EventArgs e)
+        {
+            objListVentas = objVoucherDao.ListarCuentasPorCobrarPorVencer(cmb_UnidadNegocio2.SelectedValue.ToString(), Convert.ToInt32(cbx_dias.SelectedValue.ToString()));
+            grd_Documentos2.DataSource = null;
+            grd_Documentos2.DataSource = objListVentas;
+            grd_Documentos2.Refresh();
+            sumatorias2();
+        }
+
+        private void btn_Cerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Ventas.formVentas.setEnabledItems("CC");
+        }
+
+        private void btn_excel_Click_1(object sender, EventArgs e)
+        {
             try
             {
                 btn_excel.Enabled = false;
@@ -368,15 +553,19 @@ namespace Contabilidad.Reporte
             }
         }
 
-        void sumatorias()
+        private void button3_Click(object sender, EventArgs e)
         {
-            txt_Dolares.Text = objListVentas.Where(x => x.MonedaCod == "USD").Sum(x => x.Saldo).ToString("C").Substring(3);
-            txt_Total.Text = objListVentas.Where(x => x.MonedaCod == "PEN").Sum(x => x.Saldo).ToString("C").Substring(3);
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                btn_excel.Enabled = false;
+                ExportToExcelWithFormat_Simple(grd_Documentos2);
+                btn_excel.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR :" + ex.Message);
+                btn_excel.Enabled = true;
+            }
         }
     }
 }

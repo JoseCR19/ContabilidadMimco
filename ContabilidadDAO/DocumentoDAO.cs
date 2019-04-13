@@ -931,7 +931,34 @@ namespace ContabilidadDAO
             }
             return objLista;
         }
+        public List<DocumentoCab> reporteLetraCliente(String codent , DateTime d1, DateTime d2, String estado,String Ruc)
+        {
+            List<DocumentoCab> objLista = new List<DocumentoCab>();
+            DocumentoCab obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_reporteletrasporvencimientocliente",
+                   new object[] { codent, d1, d2, estado, Ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new DocumentoCab();
 
+                    obj.DocumentoCabCliente = dataReader["RazonSocial"].ToString();
+                    obj.DocumentoCabClienteDocumento = dataReader["RUC"].ToString();
+                    obj.DocumentoCabFechaVcto =Convert.ToDateTime( dataReader["FVen"]);
+                    obj.DocumentoCabTipoDoc = dataReader["Tpdoc"].ToString();
+                    obj.DocumentoCabSerie = dataReader["Serie"].ToString();
+                    obj.DocumentoCabNro = dataReader["Numero"].ToString();
+                    obj.DocumentoCabMoneda = dataReader["Moneda"].ToString();
+                    obj.DocumentoCabTotal = convertToDouble(dataReader["Total"].ToString());
+                    obj.DocumentoCabAbono = convertToDouble(dataReader["Abono"].ToString());
+                    obj.DocumentoCabSaldo = convertToDouble(dataReader["Saldo"].ToString());
+                    objLista.Add(obj);
+                }
+            }
+            return objLista;
+        }
         public List<DocumentoCab> documentoPorClienteM(String cliente, String d1, String d2, String moneda, String codent, String tipdoc)
         {
             List<DocumentoCab> objLista = new List<DocumentoCab>();

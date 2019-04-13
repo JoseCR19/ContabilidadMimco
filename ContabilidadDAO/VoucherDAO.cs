@@ -236,6 +236,56 @@ namespace ContabilidadDAO
             }
             return objList;
         }
+        public List<LetraCab> ReportelistarLetra(String CodEnt, DateTime d1, DateTime d2, String Estado, String ruc)
+        {
+
+            List<LetraCab> objList = new List<LetraCab>();
+            LetraCab obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_reporteletrasporvencimiento",
+                   new object[] { CodEnt, d1, d2, Estado, ruc });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new LetraCab();
+                    obj.TipoDoc = dataReader["TipoDoc"].ToString();
+                    obj.SerieDoc = dataReader["SerieDoc"].ToString();
+                    obj.NroDoc = dataReader["NroDoc"].ToString();
+                    obj.FecRep = Convert.ToDateTime(dataReader["FecRep"].ToString());
+                    obj.Ruc = dataReader["Ruc"].ToString();
+                    obj.Usuario = dataReader["Usuario"].ToString().Trim();
+                    obj.direccion = dataReader["Direccion"].ToString().Trim();
+                    obj.EstRep = dataReader["Estado"].ToString();
+                    obj.TipoCambio = convertToDouble(dataReader["TipoCambio"].ToString());
+                    obj.Monto = convertToDouble(dataReader["Monto"].ToString());
+                    obj.Abono = convertToDouble(dataReader["Abono"].ToString());
+                    obj.Saldo = convertToDouble(dataReader["Saldo"].ToString().Trim());
+                    obj.Temporal = convertToDouble(dataReader["Temporal"].ToString().Trim());
+                    obj.Fec_Ven = Convert.ToDateTime(dataReader["FechaVen"].ToString());
+                    obj.Moneda = dataReader["Moneda"].ToString();
+                    obj.Fec_Pago = dataReader["FechaPago"].ToString();
+                    obj.Fec_Compromiso = Convert.ToDateTime(dataReader["FechaCompromiso"].ToString());
+                    obj.Estado_Doc = dataReader["EstadoDoc"].ToString();
+                    //obj.Fecha_hora_entrega =Convert.ToDateTime(dataReader["FechaEntrega"].ToString());
+                    //obj.Hora_Entrega =Convert.ToDateTime( dataReader["HoraEntrega"].ToString().Trim());
+                    obj.NomProv = dataReader["RazonSocial"].ToString();
+                    obj.ImporteTotal = convertToDouble(dataReader["ImporteTotal"].ToString());
+                    obj.NroRegistro = dataReader["NroRegistro"].ToString();
+                    if (obj.EstRep == "A")
+                    {
+                        obj.Anulado = "ANULADO";
+                    }
+                    else
+                    {
+                        obj.Anulado = "PROCESADO";
+                    }
+                    objList.Add(obj);
+
+                }
+            }
+            return objList;
+        }
         public List<Voucher> listarVoucher(String CodEnt, DateTime d1, DateTime d2, String Estado)
         {
             
@@ -365,6 +415,7 @@ namespace ContabilidadDAO
                     obj.RazonSocial = dataReader["RazonSocial"].ToString();
                     //obj.FechaEmiRef =Convert.ToDateTime(dataReader["FechaRefe"].ToString());
                     obj.FechaEmiRef = dataReader["FechaRefe"].ToString().Substring(0,10);
+                    obj.TAOB = dataReader["TAOB"].ToString().Trim();
                     objList.Add(obj);
                 }
             }
@@ -543,6 +594,44 @@ namespace ContabilidadDAO
             }
             return objList;
         }
+        public List<Ventas> ListarCuentasPorPagarVencer(String CodEnt, int d1)
+        {
+            /*LISTA PARA REPORTES*/
+            List<Ventas> objList = new List<Ventas>();
+
+            Ventas obj;
+
+
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_cuentasPorPagarVencer",
+                   new object[] { CodEnt, d1});
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new Ventas();
+                    obj.CodEnt = dataReader["Entidad"].ToString();
+                    obj.VentasId = dataReader["NroRegistro"].ToString().Trim();
+                    obj.TipoDocumentoCod = dataReader["TipDocCod"].ToString().Trim();
+                    obj.TipoDocumento = dataReader["TipoDocumento"].ToString();
+                    obj.Serie = dataReader["serDoc"].ToString();
+                    obj.Numero = dataReader["Doc"].ToString();
+                    obj.Total = convertToDouble(dataReader["total"].ToString().Trim());
+                    obj.Ruc = dataReader["RUC"].ToString().Trim();
+                    obj.RazonSocial = dataReader["RazonSocial"].ToString().Trim();
+                    obj.FechaEmision = Convert.ToDateTime(dataReader["FechaDoc"].ToString().Trim()).ToString("dd/MM/yyyy");
+                    obj.FechaVcto = Convert.ToDateTime(dataReader["FechaVen"].ToString().Trim()).ToString("dd/MM/yyyy");
+                    obj.NroOt = dataReader["NroOt"].ToString().Trim();
+                    obj.Moneda = dataReader["Moneda"].ToString().Trim();
+                    obj.total_soles = convertToDouble(dataReader["TotalSoles"].ToString().Trim());
+                    obj.total_dolares = convertToDouble(dataReader["TotalDolares"].ToString().Trim());
+                    obj.TipoCambio = convertToDouble(dataReader["Cambio"].ToString().Trim());
+                    objList.Add(obj);
+                }
+            }
+            return objList;
+        }
 
         public List<FacturaAbono> ListarCuentasPorCobrar (String CodEnt, String d1, String d2)
         {
@@ -576,7 +665,39 @@ namespace ContabilidadDAO
                 }
             }
             
+            return objList;
+        }
+        public List<FacturaAbono> ListarCuentasPorCobrarPorVencer(String CodEnt, int d1)
+        {
+            List<FacturaAbono> objList = new List<FacturaAbono>();
 
+            FacturaAbono obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_cuentasPorCobrarVencer",
+                   new object[] { CodEnt, d1 });
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new FacturaAbono();
+                    obj.NroOt = dataReader["NroOt"].ToString().Trim();
+                    obj.Serie = dataReader["Serie"].ToString();
+                    obj.Numero = dataReader["Nro"].ToString();
+                    obj.TipoDoc = dataReader["TipDocCod"].ToString().Trim();
+                    obj.Total = convertToDouble(dataReader["Total"].ToString().Trim());
+                    obj.Ruc = dataReader["Ruc"].ToString().Trim();
+                    obj.RazonSocial = dataReader["RazonSocial"].ToString().Trim();
+                    obj.Fecha = Convert.ToDateTime(dataReader["Fecha"].ToString().Trim()).ToString("dd/MM/yyyy");
+                    obj.FechaVcto = Convert.ToDateTime(dataReader["FechaVcto"].ToString().Trim()).ToString("dd/MM/yyyy");
+                    obj.MonedaCod = dataReader["Moneda"].ToString().Trim();
+                    obj.Saldo = convertToDouble(dataReader["Saldo"].ToString().Trim());
+                    obj.Total_soles = convertToDouble(dataReader["Total_soles"].ToString().Trim());
+                    obj.Total_dolares = convertToDouble(dataReader["Total_dolares"].ToString().Trim());
+                    obj.Cambio = convertToDouble(dataReader["Cambio"].ToString().Trim());
+                    objList.Add(obj);
+                }
+            }
 
             return objList;
         }
@@ -762,8 +883,8 @@ namespace ContabilidadDAO
                     obj.Banco = dataReader["Banco"].ToString();
                     obj.Moneda = dataReader["CodMoneda"].ToString();
                     obj.Monto = convertToDouble( dataReader["Monto"].ToString());
-                    obj.FechaEmision = Convert.ToDateTime( dataReader["FechaEmision"].ToString());
-                    obj.FechaVcto = Convert.ToDateTime( dataReader["FechaVcto"].ToString());
+                    obj.FechaEmision = dataReader["FechaEmision"].ToString();
+                    obj.FechaVcto =dataReader["FechaVcto"].ToString();
                     objList.Add(obj);
                 }
             }
@@ -971,7 +1092,7 @@ namespace ContabilidadDAO
                    new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.Item,
                        obj.Importe, obj.Descripcion, obj.SerieDocRef, obj.NumeroDocRef,obj.TipDocRef,
                       obj.CodOt, obj.TipoPagoCod, obj.numeroRegistro,obj.NroOt,obj.Documento,obj.DirOt,
-                       obj.CodOtReal,obj.NroOtReal,obj.DirOtReal,obj.RazonSocial,obj.FechaEmiRef});
+                       obj.CodOtReal,obj.NroOtReal,obj.DirOtReal,obj.RazonSocial,obj.FechaEmiRef,obj.TAOB});
 
 
             try
@@ -1134,7 +1255,7 @@ namespace ContabilidadDAO
             Database db = DatabaseFactory.CreateDatabase("Conta");
             DbCommand dbCommand = db.GetStoredProcCommand("sp_insertPrestamoBancario",
                    new object[] {  obj.CodBanco, obj.Moneda,  obj.Monto,
-                       obj.FechaEmision, obj.FechaVcto, Usuario});
+                       obj.FechaEmision, obj.FechaVcto, Usuario,obj.Banco,obj.NroCuenta,obj.Saldo});
             try
             {
                 db.ExecuteScalar(dbCommand);

@@ -13,8 +13,11 @@ namespace ContabilidadDTO
         public String Banco { get; set; }
         public String Moneda { get; set; }
         public Double Monto { get; set; }
-        public DateTime FechaEmision { get; set; }
-        public DateTime FechaVcto { get; set; }
+        public String FechaEmision { get; set; }
+        public String FechaVcto { get; set; }
         public Boolean chkSelc { get; set; }
+        public String NroCuenta { get; set; }
+        public Double Abono { get; set;}
+        public Double Saldo { get; set;}
     }
 }

@@ -60,11 +60,18 @@ namespace Contabilidad
             documentosPorProveedorToolStripMenuItem.Click += DocumentosPorProveedorToolStripMenuItem_Click;
             documentoPorProveedorTotalizadoToolStripMenuItem.Click += DocumentoPorProveedorTotalizadoToolStripMenuItem_Click;
             reporteChequesToolStripMenuItem.Click += ReporteChequesToolStripMenuItem_Click;
+            reporteLetraClienteToolStripMenuItem.Click += ReporteLetraClienteToolStripMenuItem_Click;
         }
         private void CanjearLetrasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             canjearLetrasToolStripMenuItem.Enabled = false;
             Facturacion.CanjeLetra Check = new Facturacion.CanjeLetra();
+            Check.Show();
+        }
+        private void ReporteLetraClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reporteLetraClienteToolStripMenuItem.Enabled = false;
+            Reporte.ReporteLetraCliente Check = new Reporte.ReporteLetraCliente();
             Check.Show();
         }
         private void DocumentoPorProveedorTotalizadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -289,6 +296,9 @@ namespace Contabilidad
                 case "RPCH":
                     reporteChequesToolStripMenuItem.Enabled = true;
                     break;
+                case "RLC":
+                    reporteLetraClienteToolStripMenuItem.Enabled = true;
+                    break;
             }
         }
 
@@ -315,6 +325,11 @@ namespace Contabilidad
         }
 
         private void canjearLetrasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reporteLetraClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

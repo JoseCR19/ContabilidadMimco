@@ -451,6 +451,12 @@
     <Compile Include="Reporte\CuentasPorCobrar.Designer.cs">
       <DependentUpon>CuentasPorCobrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\CuentasPorCobrarVencer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\CuentasPorCobrarVencer.Designer.cs">
+      <DependentUpon>CuentasPorCobrarVencer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\CuentasPorPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -573,6 +579,12 @@
     <Compile Include="Reporte\ReporteFacturaProveeodr.Designer.cs">
       <DependentUpon>ReporteFacturaProveeodr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\ReporteLetraCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\ReporteLetraCliente.Designer.cs">
+      <DependentUpon>ReporteLetraCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ReporteVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -667,6 +679,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteDiarioC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\ReporteLetraVencimineto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteLetraVencimineto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\ReporteMensualProveedor.cs">
@@ -855,6 +873,9 @@
     <EmbeddedResource Include="Reporte\CuentasPorCobrar.resx">
       <DependentUpon>CuentasPorCobrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\CuentasPorCobrarVencer.resx">
+      <DependentUpon>CuentasPorCobrarVencer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\CuentasPorPagar.resx">
       <DependentUpon>CuentasPorPagar.cs</DependentUpon>
     </EmbeddedResource>
@@ -920,6 +941,9 @@
     <EmbeddedResource Include="Reporte\ReporteFacturaProveeodr.resx">
       <DependentUpon>ReporteFacturaProveeodr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteLetraCliente.resx">
+      <DependentUpon>ReporteLetraCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ReporteVoucher.resx">
       <DependentUpon>ReporteVoucher.cs</DependentUpon>
     </EmbeddedResource>
@@ -981,6 +1005,10 @@
     <EmbeddedResource Include="Report\ReporteDiarioC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteDiarioC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReporteLetraVencimineto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteLetraVencimineto.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReporteMensualProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -59,14 +59,14 @@
             this.grdSolicita.Name = "grdSolicita";
             this.grdSolicita.ReadOnly = true;
             this.grdSolicita.RowHeadersVisible = false;
-            this.grdSolicita.Size = new System.Drawing.Size(456, 192);
+            this.grdSolicita.Size = new System.Drawing.Size(456, 326);
             this.grdSolicita.TabIndex = 18;
             // 
             // LoVTipoPagoVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 253);
+            this.ClientSize = new System.Drawing.Size(484, 389);
             this.Controls.Add(this.lbl_Solicita);
             this.Controls.Add(this.txt_Busqueda);
             this.Controls.Add(this.grdSolicita);

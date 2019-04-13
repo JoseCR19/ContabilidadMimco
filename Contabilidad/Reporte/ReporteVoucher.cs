@@ -435,5 +435,10 @@ namespace Contabilidad.Reporte
                 buscarBancoForm.ShowDialog();
             }
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace Contabilidad.Caja
         List<OperacionBanco> objListaOperacionBanco = new List<OperacionBanco>();
         List<Ejercicio> objListaEjercicio = new List<Ejercicio>();
         List<Periodo> objListaPeriodo = new List<Periodo>();
+        List<OperacionesBancarias> objlistaoperacionesbancarias = new List<OperacionesBancarias>();
         List<PrestamoBancario> objListPrestamoBancario = new List<PrestamoBancario>();
         public static List<VoucherReporte> objListaVoucherReporte = new List<VoucherReporte>();
 
@@ -58,7 +59,7 @@ namespace Contabilidad.Caja
         PagoVoucherDAO objPagoVoucherDao;
         ChequeDAO objChequeDAO;
         DocumentoDAO objDocumentoDAO;
-
+        OperacionesBancarias objOpeBan;
 
         TipoDocumentoEmision objTipoDocumentoEmision;
         Voucher objVoucher;
@@ -101,7 +102,9 @@ namespace Contabilidad.Caja
             objEjercicio = new Ejercicio();
             objPeriodo = new Periodo();
             objChequeDAO = new ChequeDAO();
+            objOpeBan = new OperacionesBancarias();
             RUC = txt_SolicitanteCod.Text;
+            cmbopebank();
             cmbMoneda();
             cmbejercicio();
             cmbperiodo();
@@ -502,6 +505,7 @@ namespace Contabilidad.Caja
             objListTipoPagoVoucher = objLoVDao.getLovTipoPagoVoucher();
         }
         private void Txt_SolicitanteCod_TextChanged(object sender, EventArgs e)
+
         {
             String SolicitaCod = cmb_TipoSolicitante.SelectedValue.ToString();
             switch (SolicitaCod)
@@ -795,6 +799,51 @@ namespace Contabilidad.Caja
             cmb_ejercicio2.DisplayMember = "Descripcion";
             cmb_ejercicio2.Refresh();
         }
+        void cmbopebank()
+        {
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "01";
+            objOpeBan.Descripcion = " ";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "02";
+            objOpeBan.Descripcion = "COMISIONES";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "03";
+            objOpeBan.Descripcion = "PORTES";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "04";
+            objOpeBan.Descripcion = "COMISION POR EMISION DE CARTA FIANZA";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "05";
+            objOpeBan.Descripcion = "INTERESES DE PAGARES";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "06";
+            objOpeBan.Descripcion = "COMISIONES POR DESEMBOLSO";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "07";
+            objOpeBan.Descripcion = "INTERESES DE FACTORING";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "08";
+            objOpeBan.Descripcion = "INTERESES DESCUENTO DE LETRAS";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "09";
+            objOpeBan.Descripcion = "GASTOS ADMINISTRATIVOS";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            objOpeBan = new OperacionesBancarias();
+            objOpeBan.Id = "10";
+            objOpeBan.Descripcion = "DIFERENCIA TIPO CAMBIO";
+            objlistaoperacionesbancarias.Add(objOpeBan);
+            cmb_OperacionesBanc.DataSource = objlistaoperacionesbancarias;
+            cmb_OperacionesBanc.Refresh();
+        }
         void cmbperiodo()
         {
             objPeriodo = new Periodo();
@@ -879,9 +928,6 @@ namespace Contabilidad.Caja
             ListaEmisionVoucher Check = new ListaEmisionVoucher();
             Check.Show();
             btn_SaveData.Enabled = true;
-
-
-
 
         }
         public void tipoCambio(String date)
@@ -1073,7 +1119,7 @@ namespace Contabilidad.Caja
             {
                 if (editar == true)
                 {
-                    objListaVoucherDet[index].Importe = Convert.ToInt32(txt_Importe.Text.ToString());
+                    objListaVoucherDet[index].Importe = Convert.ToDouble(txt_Importe.Text.ToString());
                     grd_VoucherDet.DataSource = null;
                     grd_VoucherDet.DataSource = objListaVoucherDet;
                     grd_VoucherDet.Refresh();
@@ -1101,9 +1147,6 @@ namespace Contabilidad.Caja
                     }
                     objvou.Item = objListaVoucherDet.Count + 1;
                     objListaVoucherDet.Add(objvou);
-                    grd_VoucherDet.DataSource = null;
-                    grd_VoucherDet.DataSource = objListaVoucherDet;
-                    grd_VoucherDet.Refresh();
                     txt_Importe.Text = " ";
                     txt_RazonSocial.Text = " ";
                     txt_NroDoc.Text = " ";
@@ -1112,6 +1155,9 @@ namespace Contabilidad.Caja
                     habilitarBotones(false, true);
                     sumatoria();
                     editar = false;
+                    grd_VoucherDet.DataSource = null;
+                    grd_VoucherDet.DataSource = objListaVoucherDet;
+                    grd_VoucherDet.Refresh();
                 }
                 count++;
             }
@@ -1162,6 +1208,9 @@ namespace Contabilidad.Caja
             else
             {
                 objListaVoucherDet[index].Importe = Convert.ToDouble(txt_Importe.Text.ToString());
+                
+                /*objListaVoucherDet[index].TAOB = cmb_OperacionesBanc.SelectedValue.ToString();*/
+                objListaVoucherDet[index].TAOB = cmb_OperacionesBanc.Text;
                 grd_VoucherDet.DataSource = null;
                 grd_VoucherDet.DataSource = objListaVoucherDet;
                 grd_VoucherDet.Refresh();
@@ -1293,14 +1342,6 @@ namespace Contabilidad.Caja
                 }
                 if (insert)
                 {
-                    if (String.IsNullOrEmpty(txt_NroCheque.Text))
-                    {
-
-                    }
-                    else if (!String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "02" || !String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "03")
-                    {
-                        objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
-                    }
                     MessageBox.Show("Voucher Guardado exitosamente");
                     btn_SaveData.Enabled = true;
                     string MessageBoxTitle = "Voucher";
@@ -1315,7 +1356,7 @@ namespace Contabilidad.Caja
                             btn_Reporte.Enabled = false;
                             objListaVoucherReporte = new List<VoucherReporte>();
 
-                            formatearVoucher();
+                            formatearVoucher2();
                             if (objVoucher.MonedaCod == "USD")
                             {
                                 reportetipo = "VOD";
@@ -1364,10 +1405,33 @@ namespace Contabilidad.Caja
                 for (int i = 0; i < objListaVoucherDet.Count; i++)
                 {
                     objListaVoucherDet[i].CodEnt = "01";
+
                     /*se genera el detalle del voucher*/
+                    if(txt_MovCod.Text.ToString()=="02")
+                    {
+                        if (objListaVoucherDet[i].TAOB.ToString() == "01")
+                        {
+                            objListaVoucherDet[i].TAOB = txt_Movimiento.Text;
+                        }
+                        else
+                        {
+                            objListaVoucherDet[i].TAOB = cmb_OperacionesBanc.Text.ToString();
+                            objListaVoucherDet[i].Item = i + 1;
+                        }
+                    }
+                    objListaVoucherDet[i].TAOB = txt_Movimiento.Text;
+                    if (txt_MovCod.Text.ToString() == "08")
+                    {
+                        objListaVoucherDet[i].FechaEmiRef = dpick_FechaEmision.Value.ToString();
+                    }
+
                     insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
                     /*se inserta el Prestamo Bancario*/
-                    /*objVoucherDao.insertarPrestamoBancario(objListPrestamoBancario[i],"01");*/
+                    if(txt_MovCod.Text.ToString()=="08")
+                    {
+                        objListaVoucherDet[i].FechaEmiRef = dpick_FechaEmision.Value.ToString();
+                        objVoucherDao.insertarPrestamoBancario(objListPrestamoBancario[i], Ventas.UsuarioSession);
+                    }
 
                     if (insert == false)
                     {
@@ -1415,11 +1479,7 @@ namespace Contabilidad.Caja
                 }
                 if (insert)
                 {
-                    if (String.IsNullOrEmpty(txt_NroCheque.Text))
-                    {
-
-                    }
-                    else if (!String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "02" || !String.IsNullOrEmpty(txt_NroCheque.Text) && cmb_Operacion.SelectedValue.ToString() == "03")
+                   if(cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03")
                     {
                         objChequeDAO.updateNroChequeActual(objVoucher.CodEnt, objVoucher.BancoCod, objVoucher.MonedaCod, txt_NroCheque.Text);
                     }
@@ -1438,7 +1498,7 @@ namespace Contabilidad.Caja
                             btn_Reporte.Enabled = false;
                             objListaVoucherReporte = new List<VoucherReporte>();
 
-                            formatearVoucher();
+                            formatearVoucher2();
                             if (objVoucher.MonedaCod == "USD")
                             {
                                 reportetipo = "VOD";
@@ -1536,7 +1596,8 @@ namespace Contabilidad.Caja
 
             txt_TotalDocumento.Text = total.ToString();
         }
-        void formatearVoucher()
+
+        void formatearVoucher2()
         {
             if (objListaVoucherDet.Count >= 1)
             {
@@ -1544,10 +1605,10 @@ namespace Contabilidad.Caja
                 {
                     VoucherReporte objVoucherReporte;
                     objVoucherReporte = new VoucherReporte();
-                    objVoucherReporte.Banco = objVoucher.Banco;
+                    objVoucherReporte.Banco = txt_Banco.Text.ToString();
                     objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
                     objVoucherReporte.Monto = txt_Total.Text /*.Substring(3)*/;
-                    if(cmb_Moneda.SelectedValue.ToString()=="PEN")
+                    if (cmb_Moneda.SelectedValue.ToString() == "PEN")
                     {
                         objVoucher.Moneda = "SOLES";
                     }
@@ -1557,6 +1618,7 @@ namespace Contabilidad.Caja
                     }
                     objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
                     /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
+
                     correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                     if (OperacionGuardar == "M" || ListaEmisionVoucher.operacionVoucher == "V")
                     {
@@ -1583,7 +1645,123 @@ namespace Contabilidad.Caja
                     {
                         objVoucherReporte.Anulado = "A N U L A D O";
                     }
-                    objVoucherReporte.Descripcion = txt_Movimiento.Text;
+                    objVoucherReporte.Descripcion = objListaVoucherDet[i].TAOB.ToString();
+                    objVoucherReporte.FechaEmision = objListaVoucherDet[i].FechaEmiRef.ToString();
+                    if (OperacionGuardar == "M")
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    }
+                    else if (OperacionGuardar == "A")
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    }
+                    else
+                    {
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
+                    }
+                    objVoucherReporte.NroDocumento = objListaVoucherDet[i].Descripcion;
+
+                    objVoucherReporte.Ruc = objListaVoucherDet[i].NroOt + " " + "-" + " " + objListaVoucherDet[i].DirOt;
+
+                    objListaVoucherReporte.Add(objVoucherReporte);
+                }
+            }
+            else
+            {
+                VoucherReporte objVoucherReporte;
+                // for (int i = 0; i < objListaVoucherDet.Count; i++)
+                // {
+                objVoucherReporte = new VoucherReporte();
+                objVoucherReporte.Banco = objVoucher.Banco;
+                //objVoucherReporte.Descripcion = objListaVoucherDet[i].Descripcion;
+                objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
+                //objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("C").Substring(3);
+                objVoucherReporte.Monto = objVoucher.Monto.ToString("G")/*.Substring(3)*/;
+                objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda.TrimEnd();
+                objVoucherReporte.NroCheque = objVoucher.NumeroCheque;
+                //objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
+                correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
+                if (OperacionGuardar == "M")
+                {
+                    objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
+                }
+                else
+                {
+                    objVoucherDet.NumeroVoucher = correlativo;
+                }
+                objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
+                objVoucherReporte.Observacion = objVoucher.Observacion;
+                objVoucherReporte.Persona = objVoucher.Solicitante;
+                if (objVoucher.TpersonaCod == "04")
+                {
+                    objVoucherReporte.PersonaDocumento = "";
+                }
+                else
+                {
+                    objVoucherReporte.PersonaDocumento = objVoucher.SolicitaCod;
+                }
+                if (objVoucher.Estado == "A")
+                {
+                    objVoucherReporte.Anulado = "A N U L A D O";
+                }
+
+                //objVoucherReporte.RazonSocial = objListaVoucherDet[i].
+                //objVoucherReporte.Ruc = objListaVoucherDet[i].
+                objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
+                objVoucherReporte.Usuario = Ventas.UsuarioSession;
+                objListaVoucherReporte.Add(objVoucherReporte);
+                // }
+            }
+        }
+        void formatearVoucher()
+        {
+            if (objListaVoucherDet.Count >= 1)
+            {
+                for (int i = 0; i < objListaVoucherDet.Count; i++)
+                {
+                    VoucherReporte objVoucherReporte;
+                    objVoucherReporte = new VoucherReporte();
+                    objVoucherReporte.Banco = objVoucher.Banco;
+                    objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
+                    objVoucherReporte.Monto = txt_Total.Text /*.Substring(3)*/;
+                    if(cmb_Moneda.SelectedValue.ToString()=="PEN")
+                    {
+                        objVoucher.Moneda = "SOLES";
+                    }
+                    else
+                    {
+                        objVoucher.Moneda = "DOLARES AMERICANOS";
+                    }
+                    objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
+                    /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
+
+                    correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
+                    if (OperacionGuardar == "M" || ListaEmisionVoucher.operacionVoucher == "V")
+                    {
+                        objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
+                    }
+                    else
+                    {
+                        objVoucherDet.NumeroVoucher = correlativo;
+                    }
+                    objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
+                    objVoucherReporte.Observacion = objVoucher.Observacion;
+                    objVoucherReporte.Persona = txt_Solicitante.Text;
+                    objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
+                    objVoucherReporte.Usuario = Ventas.UsuarioSession;
+                    if (objVoucher.TpersonaCod == "04")
+                    {
+                        objVoucherReporte.PersonaDocumento = "";
+                    }
+                    else
+                    {
+                        objVoucherReporte.PersonaDocumento = objVoucher.SolicitaCod;
+                    }
+                    if (objVoucher.Estado == "A")
+                    {
+                        objVoucherReporte.Anulado = "A N U L A D O";
+                    }
+                    objVoucherReporte.Descripcion = objListaVoucherDet[i].TAOB.ToString();
                     objVoucherReporte.FechaEmision = objListaVoucherDet[i].FechaEmiRef.ToString();
                     if(OperacionGuardar=="M")
                     {
@@ -1595,9 +1773,8 @@ namespace Contabilidad.Caja
                     }
                     else
                     {
-                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].ImporteReporte.ToString("0.00");
+                        objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00");
                     }
-
                     objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
 
                     objVoucherReporte.Ruc = objListaVoucherDet[i].NroOt + " " + "-" + " " + objListaVoucherDet[i].DirOt;
@@ -2032,6 +2209,8 @@ namespace Contabilidad.Caja
             idColumn6.Width = 100;
             grd_VoucherDet.Columns.Add(idColumn6);
 
+
+            grd_VoucherDet.Columns.Add(idColumn6);
             grd_VoucherDet.Columns[4].Visible = false;
             grd_VoucherDet.Columns[5].Visible = false;
             grd_VoucherDet.Columns[6].Visible = false;
@@ -2096,7 +2275,7 @@ namespace Contabilidad.Caja
             DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
             idColumn4.Name = "Fecha";
             idColumn4.DataPropertyName = "FechaEmiRef";
-            idColumn4.DefaultCellStyle.Format = "dd/MM/yyyy";
+            idColumn4.DefaultCellStyle.ToString();
             idColumn4.Width = 80;
             grd_VoucherDet.Columns.Add(idColumn4);
             DataGridViewTextBoxColumn idColumn2 = new DataGridViewTextBoxColumn();
@@ -2370,21 +2549,24 @@ namespace Contabilidad.Caja
             //objListaVoucherDet = new List<VoucherDet>();
             if (grd_VoucherDet.Columns.Count > 1)
             {
-
-                grd_VoucherDet.Columns.RemoveAt(0);
-                grd_VoucherDet.Columns.RemoveAt(0);
-                grd_VoucherDet.Columns.RemoveAt(0);
-                grd_VoucherDet.Columns.RemoveAt(0);
-                grd_VoucherDet.Columns.RemoveAt(0);
+                grd_VoucherDet.Columns.Remove("N° OT");
+                grd_VoucherDet.Columns.Remove("Descripcion/N°Comprobante");
+                grd_VoucherDet.Columns.Remove("F.E");
+                grd_VoucherDet.Columns.Remove("N°Doc");
+                grd_VoucherDet.Columns.Remove("Razon Social");
+                grd_VoucherDet.Columns.Remove("Importe");
+                grd_VoucherDet.Columns.Remove("Tipo Cambio");
+                grd_VoucherDet.Columns.Remove("Moneda");
+                grd_VoucherDet.Columns.Remove("TAOB");
             }
 
             //  objListaFacturaAbono = objList;
             grd_VoucherDet.AutoGenerateColumns = false;
-            DataGridViewTextBoxColumn idColumnOT = new DataGridViewTextBoxColumn();
-            idColumnOT.Name = "N° OT";
-            idColumnOT.DataPropertyName = "NroOt";
-            idColumnOT.Width = 70;
-            grd_VoucherDet.Columns.Add(idColumnOT);
+            DataGridViewTextBoxColumn idColumn0 = new DataGridViewTextBoxColumn();
+            idColumn0.Name = "N° OT";
+            idColumn0.DataPropertyName = "NroOt";
+            idColumn0.Width = 70;
+            grd_VoucherDet.Columns.Add(idColumn0);
             DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
             idColumn1.Name = "Descripcion/N°Comprobante";
             idColumn1.DataPropertyName = "Descripcion";
@@ -2395,32 +2577,37 @@ namespace Contabilidad.Caja
             idColumn2.DataPropertyName = "FechaEmiRef";
             idColumn2.Width = 80;
             grd_VoucherDet.Columns.Add(idColumn2);
-            DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
-            idColumn4.Name = "N°Doc";
-            idColumn4.DataPropertyName = "Documento";
-            idColumn4.Width = 90;
-            grd_VoucherDet.Columns.Add(idColumn4);
-            DataGridViewTextBoxColumn idColumnR = new DataGridViewTextBoxColumn();
-            idColumnR.Name = "Razon Social";
-            idColumnR.DataPropertyName = "RazonSocial";
-            idColumnR.Width = 300;
-            grd_VoucherDet.Columns.Add(idColumnR);
             DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
-            idColumn3.Name = "Importe";
-            idColumn3.DataPropertyName = "Importe";
-            idColumn3.DefaultCellStyle.Format = ".00";
-            idColumn3.Width = 80;
+            idColumn3.Name = "N°Doc";
+            idColumn3.DataPropertyName = "Documento";
+            idColumn3.Width = 90;
             grd_VoucherDet.Columns.Add(idColumn3);
+            DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
+            idColumn4.Name = "Razon Social";
+            idColumn4.DataPropertyName = "RazonSocial";
+            idColumn4.Width = 300;
+            grd_VoucherDet.Columns.Add(idColumn4);
             DataGridViewTextBoxColumn idColumn5 = new DataGridViewTextBoxColumn();
-            idColumn5.Name = "Tipo Cambio";
-            idColumn5.DataPropertyName = "TC";
+            idColumn5.Name = "Importe";
+            idColumn5.DataPropertyName = "Importe";
+            idColumn5.DefaultCellStyle.Format = ".00";
             idColumn5.Width = 80;
             grd_VoucherDet.Columns.Add(idColumn5);
             DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
-            idColumn6.Name = "Moneda";
-            idColumn6.DataPropertyName = "Moneda";
+            idColumn6.Name = "Tipo Cambio";
+            idColumn6.DataPropertyName = "TC";
             idColumn6.Width = 80;
             grd_VoucherDet.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Moneda";
+            idColumn7.DataPropertyName = "Moneda";
+            idColumn7.Width = 80;
+            grd_VoucherDet.Columns.Add(idColumn7);
+            DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
+            idColumn8.Name = "TAOB";
+            idColumn8.DataPropertyName = "TAOB";
+            idColumn8.Width = 80;
+            grd_VoucherDet.Columns.Add(idColumn8);
 
             for (int i = 0; i < objList.Count; i++)
             {
@@ -2434,6 +2621,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.Importe = objList[i].TotalSoles;
                 objVoucherDet.TC = objList[i].TipoCambio;
                 objVoucherDet.Moneda = objList[i].MonedaCod;
+                objVoucherDet.TAOB = cmb_OperacionesBanc.SelectedValue.ToString();
                 //objVoucherDet.numeroRegistro = objList[i].VentasId;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                 if (OperacionGuardar == "M")

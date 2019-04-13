@@ -1282,3 +1282,5 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilid
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteFacturaProveedorTotalizado.resources
 G:\sistema\Version11\Contabilidad\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteChueques.resources
 G:\sistema\Version11\Contabilidad\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteFacturaProveedorTotalizado.resources
+G:\sistema\Version11\Contabilidad\Contabilidad\obj\Debug\Contabilidad.Reporte.ReporteLetraCliente.resources
+G:\sistema\Version11\Contabilidad\Contabilidad\obj\Debug\Contabilidad.Reporte.CuentasPorCobrarVencer.resources

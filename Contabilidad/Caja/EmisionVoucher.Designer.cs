@@ -94,6 +94,8 @@
             this.btn_Rest = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_30 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cmb_OperacionesBanc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd_VoucherDet)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +103,7 @@
             // grd_VoucherDet
             // 
             this.grd_VoucherDet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd_VoucherDet.Location = new System.Drawing.Point(16, 335);
+            this.grd_VoucherDet.Location = new System.Drawing.Point(16, 359);
             this.grd_VoucherDet.Name = "grd_VoucherDet";
             this.grd_VoucherDet.ReadOnly = true;
             this.grd_VoucherDet.RowHeadersVisible = false;
@@ -500,7 +502,7 @@
             // 
             // txt_codot
             // 
-            this.txt_codot.Location = new System.Drawing.Point(15, 575);
+            this.txt_codot.Location = new System.Drawing.Point(15, 596);
             this.txt_codot.Name = "txt_codot";
             this.txt_codot.Size = new System.Drawing.Size(100, 20);
             this.txt_codot.TabIndex = 127;
@@ -510,7 +512,7 @@
             // 
             this.txt_Total.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txt_Total.Enabled = false;
-            this.txt_Total.Location = new System.Drawing.Point(632, 605);
+            this.txt_Total.Location = new System.Drawing.Point(632, 623);
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.Size = new System.Drawing.Size(92, 20);
             this.txt_Total.TabIndex = 128;
@@ -520,7 +522,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(555, 611);
+            this.label17.Location = new System.Drawing.Point(555, 629);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(44, 13);
             this.label17.TabIndex = 129;
@@ -528,14 +530,14 @@
             // 
             // txt_CuentaContable
             // 
-            this.txt_CuentaContable.Location = new System.Drawing.Point(15, 598);
+            this.txt_CuentaContable.Location = new System.Drawing.Point(15, 619);
             this.txt_CuentaContable.Name = "txt_CuentaContable";
             this.txt_CuentaContable.Size = new System.Drawing.Size(100, 20);
             this.txt_CuentaContable.TabIndex = 130;
             // 
             // txt_NumReg
             // 
-            this.txt_NumReg.Location = new System.Drawing.Point(121, 575);
+            this.txt_NumReg.Location = new System.Drawing.Point(121, 596);
             this.txt_NumReg.Name = "txt_NumReg";
             this.txt_NumReg.Size = new System.Drawing.Size(100, 20);
             this.txt_NumReg.TabIndex = 133;
@@ -543,7 +545,7 @@
             // 
             // txt_TotalDocumento
             // 
-            this.txt_TotalDocumento.Location = new System.Drawing.Point(118, 602);
+            this.txt_TotalDocumento.Location = new System.Drawing.Point(118, 623);
             this.txt_TotalDocumento.Name = "txt_TotalDocumento";
             this.txt_TotalDocumento.Size = new System.Drawing.Size(100, 20);
             this.txt_TotalDocumento.TabIndex = 134;
@@ -572,7 +574,7 @@
             // btn_SaveData
             // 
             this.btn_SaveData.Image = global::Contabilidad.Properties.Resources.saveopt;
-            this.btn_SaveData.Location = new System.Drawing.Point(312, 572);
+            this.btn_SaveData.Location = new System.Drawing.Point(308, 597);
             this.btn_SaveData.Name = "btn_SaveData";
             this.btn_SaveData.Size = new System.Drawing.Size(48, 46);
             this.btn_SaveData.TabIndex = 111;
@@ -582,7 +584,7 @@
             // btn_Limpiar
             // 
             this.btn_Limpiar.Image = global::Contabilidad.Properties.Resources.undocolor;
-            this.btn_Limpiar.Location = new System.Drawing.Point(437, 572);
+            this.btn_Limpiar.Location = new System.Drawing.Point(433, 597);
             this.btn_Limpiar.Name = "btn_Limpiar";
             this.btn_Limpiar.Size = new System.Drawing.Size(48, 46);
             this.btn_Limpiar.TabIndex = 110;
@@ -593,7 +595,7 @@
             // 
             this.btn_Guardar.Enabled = false;
             this.btn_Guardar.Image = global::Contabilidad.Properties.Resources.guardar;
-            this.btn_Guardar.Location = new System.Drawing.Point(748, 286);
+            this.btn_Guardar.Location = new System.Drawing.Point(756, 316);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(41, 37);
             this.btn_Guardar.TabIndex = 88;
@@ -604,7 +606,7 @@
             // 
             this.btn_Editar.Enabled = false;
             this.btn_Editar.Image = global::Contabilidad.Properties.Resources.editar;
-            this.btn_Editar.Location = new System.Drawing.Point(683, 286);
+            this.btn_Editar.Location = new System.Drawing.Point(691, 316);
             this.btn_Editar.Name = "btn_Editar";
             this.btn_Editar.Size = new System.Drawing.Size(41, 37);
             this.btn_Editar.TabIndex = 87;
@@ -615,7 +617,7 @@
             // 
             this.btn_Add.Enabled = false;
             this.btn_Add.Image = global::Contabilidad.Properties.Resources.agregar;
-            this.btn_Add.Location = new System.Drawing.Point(578, 286);
+            this.btn_Add.Location = new System.Drawing.Point(586, 316);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(41, 37);
             this.btn_Add.TabIndex = 86;
@@ -625,7 +627,7 @@
             // btn_Regresar
             // 
             this.btn_Regresar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Regresar.Location = new System.Drawing.Point(748, 575);
+            this.btn_Regresar.Location = new System.Drawing.Point(749, 600);
             this.btn_Regresar.Name = "btn_Regresar";
             this.btn_Regresar.Size = new System.Drawing.Size(49, 43);
             this.btn_Regresar.TabIndex = 84;
@@ -758,7 +760,7 @@
             // 
             this.btn_Rest.Enabled = false;
             this.btn_Rest.Image = global::Contabilidad.Properties.Resources.minus;
-            this.btn_Rest.Location = new System.Drawing.Point(632, 286);
+            this.btn_Rest.Location = new System.Drawing.Point(640, 316);
             this.btn_Rest.Name = "btn_Rest";
             this.btn_Rest.Size = new System.Drawing.Size(41, 37);
             this.btn_Rest.TabIndex = 147;
@@ -769,7 +771,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(555, 582);
+            this.label14.Location = new System.Drawing.Point(555, 600);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 148;
@@ -778,16 +780,39 @@
             // txt_30
             // 
             this.txt_30.Enabled = false;
-            this.txt_30.Location = new System.Drawing.Point(632, 579);
+            this.txt_30.Location = new System.Drawing.Point(632, 597);
             this.txt_30.Name = "txt_30";
             this.txt_30.Size = new System.Drawing.Size(92, 20);
             this.txt_30.TabIndex = 149;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(21, 328);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 13);
+            this.label20.TabIndex = 151;
+            this.label20.Text = "TAOB : ";
+            // 
+            // cmb_OperacionesBanc
+            // 
+            this.cmb_OperacionesBanc.DisplayMember = "Descripcion";
+            this.cmb_OperacionesBanc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_OperacionesBanc.FormattingEnabled = true;
+            this.cmb_OperacionesBanc.Location = new System.Drawing.Point(114, 325);
+            this.cmb_OperacionesBanc.Name = "cmb_OperacionesBanc";
+            this.cmb_OperacionesBanc.Size = new System.Drawing.Size(278, 21);
+            this.cmb_OperacionesBanc.TabIndex = 150;
+            this.cmb_OperacionesBanc.ValueMember = "Id";
             // 
             // EmisionVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 637);
+            this.ClientSize = new System.Drawing.Size(810, 655);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.cmb_OperacionesBanc);
             this.Controls.Add(this.txt_30);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btn_Rest);
@@ -898,5 +923,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cmb_ejercicio2;
         private System.Windows.Forms.ComboBox cmb_periodo;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cmb_OperacionesBanc;
     }
 }

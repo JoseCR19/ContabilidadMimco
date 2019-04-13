@@ -78,10 +78,12 @@ namespace Contabilidad.Caja
             PrestamoBancario obj = new PrestamoBancario();
             obj.Banco = cmb_Banco.Text;
             obj.CodBanco = cmb_Banco.SelectedValue.ToString();
-            obj.FechaEmision = dpick_FechaEmision.Value;
-            obj.FechaEmision = dpick_FechaVcto.Value;
+            obj.FechaEmision = dpick_FechaEmision.Value.ToString().Substring(0,10);
+            obj.FechaVcto = dpick_FechaVcto.Value.ToString().Substring(0,10);
             obj.Moneda = cmb_Moneda.SelectedValue.ToString();
             obj.Monto = objVoucherDao.convertToDouble(txt_Monto.Text);
+            obj.NroCuenta = txt_NroCuenta.Text.ToString();
+            obj.Saldo = objVoucherDao.convertToDouble(txt_Monto.Text);
             formEmision.setDatosInsertarPrestamo(obj);
             this.Hide();
         }

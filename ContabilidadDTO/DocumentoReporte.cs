@@ -27,5 +27,6 @@ namespace ContabilidadDTO
         public String IGVSoles { get; set; }
         public String SubtotalDolares { get; set; }
         public String IGVDolares { get; set; }
+        public String TSD { get; set; }
     }
 }
