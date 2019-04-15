@@ -568,9 +568,10 @@ namespace Contabilidad.Caja
 
         private void Txt_BancoCod_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Enter)
             {
-                LoV.LoVBanco check = new LoV.LoVBanco();
+                LoV.LoVBanco check = new LoV.LoVBanco("voucher");
                 check.Show();
             }
         }

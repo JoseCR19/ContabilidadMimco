@@ -16,6 +16,8 @@ namespace Contabilidad.LoV
     public partial class LoVBanco : Form
     {
         Caja.EmisionVoucher emisionForm;
+        String codigoSolicita = "";
+        Reporte.ReporteVoucher emision2form;
         public static List<CuentaBanco> objListaBanco = new List<CuentaBanco>();
         public static List<CuentaBanco> objListaBancoNombre = new List<CuentaBanco>();
         public static List<CuentaBanco> objListaBancoTotal = new List<CuentaBanco>();
@@ -26,18 +28,19 @@ namespace Contabilidad.LoV
 
         int index = 0;
 
-        public LoVBanco()
+        public LoVBanco(String SolicitaCod)
         {
             InitializeComponent();
             this.Text = "Solicitante";
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 20);
             emisionForm = Caja.EmisionVoucher.formEmision;
+            emision2form = Reporte.ReporteVoucher.formReporteCheques;
             objLoVDao = new LoVDAO();
             objBanco = new CuentaBanco();
             gridParamsBanco();
             this.ActiveControl = txt_Busqueda;
-
+            codigoSolicita = SolicitaCod;
             objListaBanco = objLoVDao.getLovBanco(Ventas.UNIDADNEGOCIO);
             objListaBancoTotal = objListaBanco;
             txt_Busqueda.TextChanged += Txt_Busqueda_TextChanged;
@@ -52,13 +55,21 @@ namespace Contabilidad.LoV
             index = grdSolicita.SelectedCells[0].RowIndex;
             objBanco = new CuentaBanco();
             objBanco = objListaBancoTotal[index];
-            emisionForm.setBanco(objBanco.Codigo, objBanco.Descripcion,objBanco.Cuenta, objBanco.CuentaContable, objBanco.MonedaCod);
+            if(codigoSolicita=="voucher")
+            {
+                emisionForm.setBanco(objBanco.Codigo, objBanco.Descripcion, objBanco.Cuenta, objBanco.CuentaContable, objBanco.MonedaCod);
+
+            }else if(codigoSolicita == "reporte")
+            {
+                emision2form.setBanco(objBanco.Codigo, objBanco.Descripcion, objBanco.Cuenta, objBanco.CuentaContable, objBanco.MonedaCod);
+            }
             this.Close();
         }
 
         private void Txt_Busqueda_TextChanged(object sender, EventArgs e)
         {
             String busqueda = txt_Busqueda.Text.ToUpper();
+
             objListaBancoNombre = objListaBanco.Where(t => t.Descripcion.Contains(busqueda)).ToList();
             objListaBancoTotal = objListaBancoNombre;
             grdSolicita.DataSource = objListaBancoTotal;

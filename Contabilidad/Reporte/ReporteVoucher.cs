@@ -24,7 +24,10 @@ namespace Contabilidad.Reporte
     {
         List<Voucher> objListVoucher = new List<Voucher>();
         public static ReporteVoucher formReporteCheques;
+        List<Moneda> objListMoneda = new List<Moneda>();
+        public static List<PrestamoBancario> objListPrestamoBancario = new List<PrestamoBancario>();
         String tabs = "";
+        MonedaDAO objMonedaDao;
         VoucherDAO objVoucherDAO;
         public ReporteVoucher()
         {
@@ -35,6 +38,7 @@ namespace Contabilidad.Reporte
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 10);
             objVoucherDAO = new VoucherDAO();
+            objMonedaDao = new MonedaDAO();
             DateTime d1, d2,d11,d22;
             d2 = DateTime.Now;
             d22 = DateTime.Now;
@@ -42,18 +46,11 @@ namespace Contabilidad.Reporte
             d1 = new DateTime(d2.Year, d2.Month, 1);
             dpickerInicio.Value = d1;
             dpickerInicio1.Value = d11;
-
-            //if(CHEQUES.CanSelect)
-            //{
-            //    objListVoucher = objVoucherDAO.voucherReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value, "NN");
-            //}
-            //else if(COBRANZA.CanSelect)
-            //{
-
-            //}
             gridParams2();
             gridParams();
             gridParams3();
+            gridParams4();
+            cmbMoneda();
             dgv_cobranza.DataSource = null;
             grd_Voucher.DataSource = null;
             dgv_personal.DataSource = null;
@@ -251,10 +248,43 @@ namespace Contabilidad.Reporte
             idObservacion.Width = 70;
             idObservacion.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_personal.Columns.Add(idObservacion);
-
-
         }
+        public void gridParams4()
+        {
+            grv_bancos.AutoGenerateColumns = false;
 
+
+            DataGridViewTextBoxColumn idColumn0 = new DataGridViewTextBoxColumn();
+            idColumn0.Name = "Código";
+            idColumn0.DataPropertyName = "CodigoPrestamo";
+            idColumn0.Width = 70;
+            grv_bancos.Columns.Add(idColumn0);
+            DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
+            idColumn1.Name = "Banco";
+            idColumn1.DataPropertyName = "Banco";
+            idColumn1.Width = 260;
+            grv_bancos.Columns.Add(idColumn1);
+
+            DataGridViewTextBoxColumn idColumn5 = new DataGridViewTextBoxColumn();
+            idColumn5.Name = "F. Vcto";
+            idColumn5.DataPropertyName = "FechaVcto";
+            idColumn5.Width = 100;
+            grv_bancos.Columns.Add(idColumn5);
+            DataGridViewTextBoxColumn idColumn2 = new DataGridViewTextBoxColumn();
+            idColumn2.Name = "Moneda";
+            idColumn2.DataPropertyName = "Moneda";
+            idColumn2.Width = 70;
+            grv_bancos.Columns.Add(idColumn2);
+
+            DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
+            idColumn4.Name = "Monto";
+            idColumn4.DataPropertyName = "Monto";
+            idColumn4.Width = 100;
+            grv_bancos.Columns.Add(idColumn4);
+            grv_bancos.Columns[1].ReadOnly = true;
+            grv_bancos.Columns[2].ReadOnly = true;
+            grv_bancos.Columns[3].ReadOnly = true;
+        }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
@@ -426,7 +456,14 @@ namespace Contabilidad.Reporte
             llenarSumatorias();
             btn_prestamos.Enabled = true;
         }
-
+        void cmbMoneda()
+        {
+            objListMoneda = objMonedaDao.listarTipoMoneda();
+            cmb_Moneda.DataSource = objListMoneda;
+            cmb_Moneda.ValueMember = "MonedaCod";
+            cmb_Moneda.DisplayMember = "MonedaDescripcion";
+            cmb_Moneda.Refresh();
+        }
         private void button6_Click(object sender, EventArgs e)
         {
             btn_Buscar.Enabled = false;
@@ -438,7 +475,42 @@ namespace Contabilidad.Reporte
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            objListPrestamoBancario = objVoucherDAO.getPrestamoBancarioVoucher(txt_banco.Text, cmb_Moneda.SelectedValue.ToString());
+            grv_bancos.DataSource = objListPrestamoBancario;
+            grv_bancos.Refresh();
+        }
 
+        private void txt_banco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoV.LoVBanco check = new LoV.LoVBanco("reporte");
+                check.Show();
+            }
+        }
+        public void setBanco(String codigo, String nombre, String Cuenta, String CuentaContable, String moneda)
+        {
+            txt_banco.Text = codigo;
+            txt_namebanco.Text = nombre;
+            txt_NroCuenta.Text = Cuenta;
+            txt_CuentaContable.Text = CuentaContable;
+            cmb_Moneda.SelectedValue = moneda;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btn_excel.Enabled = false;
+                ExportToExcelWithFormat_Simple(grv_bancos);
+
+                btn_excel.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR :" + ex.Message);
+                btn_excel.Enabled = true;
+            }
         }
     }
 }

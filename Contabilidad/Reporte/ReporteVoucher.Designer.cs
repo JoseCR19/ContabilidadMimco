@@ -63,7 +63,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dtp_fin5 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_banco = new System.Windows.Forms.TextBox();
             this.dtp_inicio4 = new System.Windows.Forms.DateTimePicker();
@@ -74,7 +73,7 @@
             this.txt_BancoDolares = new System.Windows.Forms.TextBox();
             this.txt_bancoSoles = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grv_bancos = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dpickerFin3 = new System.Windows.Forms.DateTimePicker();
             this.btn_prestamos = new System.Windows.Forms.Button();
@@ -90,13 +89,19 @@
             this.txt_total2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.dgv_personal = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cmb_Moneda = new System.Windows.Forms.ComboBox();
+            this.txt_namebanco = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txt_NroCuenta = new System.Windows.Forms.TextBox();
+            this.txt_CuentaContable = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).BeginInit();
             this.VOUCHER.SuspendLayout();
             this.PROVEEDOR.SuspendLayout();
             this.CLIENTE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grv_bancos)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).BeginInit();
             this.SuspendLayout();
@@ -439,9 +444,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.txt_CuentaContable);
+            this.tabPage3.Controls.Add(this.txt_namebanco);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.txt_NroCuenta);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.cmb_Moneda);
             this.tabPage3.Controls.Add(this.dtp_fin5);
             this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.txt_banco);
             this.tabPage3.Controls.Add(this.dtp_inicio4);
@@ -452,7 +462,7 @@
             this.tabPage3.Controls.Add(this.txt_BancoDolares);
             this.tabPage3.Controls.Add(this.txt_bancoSoles);
             this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.grv_bancos);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1216, 478);
@@ -463,14 +473,14 @@
             // dtp_fin5
             // 
             this.dtp_fin5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fin5.Location = new System.Drawing.Point(668, 74);
+            this.dtp_fin5.Location = new System.Drawing.Point(882, 76);
             this.dtp_fin5.Name = "dtp_fin5";
             this.dtp_fin5.Size = new System.Drawing.Size(100, 20);
             this.dtp_fin5.TabIndex = 173;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(823, 71);
+            this.button2.Location = new System.Drawing.Point(1037, 73);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 172;
@@ -478,22 +488,11 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = global::Contabilidad.Properties.Resources.lupamedio;
-            this.button6.Location = new System.Drawing.Point(275, 77);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(38, 23);
-            this.button6.TabIndex = 171;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(67, 83);
+            this.label14.Location = new System.Drawing.Point(14, 41);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(61, 13);
             this.label14.TabIndex = 170;
@@ -501,15 +500,16 @@
             // 
             // txt_banco
             // 
-            this.txt_banco.Location = new System.Drawing.Point(137, 77);
+            this.txt_banco.Location = new System.Drawing.Point(91, 35);
             this.txt_banco.Name = "txt_banco";
-            this.txt_banco.Size = new System.Drawing.Size(131, 20);
+            this.txt_banco.Size = new System.Drawing.Size(65, 20);
             this.txt_banco.TabIndex = 169;
+            this.txt_banco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_banco_KeyDown);
             // 
             // dtp_inicio4
             // 
             this.dtp_inicio4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_inicio4.Location = new System.Drawing.Point(437, 74);
+            this.dtp_inicio4.Location = new System.Drawing.Point(651, 76);
             this.dtp_inicio4.Name = "dtp_inicio4";
             this.dtp_inicio4.Size = new System.Drawing.Size(100, 20);
             this.dtp_inicio4.TabIndex = 160;
@@ -528,7 +528,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(370, 81);
+            this.label16.Location = new System.Drawing.Point(584, 83);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 161;
@@ -548,7 +548,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(587, 81);
+            this.label19.Location = new System.Drawing.Point(801, 83);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(52, 13);
             this.label19.TabIndex = 162;
@@ -575,20 +575,21 @@
             // button7
             // 
             this.button7.Image = global::Contabilidad.Properties.Resources.excel1;
-            this.button7.Location = new System.Drawing.Point(497, 12);
+            this.button7.Location = new System.Drawing.Point(628, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(51, 43);
             this.button7.TabIndex = 164;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // dataGridView1
+            // grv_bancos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 111);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1186, 326);
-            this.dataGridView1.TabIndex = 163;
+            this.grv_bancos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grv_bancos.Location = new System.Drawing.Point(15, 111);
+            this.grv_bancos.Name = "grv_bancos";
+            this.grv_bancos.ReadOnly = true;
+            this.grv_bancos.Size = new System.Drawing.Size(1186, 326);
+            this.grv_bancos.TabIndex = 163;
             // 
             // tabPage4
             // 
@@ -742,6 +743,62 @@
             this.dgv_personal.Size = new System.Drawing.Size(988, 326);
             this.dgv_personal.TabIndex = 163;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(250, 76);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(60, 13);
+            this.label20.TabIndex = 174;
+            this.label20.Text = "Moneda :";
+            // 
+            // cmb_Moneda
+            // 
+            this.cmb_Moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Moneda.Enabled = false;
+            this.cmb_Moneda.FormattingEnabled = true;
+            this.cmb_Moneda.Location = new System.Drawing.Point(312, 72);
+            this.cmb_Moneda.Name = "cmb_Moneda";
+            this.cmb_Moneda.Size = new System.Drawing.Size(98, 21);
+            this.cmb_Moneda.TabIndex = 175;
+            // 
+            // txt_namebanco
+            // 
+            this.txt_namebanco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_namebanco.Enabled = false;
+            this.txt_namebanco.Location = new System.Drawing.Point(162, 35);
+            this.txt_namebanco.Name = "txt_namebanco";
+            this.txt_namebanco.Size = new System.Drawing.Size(248, 20);
+            this.txt_namebanco.TabIndex = 177;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(14, 76);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 13);
+            this.label22.TabIndex = 178;
+            this.label22.Text = "N° Cuenta :";
+            // 
+            // txt_NroCuenta
+            // 
+            this.txt_NroCuenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_NroCuenta.Enabled = false;
+            this.txt_NroCuenta.Location = new System.Drawing.Point(94, 73);
+            this.txt_NroCuenta.Name = "txt_NroCuenta";
+            this.txt_NroCuenta.Size = new System.Drawing.Size(143, 20);
+            this.txt_NroCuenta.TabIndex = 179;
+            // 
+            // txt_CuentaContable
+            // 
+            this.txt_CuentaContable.Location = new System.Drawing.Point(17, 451);
+            this.txt_CuentaContable.Name = "txt_CuentaContable";
+            this.txt_CuentaContable.Size = new System.Drawing.Size(100, 20);
+            this.txt_CuentaContable.TabIndex = 180;
+            this.txt_CuentaContable.Visible = false;
+            // 
             // ReporteVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,7 +817,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cobranza)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grv_bancos)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_personal)).EndInit();
@@ -823,7 +880,6 @@
         private System.Windows.Forms.DataGridView dgv_personal;
         private System.Windows.Forms.DateTimePicker dtp_fin5;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txt_banco;
         private System.Windows.Forms.DateTimePicker dtp_inicio4;
@@ -834,6 +890,12 @@
         private System.Windows.Forms.TextBox txt_BancoDolares;
         private System.Windows.Forms.TextBox txt_bancoSoles;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grv_bancos;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cmb_Moneda;
+        private System.Windows.Forms.TextBox txt_namebanco;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txt_NroCuenta;
+        private System.Windows.Forms.TextBox txt_CuentaContable;
     }
 }

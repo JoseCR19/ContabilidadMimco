@@ -46,7 +46,12 @@ namespace Contabilidad
             }else if (DocumentoTipo =="R")
             {
                 formReport = ReporteDocumentosPorCliente.formReporteClientes;
-            }else if (DocumentoTipo=="T" || DocumentoTipo == "A")
+            }
+            else if (DocumentoTipo == "RT")
+            {
+                formReport = ReporteDocumentosPorCliente.formReporteClientes;
+            }
+            else if (DocumentoTipo=="T" || DocumentoTipo == "A")
             {
                 formLetraCambio = LetraCambio.letraCambioForm;
             }else if (DocumentoTipo =="RT")
@@ -145,8 +150,10 @@ namespace Contabilidad
                     case "VC":
                         formVoucher.setClienteDatos(objListBusquedaTotal[index].ClienteNDoc);
                         break;
-                    //case "BAN":
-                    //    formVoucher.setBancoDatos(objListBusquedaTotal[index].c)
+                    case "RT":
+                        formReport.setDatosCliente2(objListBusquedaTotal[index].ClienteNDoc, objListBusquedaTotal[index].ClienteCod);
+                        break;
+ 
                 }
 
                 

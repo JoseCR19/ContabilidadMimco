@@ -68,5 +68,8 @@ namespace ContabilidadDTO
         public String NumeroDocumento { get; set; }
         public String Cobranza { get; set; }
         public String Intercorp { get; set; }
+
+        public Double TotalSoles { get; set; }
+        public Double TotalDoalres { get; set; }
     }
 }

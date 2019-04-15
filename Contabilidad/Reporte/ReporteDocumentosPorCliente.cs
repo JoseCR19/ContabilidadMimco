@@ -48,9 +48,13 @@ namespace Contabilidad
             this.Text = "REPORTE DOCUMENTOS POR CLIENTE";
             comboMoneda();
             gridParams();
+            gridParams2();
             comboContabilidad();
             cmbejercicio();
+            cmbejercicio2();
+            cmbperiodo2();
             cmbperiodo();
+            
             if (Ventas.UNIDADNEGOCIO == "01")
             {
                 objListaDocCab = objDocumentoDao.documentoPorClienteM("NN", cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO,"NN");
@@ -150,6 +154,93 @@ namespace Contabilidad
             cmb_periodo.ValueMember = "Id";
             cmb_periodo.DisplayMember = "Descripcion";
             cmb_periodo.Refresh();
+
+        }
+        void cmbejercicio2()
+        {
+            objEjercicio = new Ejercicio();
+            objEjercicio.Id = "2018";
+            objEjercicio.Descripcion = "2018";
+            objListaEjercicio.Add(objEjercicio);
+            objEjercicio = new Ejercicio();
+            objEjercicio.Id = "2019";
+            objEjercicio.Descripcion = "2019";
+            objListaEjercicio.Add(objEjercicio);
+            objEjercicio = new Ejercicio();
+            objEjercicio.Id = "2020";
+            objEjercicio.Descripcion = "2020";
+            objListaEjercicio.Add(objEjercicio);
+            objEjercicio = new Ejercicio();
+            objEjercicio.Id = "2021";
+            objEjercicio.Descripcion = "2021";
+            objListaEjercicio.Add(objEjercicio);
+            objEjercicio = new Ejercicio();
+            objEjercicio.Id = "2022";
+            objEjercicio.Descripcion = "2022";
+            objListaEjercicio.Add(objEjercicio);
+            cmb_ejercicio3.DataSource = objListaEjercicio;
+            cmb_ejercicio3.ValueMember = "Id";
+            cmb_ejercicio3.DisplayMember = "Descripcion";
+            cmb_ejercicio3.Refresh();
+        }
+        void cmbperiodo2()
+        {
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "13";
+            objPeriodo.Descripcion = "Todo";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "1";
+            objPeriodo.Descripcion = "01";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "2";
+            objPeriodo.Descripcion = "02";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "3";
+            objPeriodo.Descripcion = "03";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "4";
+            objPeriodo.Descripcion = "04";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "5";
+            objPeriodo.Descripcion = "05";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "6";
+            objPeriodo.Descripcion = "06";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "7";
+            objPeriodo.Descripcion = "07";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "8";
+            objPeriodo.Descripcion = "08";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "9";
+            objPeriodo.Descripcion = "09";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "10";
+            objPeriodo.Descripcion = "10";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "11";
+            objPeriodo.Descripcion = "11";
+            objListaPeriodo.Add(objPeriodo);
+            objPeriodo = new Periodo();
+            objPeriodo.Id = "12";
+            objPeriodo.Descripcion = "12";
+            objListaPeriodo.Add(objPeriodo);
+            cmb_periodo3.DataSource = objListaPeriodo;
+            cmb_periodo3.ValueMember = "Id";
+            cmb_periodo3.DisplayMember = "Descripcion";
+            cmb_periodo3.Refresh();
 
         }
         public void comboContabilidad()
@@ -268,6 +359,31 @@ namespace Contabilidad
             grd_Documentos.Columns.Add(idColumn9);
 
         }
+        public void gridParams2()
+        {
+            grv_totalizado.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
+            idColumn3.Name = "Razón Social";
+            idColumn3.DataPropertyName = "DocumentoCabCliente";
+            idColumn3.Width = 400;
+            grv_totalizado.Columns.Add(idColumn3);
+            DataGridViewTextBoxColumn idColumn4 = new DataGridViewTextBoxColumn();
+            idColumn4.Name = "RUC";
+            idColumn4.DataPropertyName = "DocumentoCabClienteDocumento";
+            idColumn4.Width = 100;
+            grv_totalizado.Columns.Add(idColumn4);
+            DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
+            idColumn6.Name = "Total Soles";
+            idColumn6.DataPropertyName = "TotalSoles";
+            idColumn6.Width = 100;
+            grv_totalizado.Columns.Add(idColumn6);
+            DataGridViewTextBoxColumn idColumn7 = new DataGridViewTextBoxColumn();
+            idColumn7.Name = "Total Dolares";
+            idColumn7.DataPropertyName = "TotalDoalres";
+            idColumn7.Width = 100;
+            grv_totalizado.Columns.Add(idColumn7);
+
+        }
         public void llenarSumatorias()
         {
             txt_Total.Text = objListaDocCab.Where(t => t.DocumentoCabTipoMoneda.Equals("PEN")).Sum(x => x.DocumentoCabTotal).ToString();
@@ -310,98 +426,25 @@ namespace Contabilidad
             txt_Cliente.Text = ruc;
             txt_codcliente.Text = codcliente;
         }
+        public void setDatosCliente2(String ruc, String codcliente)
+        {
+            txt_Cliente2.Text = ruc;
+            txt_codigo2.Text = codcliente;
+        }
 
         private void btn_BuscarOT_Click(object sender, EventArgs e)
         {
-            using (var buscarClienteForm = new BuscarCliente("R"))
-            {
-                buscarClienteForm.ShowDialog();
-            }
+
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            btn_Buscar.Enabled = false;
-            String rucbuscar = "";
-            if (String.IsNullOrEmpty(txt_Cliente.Text))
-            {
-                rucbuscar = "NN";
-            }
-            else
-            {
-                rucbuscar = txt_codcliente.Text;
-            }
-            if (Ventas.UNIDADNEGOCIO == "01")
-            {
-                if(cmb_periodo.SelectedValue.ToString()=="13")
-                {
-                    objListaDocCab = objDocumentoDao.documentoPorClienteManio(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
-                }
-                else
-                {
-                    objListaDocCab = objDocumentoDao.documentoPorClienteM(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
-                }
-                
-            }
-            else
-            {
-                if(cmb_periodo.SelectedValue.ToString() == "13")
-                {
-                    objListaDocCab = objDocumentoDao.documentoPorClienteGanio(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
-                }
-                else
-                {
-                    objListaDocCab = objDocumentoDao.documentoPorClienteG(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
-                }
-            }
 
-            grd_Documentos.DataSource = objListaDocCab;
-            grd_Documentos.Refresh();
-            llenarSumatorias();
-            btn_Buscar.Enabled = true;
         }
 
         private void btn_ver_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int index = grd_Documentos.SelectedCells[0].RowIndex;
 
-
-                objDocumentoCab = objListaDocCab[index];
-               // this.Hide();
-                switch (objDocumentoCab.DocumentoCabTipoDoc)
-                {
-                    case "01":
-                        FacturaReporte Check = new FacturaReporte("FACTURA ELECTRÓNICA", "C");
-                        Check.ShowDialog();
-                        break;
-                    case "03":
-                        BoletaReporte Check2 = new BoletaReporte("BOLETA ELECTRÓNICA", "C");
-                        Check2.ShowDialog();
-                        break;
-                    case "07":
-                        NotaCreditoReporte Check3 = new NotaCreditoReporte("NOTA DE CRÉDITO", "C");
-                        Check3.ShowDialog();
-                        break;
-                    case "08":
-                        NotaDebitoReporte Check4 = new NotaDebitoReporte("NOTA DE DÉBITO", "C");
-                        Check4.ShowDialog();
-                        break;
-                    case "LT":
-                        Reporte.LetraReporte Check5 = new Reporte.LetraReporte("C");
-                        Check5.ShowDialog();
-                        break;
-                }
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No ha seleccionado ningún registro");
-            }
         }
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
@@ -533,34 +576,103 @@ namespace Contabilidad
         }
         private void btn_Reporte_Click(object sender, EventArgs e)
         {
-            btn_Reporte.Enabled = false;
-            formatearReporte();
-            ReporteView Check = new ReporteView("EC"); // ExcelCliente
-            Check.Show();
-            btn_Reporte.Enabled = true;
+
         }
 
         private void btn_pdf_Click(object sender, EventArgs e)
         {
-            btn_pdf.Enabled = false;
-            DocumentoExcel cr = new DocumentoExcel();
-            formatearReporte();
-            // System.Web.HttpResponse res = new System.Web.HttpResponse();
-            cr.SetDataSource(objListaReporteExcel);
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.FileName = "20300166611-01-ReportePorCliente" +
-            ".pdf";
-            saveFileDialog1.DefaultExt = "pdf";
-            saveFileDialog1.Filter = "Pdf files (*.pdf)|*.pdf";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                cr.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, @saveFileDialog1.FileName);
-            }
 
-            btn_pdf.Enabled = true;
         }
 
         private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_buscar2_Click(object sender, EventArgs e)
+        {
+            btn_Buscar.Enabled = false;
+            String rucbuscar = "";
+            if (String.IsNullOrEmpty(txt_Cliente2.Text))
+            {
+                rucbuscar = "NN";
+            }
+            else
+            {
+                rucbuscar = txt_codigo2.Text.Trim();
+            }
+            if (cmb_periodo.SelectedValue.ToString() == "13")
+            {
+                objListaDocCab = objDocumentoDao.documentoPorClienteTotalizadoanio(cmb_ejercicio3.SelectedValue.ToString(), cmb_periodo3.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, rucbuscar);
+            }
+            else
+            {
+                objListaDocCab = objDocumentoDao.documentoPorClienteTotalizado(cmb_ejercicio3.SelectedValue.ToString(), cmb_periodo3.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, rucbuscar);
+            }
+            grv_totalizado.DataSource = objListaDocCab;
+            grv_totalizado.Refresh();
+            btn_Buscar.Enabled = true;
+        }
+
+        private void btn_excel_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                btn_excel.Enabled = false;
+                ExportToExcelWithFormat_Simple(grd_Documentos);
+
+                btn_excel.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR :" + ex.Message);
+                btn_excel.Enabled = true;
+            }
+        }
+
+        private void btn_Buscar_Click_1(object sender, EventArgs e)
+        {
+            btn_Buscar.Enabled = false;
+            String rucbuscar = "";
+            if (String.IsNullOrEmpty(txt_Cliente.Text))
+            {
+                rucbuscar = "NN";
+            }
+            else
+            {
+                rucbuscar = txt_codcliente.Text;
+            }
+            if (Ventas.UNIDADNEGOCIO == "01")
+            {
+                if (cmb_periodo.SelectedValue.ToString() == "13")
+                {
+                    objListaDocCab = objDocumentoDao.documentoPorClienteManio(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
+                }
+                else
+                {
+                    objListaDocCab = objDocumentoDao.documentoPorClienteM(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
+                }
+
+            }
+            else
+            {
+                if (cmb_periodo.SelectedValue.ToString() == "13")
+                {
+                    objListaDocCab = objDocumentoDao.documentoPorClienteGanio(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
+                }
+                else
+                {
+                    objListaDocCab = objDocumentoDao.documentoPorClienteG(rucbuscar, cmb_ejercicio2.SelectedValue.ToString(), cmb_periodo.SelectedValue.ToString(), cmb_Moneda.SelectedValue.ToString(), Ventas.UNIDADNEGOCIO, cmb_TipoDocumento.SelectedValue.ToString());
+                }
+            }
+
+            grd_Documentos.DataSource = objListaDocCab;
+            grd_Documentos.Refresh();
+            llenarSumatorias();
+            btn_Buscar.Enabled = true;
+        }
+
+        private void btn_imprimir_Click_1(object sender, EventArgs e)
         {
             Random rnd = new Random();
             int randomnum = rnd.Next(1000);
@@ -616,6 +728,169 @@ namespace Contabilidad
             {
                 MessageBox.Show("Error: " + ex.Message);
                 btn_imprimir.Enabled = true;
+            }
+        }
+
+        private void btn_pdf_Click_1(object sender, EventArgs e)
+        {
+            btn_pdf.Enabled = false;
+            DocumentoExcel cr = new DocumentoExcel();
+            formatearReporte();
+            // System.Web.HttpResponse res = new System.Web.HttpResponse();
+            cr.SetDataSource(objListaReporteExcel);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.FileName = "20300166611-01-ReportePorCliente" +
+            ".pdf";
+            saveFileDialog1.DefaultExt = "pdf";
+            saveFileDialog1.Filter = "Pdf files (*.pdf)|*.pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                cr.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, @saveFileDialog1.FileName);
+            }
+
+            btn_pdf.Enabled = true;
+        }
+
+        private void btn_Reporte_Click_1(object sender, EventArgs e)
+        {
+            btn_Reporte.Enabled = false;
+            formatearReporte();
+            ReporteView Check = new ReporteView("EC"); // ExcelCliente
+            Check.Show();
+            btn_Reporte.Enabled = true;
+        }
+
+        private void btn_ver_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = grd_Documentos.SelectedCells[0].RowIndex;
+
+
+                objDocumentoCab = objListaDocCab[index];
+                // this.Hide();
+                switch (objDocumentoCab.DocumentoCabTipoDoc)
+                {
+                    case "01":
+                        FacturaReporte Check = new FacturaReporte("FACTURA ELECTRÓNICA", "C");
+                        Check.ShowDialog();
+                        break;
+                    case "03":
+                        BoletaReporte Check2 = new BoletaReporte("BOLETA ELECTRÓNICA", "C");
+                        Check2.ShowDialog();
+                        break;
+                    case "07":
+                        NotaCreditoReporte Check3 = new NotaCreditoReporte("NOTA DE CRÉDITO", "C");
+                        Check3.ShowDialog();
+                        break;
+                    case "08":
+                        NotaDebitoReporte Check4 = new NotaDebitoReporte("NOTA DE DÉBITO", "C");
+                        Check4.ShowDialog();
+                        break;
+                    case "LT":
+                        Reporte.LetraReporte Check5 = new Reporte.LetraReporte("C");
+                        Check5.ShowDialog();
+                        break;
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No ha seleccionado ningún registro");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btn_excel.Enabled = false;
+                ExportToExcelWithFormat_Simple(grv_totalizado);
+
+                button5.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR :" + ex.Message);
+                button5.Enabled = true;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int randomnum = rnd.Next(1000);
+            string root = @"N:\PDF";
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            try
+            {
+                button6.Enabled = false;
+
+
+
+                formatearReporte();
+                DocumentoExcel cr = new DocumentoExcel();
+                string rut = @"N:\PDF\20300166611-01-ReportePorCliente" + "-" + randomnum + ".pdf";
+                // System.Web.HttpResponse res = new System.Web.HttpResponse();
+                if (File.Exists(rut))
+                {
+                    File.Delete(rut);
+                }
+                cr.SetDataSource(objListaReporteExcel);
+                cr.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, rut);
+                using (PrintDialog Dialog = new PrintDialog())
+                {
+                    Dialog.ShowDialog();
+
+                    ProcessStartInfo printProcessInfo = new ProcessStartInfo()
+                    {
+                        Verb = "print",
+                        CreateNoWindow = true,
+                        FileName = rut,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    };
+
+                    Process printProcess = new Process();
+                    printProcess.StartInfo = printProcessInfo;
+                    printProcess.Start();
+
+                    printProcess.WaitForInputIdle();
+
+                    Thread.Sleep(3000);
+
+                    if (false == printProcess.CloseMainWindow())
+                    {
+                        printProcess.Kill();
+                    }
+                }
+                button6.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                button6.Enabled = true;
+            }
+        }
+
+        private void btn_BuscarOT_Click_1(object sender, EventArgs e)
+        {
+            using (var buscarClienteForm = new BuscarCliente("R"))
+            {
+                buscarClienteForm.ShowDialog();
+            }
+        }
+
+        private void btn_BuscarOT2_Click(object sender, EventArgs e)
+        {
+            using (var buscarClienteForm = new BuscarCliente("RT"))
+            {
+                buscarClienteForm.ShowDialog();
             }
         }
     }
