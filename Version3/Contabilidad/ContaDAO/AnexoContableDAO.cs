@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContaDTO;
-using Microsoft.Practices.EnterpriseLibrary.Data;
+//using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data;
 using System.Data.Common;
 using System.Globalization;
