@@ -290,7 +290,7 @@ namespace ContabilidadDAO
                     {
                         obj.DocumentoDetItemOt = Convert.ToInt32(aux);
                     }
-                    obj.DocumentoDetNroOt = dataReader["nroot"].ToString();
+                    obj.DocumentoDetNroOt = dataReader["nroot"].ToString().Trim();
                     objLista.Add(obj);
                 }
             }

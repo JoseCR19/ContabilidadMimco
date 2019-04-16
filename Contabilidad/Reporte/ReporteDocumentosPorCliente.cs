@@ -449,8 +449,7 @@ namespace Contabilidad
 
         private void btn_Cerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Ventas.formVentas.setEnabledItems("RC");
+
         }
 
         private void ReporteDocumentosPorCliente_Load(object sender, EventArgs e)
@@ -892,6 +891,12 @@ namespace Contabilidad
             {
                 buscarClienteForm.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Ventas.formVentas.setEnabledItems("RC");
         }
     }
 }

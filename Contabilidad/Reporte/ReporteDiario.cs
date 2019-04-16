@@ -46,7 +46,7 @@ namespace Contabilidad.Reporte
                 }
                 else 
                 {
-                    row.ReadOnly = true; 
+                    row.Cells["Est"]. ReadOnly = true; 
                 }
             }
         }

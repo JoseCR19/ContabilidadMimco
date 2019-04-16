@@ -563,29 +563,28 @@ namespace Contabilidad
             MotivoAnulacion = mot;
             objDocumentoElectronicoCab = objDocumentoDao.getDocumentoElectronicoCab(numeroSerie, numeroDocumento, Ventas.UNIDADNEGOCIO);
             String mensajeMostrar = "";
-          String rutatext = objProceso.generarAnulacion(objDocumentoElectronicoCab, mot);
+            String rutatext = objProceso.generarAnulacion(objDocumentoElectronicoCab, mot);
             String mess = objProceso.sendTxt(rutatext);
-           
+
             String[] array = mess.Split('|');
             List<String> objListaString = array.ToList();
 
             mensajeMostrar = "SOLICITUD DE ANULACIÓN ENVIADA";
             objDocumentoDao.updateObservacionSunat(numeroSerie, numeroDocumento, mensajeMostrar);
-            objListDocumentoDet = objDocumentoDao.listarDetalle(
-              numeroDocumento, numeroSerie, Ventas.UNIDADNEGOCIO);
+            objListDocumentoDet = objDocumentoDao.listarDetalle(numeroDocumento, numeroSerie, Ventas.UNIDADNEGOCIO);
             for (int i = 0; i < objListDocumentoDet.Count; i++)
             {
                 objOtDAO.updateEstadoAnulacionAntiguo(objListDocumentoDet[i].DocumentoDetNroOt, objListDocumentoDet[i].DocumentoDetItemOt, Ventas.UNIDADNEGOCIO);
                 objOtDAO.updateEstadoAnulacionNuevo(objListDocumentoDet[i].DocumentoDetNroOt, objListDocumentoDet[i].DocumentoDetItemOt, Ventas.UNIDADNEGOCIO);
             }
             objDocumentoDao.updateEstadoAnulado(numeroSerie, numeroDocumento);
-            /* if (tablaC == "A")
-             {
-                 objOtDAO.updateEstadoAnulacionAntiguo(nroOt, item, Ventas.UNIDADNEGOCIO);
-             } else if (tablaC == "N")
-             {
-                 objOtDAO.updateEstadoAnulacionNuevo (nroOt, item, Ventas.UNIDADNEGOCIO);
-             }*/
+            //if (tablaC == "A")
+            //{
+            //    objOtDAO.updateEstadoAnulacionAntiguo(nroOt, item, Ventas.UNIDADNEGOCIO);
+            //} else if (tablaC == "N")
+            //{
+            //    objOtDAO.updateEstadoAnulacionNuevo (nroOt, item, Ventas.UNIDADNEGOCIO);
+            //}
 
             MessageBox.Show(mensajeMostrar);
             cargarLuegoAnulacion();
