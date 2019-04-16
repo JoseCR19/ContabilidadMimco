@@ -1502,9 +1502,13 @@ namespace Contabilidad.Caja
                             formatearVoucher2();
                             if (objVoucher.MonedaCod == "USD")
                             {
-                                reportetipo = "VOD";
+                                reportetipo = "VO";
                             }
-                            else
+                            else if(objVoucher.MonedaCod == "PEN")
+                            {
+                                reportetipo = "VO";
+                            }
+                            else if( objVoucher.MonedaCod == "EUR")
                             {
                                 reportetipo = "VO";
                             }
@@ -1613,9 +1617,13 @@ namespace Contabilidad.Caja
                     {
                         objVoucher.Moneda = "SOLES";
                     }
-                    else
+                    else if(cmb_Moneda.SelectedValue.ToString() == "USD")
                     {
                         objVoucher.Moneda = "DOLARES AMERICANOS";
+                    }
+                    else if(cmb_Moneda.SelectedValue.ToString() == "EUR")
+                    {
+                        objVoucher.Moneda = "EUROS";
                     }
                     objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
                     /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
@@ -1725,14 +1733,19 @@ namespace Contabilidad.Caja
                     objVoucherReporte.Banco = objVoucher.Banco;
                     objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
                     objVoucherReporte.Monto = txt_Total.Text /*.Substring(3)*/;
-                    if(cmb_Moneda.SelectedValue.ToString()=="PEN")
+                    if (cmb_Moneda.SelectedValue.ToString() == "PEN")
                     {
                         objVoucher.Moneda = "SOLES";
                     }
-                    else
+                    else if (cmb_Moneda.SelectedValue.ToString() == "USD")
                     {
                         objVoucher.Moneda = "DOLARES AMERICANOS";
                     }
+                    else if (cmb_Moneda.SelectedValue.ToString() == "EUR")
+                    {
+                        objVoucher.Moneda = "EUROS";
+                    }
+
                     objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
                     /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
 
@@ -1950,9 +1963,13 @@ namespace Contabilidad.Caja
                 formatearVoucher();
                 if (objVoucher.MonedaCod == "USD")
                 {
-                    reportetipo = "VOD";
+                    reportetipo = "VO";
                 }
-                else
+                else if (objVoucher.MonedaCod == "PEN")
+                {
+                    reportetipo = "VO";
+                }
+                else if (objVoucher.MonedaCod == "EUR")
                 {
                     reportetipo = "VO";
                 }
