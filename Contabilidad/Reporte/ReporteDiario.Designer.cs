@@ -36,6 +36,7 @@
             this.grd_Voucher = new System.Windows.Forms.DataGridView();
             this.btn_Reporte = new System.Windows.Forms.Button();
             this.btn_Regresar = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,12 +96,13 @@
             this.grd_Voucher.Size = new System.Drawing.Size(1236, 326);
             this.grd_Voucher.TabIndex = 144;
             this.grd_Voucher.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Voucher_CellContentClick);
+            this.grd_Voucher.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grd_Voucher_CellFormatting);
             this.grd_Voucher.CurrentCellDirtyStateChanged += new System.EventHandler(this.grd_Voucher_CurrentCellDirtyStateChanged);
             // 
             // btn_Reporte
             // 
             this.btn_Reporte.Image = global::Contabilidad.Properties.Resources.report;
-            this.btn_Reporte.Location = new System.Drawing.Point(483, 12);
+            this.btn_Reporte.Location = new System.Drawing.Point(609, 12);
             this.btn_Reporte.Name = "btn_Reporte";
             this.btn_Reporte.Size = new System.Drawing.Size(43, 43);
             this.btn_Reporte.TabIndex = 154;
@@ -118,11 +120,22 @@
             this.btn_Regresar.UseVisualStyleBackColor = true;
             this.btn_Regresar.Click += new System.EventHandler(this.btn_Regresar_Click);
             // 
+            // button4
+            // 
+            this.button4.Image = global::Contabilidad.Properties.Resources.iconPdf;
+            this.button4.Location = new System.Drawing.Point(521, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(43, 43);
+            this.button4.TabIndex = 156;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // ReporteDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 520);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_Regresar);
             this.Controls.Add(this.btn_Reporte);
             this.Controls.Add(this.grd_Voucher);
@@ -149,5 +162,6 @@
         private System.Windows.Forms.DataGridView grd_Voucher;
         private System.Windows.Forms.Button btn_Reporte;
         private System.Windows.Forms.Button btn_Regresar;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -29,7 +29,7 @@ namespace Contabilidad.Reporte
             objVoucherDAO = new VoucherDAO();
             //objListBusquedaTotal = objListaReporte;
             gridParams();
-            objListaFactura = objVoucherDAO.FacturaCReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value);
+            /*objListaFactura = objVoucherDAO.FacturaCReporte(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value);*/
             grd_Voucher.DataSource = objListaFactura;
             objListBusquedaTotal = objListaFactura;
             grd_Voucher.Refresh();
@@ -46,7 +46,7 @@ namespace Contabilidad.Reporte
                 }
                 else 
                 {
-                    row.Cells["Est"]. ReadOnly = true; 
+                    row.ReadOnly = true; 
                 }
             }
         }
@@ -183,16 +183,64 @@ namespace Contabilidad.Reporte
             }
 
         }
+        public void setDatos2(List<ContabilidadDTO.FacturaRC> objList)
+        {
+            for (int i = 0; i < objList.Count; i++)
+            {
+                objReporte = new ReporteFacturaC();
+                objReporte.FechaEmision = objList[i].FechaEmision;
+                objReporte.FechaVencimiento = objList[i].FechaVencimiento;
+                objReporte.TSD = objList[i].TSD;
+                objReporte.Ruc = objList[i].Ruc + " " + objList[i].RazonSocial;
+                objReporte.Moneda = objList[i].Moneda;
+                objReporte.TC = objList[i].TC;
+                objReporte.Total = objList[i].Total;
+                objReporte.Abono = objList[i].Abono;
+                objReporte.Saldo = objList[i].Total;
+                objReporte.Usuario = Ventas.UsuarioSession;
+                objReporte.FechaEntrega = objList[i].FechaEntrega.Substring(0, 16);
+                objListaReporte.Add(objReporte);
+            }
+
+        }
         private void btn_Reporte_Click(object sender, EventArgs e)
         {
             objListBusquedaTotal = objListBusquedaTotal.Where(x => x.chkSelc == true).ToList();
 
+            setDatos2(objListBusquedaTotal);
+            btn_Reporte.Enabled = false;
+            //formatearReporte();
+            ReporteView Check = new ReporteView("RDC"); // ExcelFecha
+            Check.Show();
+            btn_Reporte.Enabled = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            objListBusquedaTotal = objListBusquedaTotal.Where(x => x.chkSelc == true).ToList();
             setDatos(objListBusquedaTotal);
             btn_Reporte.Enabled = false;
             //formatearReporte();
             ReporteView Check = new ReporteView("RDC"); // ExcelFecha
             Check.Show();
             btn_Reporte.Enabled = true;
+        }
+
+        private void grd_Voucher_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (objListaFactura.Count > 0)
+            {
+                if (grd_Voucher["ESTADO", e.RowIndex].Value.ToString() == "SE IMPRIMIO")
+                {
+                    e.CellStyle.ForeColor = Color.Blue;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                }
+
+            }
+
         }
     }
 }

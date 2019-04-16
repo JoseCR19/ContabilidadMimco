@@ -3987,6 +3987,8 @@ namespace Contabilidad.Datasets {
             
             private global::System.Data.DataColumn columnFechaEmision;
             
+            private global::System.Data.DataColumn columnsimbolo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public VoucherRepDataTable() {
@@ -4166,6 +4168,14 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn simboloColumn {
+                get {
+                    return this.columnsimbolo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4219,7 +4229,8 @@ namespace Contabilidad.Datasets {
                         string TipoCambio, 
                         string Ruc, 
                         string Anulado, 
-                        string FechaEmision) {
+                        string FechaEmision, 
+                        string simbolo) {
                 VoucherRepRow rowVoucherRepRow = ((VoucherRepRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NroVoucher,
@@ -4239,7 +4250,8 @@ namespace Contabilidad.Datasets {
                         TipoCambio,
                         Ruc,
                         Anulado,
-                        FechaEmision};
+                        FechaEmision,
+                        simbolo};
                 rowVoucherRepRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVoucherRepRow);
                 return rowVoucherRepRow;
@@ -4280,6 +4292,7 @@ namespace Contabilidad.Datasets {
                 this.columnRuc = base.Columns["Ruc"];
                 this.columnAnulado = base.Columns["Anulado"];
                 this.columnFechaEmision = base.Columns["FechaEmision"];
+                this.columnsimbolo = base.Columns["simbolo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4321,6 +4334,8 @@ namespace Contabilidad.Datasets {
                 base.Columns.Add(this.columnAnulado);
                 this.columnFechaEmision = new global::System.Data.DataColumn("FechaEmision", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaEmision);
+                this.columnsimbolo = new global::System.Data.DataColumn("simbolo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsimbolo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9925,6 +9940,22 @@ namespace Contabilidad.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string simbolo {
+                get {
+                    try {
+                        return ((string)(this[this.tableVoucherRep.simboloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'simbolo\' de la tabla \'VoucherRep\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVoucherRep.simboloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNroVoucherNull() {
                 return this.IsNull(this.tableVoucherRep.NroVoucherColumn);
             }
@@ -10137,6 +10168,18 @@ namespace Contabilidad.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaEmisionNull() {
                 this[this.tableVoucherRep.FechaEmisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssimboloNull() {
+                return this.IsNull(this.tableVoucherRep.simboloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsimboloNull() {
+                this[this.tableVoucherRep.simboloColumn] = global::System.Convert.DBNull;
             }
         }
         
