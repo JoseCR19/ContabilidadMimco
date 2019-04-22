@@ -68,7 +68,24 @@ namespace ContabilidadDAO
                     obj.Moneda = dataReader["Moneda"].ToString();
                     obj.TC = dataReader["TC"].ToString();
                     obj.HoraEntrega = dataReader["HoraEntrega"].ToString().Trim();
+                    if (obj.HoraEntrega=="")
+                    {
+                        obj.HoraEntrega = dataReader["HoraEntrega"].ToString().Trim();
+                        
+                    }
+                    else
+                    {
+                        obj.HoraEntrega = dataReader["HoraEntrega"].ToString().Trim().Substring(11, 13);
+                    }
                     obj.FEntrega = dataReader["FechaEntrega"].ToString().Trim();
+                    if (obj.FEntrega=="")
+                    {
+                        obj.FEntrega = dataReader["FechaEntrega"].ToString().Trim();
+                    }
+                    else
+                    {
+                        obj.FEntrega = dataReader["FechaEntrega"].ToString().Trim().Substring(0, 10);
+                    }
                     obj.Total = convertToDouble(dataReader["Total"].ToString());
                     obj.NroRegistro = dataReader["NroRegistro"].ToString().Trim();
                     obj.Print = dataReader["Print"].ToString().Trim();

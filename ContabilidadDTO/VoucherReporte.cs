@@ -26,6 +26,7 @@ namespace ContabilidadDTO
         public String Ruc { get; set; }
         public String Anulado { get; set; }
         public String FechaEmision { get; set; }
+        public String simbolo { get; set; }
 
     }
 }

@@ -1616,15 +1616,18 @@ namespace Contabilidad.Caja
                     if (cmb_Moneda.SelectedValue.ToString() == "PEN")
                     {
                         objVoucher.Moneda = "SOLES";
+                        objVoucherReporte.simbolo = "S./";
                     }
                     else if(cmb_Moneda.SelectedValue.ToString() == "USD")
                     {
                         objVoucher.Moneda = "DOLARES AMERICANOS";
+                        objVoucherReporte.simbolo = "$";
                     }
                     else if(cmb_Moneda.SelectedValue.ToString() == "EUR")
                     {
                         objVoucher.Moneda = "EUROS";
                     }
+                    
                     objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
                     /*objVoucherReporte.NroCheque = txt_NroDoc.Text;*/
 
@@ -1687,6 +1690,17 @@ namespace Contabilidad.Caja
                 //objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("C").Substring(3);
                 objVoucherReporte.Monto = objVoucher.Monto.ToString("G")/*.Substring(3)*/;
                 objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda.TrimEnd();
+                if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                {
+                    
+                    objVoucherReporte.simbolo = "S./";
+                }
+                else if (cmb_Moneda.SelectedValue.ToString() == "USD")
+                {
+                    
+                    objVoucherReporte.simbolo = "$";
+                }
+                
                 objVoucherReporte.NroCheque = objVoucher.NumeroCheque;
                 //objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
@@ -1736,10 +1750,12 @@ namespace Contabilidad.Caja
                     if (cmb_Moneda.SelectedValue.ToString() == "PEN")
                     {
                         objVoucher.Moneda = "SOLES";
+                        objVoucherReporte.simbolo = "S./";
                     }
                     else if (cmb_Moneda.SelectedValue.ToString() == "USD")
                     {
                         objVoucher.Moneda = "DOLARES AMERICANOS";
+                        objVoucherReporte.simbolo = "$";
                     }
                     else if (cmb_Moneda.SelectedValue.ToString() == "EUR")
                     {
@@ -1811,6 +1827,17 @@ namespace Contabilidad.Caja
                 objVoucherReporte.NroCheque = objVoucher.NumeroCheque;
                 //objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
+                if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                {
+
+                    objVoucherReporte.simbolo = "S./";
+                }
+                else if (cmb_Moneda.SelectedValue.ToString() == "USD")
+                {
+
+                    objVoucherReporte.simbolo = "$";
+                }
+
                 if (OperacionGuardar == "M")
                 {
                     objVoucherDet.NumeroVoucher = txt_NroVoucher.Text;
