@@ -1288,6 +1288,7 @@ namespace Contabilidad.Caja
             objVoucher.Observacion = txt_Observacion.Text;
             objVoucher.SolicitaCod = txt_SolicitanteCod.Text;
             objVoucher.TpersonaCod = cmb_TipoSolicitante.SelectedValue.ToString();
+            objVoucher.TipVou = cmb_Operacion.SelectedValue.ToString();
             if (OperacionGuardar == "M")
             {
                 objVoucher.NumeroVoucher = txt_NroVoucher.Text;
@@ -1424,9 +1425,9 @@ namespace Contabilidad.Caja
                     if (txt_MovCod.Text.ToString() == "08")
                     {
                         objListaVoucherDet[i].FechaEmiRef = dpick_FechaEmision.Value.ToString();
-                    }
-
+                    } 
                     insert = objVoucherDao.insertarVoucherDet(objListaVoucherDet[i]);
+
                     /*se inserta el Prestamo Bancario*/
                     if(txt_MovCod.Text.ToString()=="08")
                     {
@@ -2667,6 +2668,7 @@ namespace Contabilidad.Caja
                 objVoucherDet.TC = objList[i].TipoCambio;
                 objVoucherDet.Moneda = objList[i].MonedaCod;
                 objVoucherDet.TAOB = cmb_OperacionesBanc.SelectedValue.ToString();
+                objVoucherDet.TipDocRef = objList[i].TipoDoc.ToString();
                 //objVoucherDet.numeroRegistro = objList[i].VentasId;
                 correlativo = correlativo = objVoucherDao.getCorrelativoVoucher(Ventas.UNIDADNEGOCIO, DateTime.Now.Year.ToString().Substring(2));
                 if (OperacionGuardar == "M")

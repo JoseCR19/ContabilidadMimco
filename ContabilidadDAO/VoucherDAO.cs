@@ -1019,7 +1019,7 @@ namespace ContabilidadDAO
             DbCommand dbCommand = db.GetStoredProcCommand("sp_insertVoucherCab",
                    new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
                        obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
-                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento});
+                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento,obj.TipVou});
              try
             {
                 db.ExecuteScalar(dbCommand);

@@ -83,7 +83,6 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\bin\Debug\UnityEn
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
 C:\Users\HP\Documents\GitHub\ContabilidadMimco\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache
-G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\bin\Debug\ContabilidadDTO.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\bin\Debug\ContabilidadDTO.pdb
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\bin\Debug\QRCoder.dll
