@@ -194,5 +194,10 @@ namespace Contabilidad.Reporte
             Check.Show();
             btn_Reporte.Enabled = true;
         }
+
+        private void ReporteDiario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

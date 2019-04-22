@@ -133,6 +133,7 @@
             this.Controls.Add(this.dpickerInicio);
             this.Name = "ReporteDiario";
             this.Text = "ReporteDiario";
+            this.Load += new System.EventHandler(this.ReporteDiario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grd_Voucher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
