@@ -1776,7 +1776,7 @@ namespace Contabilidad.Caja
                     }
                     objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
                     objVoucherReporte.Observacion = objVoucher.Observacion;
-                    objVoucherReporte.Persona = txt_Solicitante.Text;
+                    objVoucherReporte.Persona = objListaVoucherDet[i].RazonSocial.ToString();
                     objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
                     objVoucherReporte.Usuario = Ventas.UsuarioSession;
                     if (objVoucher.TpersonaCod == "04")

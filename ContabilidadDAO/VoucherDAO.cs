@@ -426,8 +426,7 @@ namespace ContabilidadDAO
                     obj.TipoPago = dataReader["TipPago"].ToString();
                     obj.DirOt = dataReader["DirOt"].ToString();
                     obj.TipDocRef = dataReader["TipoDocRef"].ToString().Trim();
-                    obj.NroDocumento = dataReader["TdocEmiCorta"].ToString().Trim() + "-" + 
-                        obj.SerieDocRef.Trim() + "-" + obj.NumeroDocRef.Trim();
+                    obj.NroDocumento = obj.SerieDocRef.Trim() + "-" + obj.NumeroDocRef.Trim();
                     obj.numeroRegistro = dataReader["NroRegistro"].ToString();
                     obj.RazonSocial = dataReader["RazonSocial"].ToString();
                     //obj.FechaEmiRef =Convert.ToDateTime(dataReader["FechaRefe"].ToString());

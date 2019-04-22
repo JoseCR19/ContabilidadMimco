@@ -226,10 +226,11 @@ namespace Contabilidad.Reporte
             btn_Reporte.Enabled = true;
         }
 
-<<<<<<< HEAD
+
         private void ReporteDiario_Load(object sender, EventArgs e)
         {
-=======
+        }
+
         private void grd_Voucher_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (objListaFactura.Count > 0)
@@ -244,7 +245,6 @@ namespace Contabilidad.Reporte
                 }
 
             }
->>>>>>> 8f761c209e8fec2512f26fa63bdaf3f660c998d6
 
         }
     }
