@@ -426,8 +426,7 @@ namespace ContabilidadDAO
                     obj.TipoPago = dataReader["TipPago"].ToString();
                     obj.DirOt = dataReader["DirOt"].ToString();
                     obj.TipDocRef = dataReader["TipoDocRef"].ToString().Trim();
-                    obj.NroDocumento = dataReader["TdocEmiCorta"].ToString().Trim() + "-" + 
-                        obj.SerieDocRef.Trim() + "-" + obj.NumeroDocRef.Trim();
+                    obj.NroDocumento = obj.SerieDocRef.Trim() + "-" + obj.NumeroDocRef.Trim();
                     obj.numeroRegistro = dataReader["NroRegistro"].ToString();
                     obj.RazonSocial = dataReader["RazonSocial"].ToString();
                     //obj.FechaEmiRef =Convert.ToDateTime(dataReader["FechaRefe"].ToString());
@@ -1019,7 +1018,7 @@ namespace ContabilidadDAO
             DbCommand dbCommand = db.GetStoredProcCommand("sp_insertVoucherCab",
                    new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
                        obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
-                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento,obj.TipVou});
+                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento/*,obj.TipVou*/});
              try
             {
                 db.ExecuteScalar(dbCommand);

@@ -230,6 +230,7 @@ namespace Contabilidad.Reporte
         private void ReporteDiario_Load(object sender, EventArgs e)
         {
         }
+
         private void grd_Voucher_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (objListaFactura.Count > 0)

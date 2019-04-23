@@ -42,14 +42,22 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4764160">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4755456">
+>>>>>>> 8c256908058ad5d24a8732e432d3c117c6a946ca
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>sJpCudBhdHaC8tOK99FKfuWvfr/SNSUYIzi+oF1MKuQ=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>aqIRbEim35KRb+IDrk9ZaZv51fYfn9Iykp131x3uKoE=</dsig:DigestValue>
+>>>>>>> 8c256908058ad5d24a8732e432d3c117c6a946ca
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +69,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>7ugcOJu/kJsNfkM6ztWwH5w0L80byL/pUEiR/BJVvHY=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>MQD95fD3U+qn9/Xopwd4r0/17MEnK+uxd3Hp/6L3UAc=</dsig:DigestValue>
+>>>>>>> 8c256908058ad5d24a8732e432d3c117c6a946ca
       </hash>
     </dependentAssembly>
   </dependency>
@@ -449,13 +461,21 @@
       </hash>
     </dependentAssembly>
   </dependency>
+<<<<<<< HEAD
   <file name="Contabilidad.exe.config" size="610">
+=======
+  <file name="Contabilidad.exe.config" size="616">
+>>>>>>> 8c256908058ad5d24a8732e432d3c117c6a946ca
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
       <dsig:DigestValue>86HxIuo4yzICZ/hWgUBYYb0cfB3xyfFwQQbTMgLvAys=</dsig:DigestValue>
+=======
+      <dsig:DigestValue>AsyOU9/iOO7z+AeE6GVRqWL5lPXbNRQ/Y8U8xvhDJEY=</dsig:DigestValue>
+>>>>>>> 8c256908058ad5d24a8732e432d3c117c6a946ca
     </hash>
   </file>
   <file name="Images\expand.png" size="569">

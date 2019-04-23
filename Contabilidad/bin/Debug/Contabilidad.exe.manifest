@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4764160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Contabilidad.exe" size="4765696">
       <assemblyIdentity name="Contabilidad" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sJpCudBhdHaC8tOK99FKfuWvfr/SNSUYIzi+oF1MKuQ=</dsig:DigestValue>
+        <dsig:DigestValue>vTuOzi+fH5QNPBtFOqj3+jLGHP4n6ke+A0GEPh0kJ44=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7ugcOJu/kJsNfkM6ztWwH5w0L80byL/pUEiR/BJVvHY=</dsig:DigestValue>
+        <dsig:DigestValue>udMaDxMn15LuiB9K8kszFh9cH7EBUCeHruduceugcX0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>R3igshg6nNph2Y56yQXfDylq0F3MSEhMWF/4AdOgFko=</dsig:DigestValue>
+        <dsig:DigestValue>i5AjIOKvdPwb5y0DNRCU1lufdF4etcvh4FFewuL+wW8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -449,13 +449,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Contabilidad.exe.config" size="610">
+  <file name="Contabilidad.exe.config" size="608">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>86HxIuo4yzICZ/hWgUBYYb0cfB3xyfFwQQbTMgLvAys=</dsig:DigestValue>
+      <dsig:DigestValue>d+V6t1Wu63S3334+JlvKNfgH5ZcC1PkkSuh1aa0C2sk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Images\expand.png" size="569">

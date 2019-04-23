@@ -734,6 +734,7 @@ namespace Contabilidad.Caja
             if (rb_Metales.Checked)
             {
                 Ventas.UNIDADNEGOCIO = "01";
+                TipoMovimiento = "01";
             }
             else
             {
@@ -964,153 +965,309 @@ namespace Contabilidad.Caja
             {*/
             /*condicon para los pagos para las cuentas por pagar*/
             /*condicion para mostrar formulario de caja chica*/
-            if (TipoMovimiento == "01")
+            if(OperacionGuardar == "M")
             {
-                string ruc = "NN";
-
-                string moneda = "";
-                string monedadoc = "";
-                if (cmb_TipoSolicitante.SelectedValue.ToString() == "02")
+                if (txt_MovCod.Text.ToString() == "01")
                 {
-                    ruc = txt_SolicitanteCod.Text;
-                    /*moneda = cmb_Moneda.SelectedValue.ToString();
-                    if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                    string ruc = "NN";
+
+                    string moneda = "";
+                    string monedadoc = "";
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "02")
                     {
-                        monedadoc = "1";
+                        ruc = txt_SolicitanteCod.Text;
+                        /*moneda = cmb_Moneda.SelectedValue.ToString();
+                        if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                        {
+                            monedadoc = "1";
+                        }
+                        else
+                        {
+                            monedadoc = "2";
+                        }*/
+
+                    }
+                    estado = "c";
+                    RegCompra = "CARGO";
+                    AgregarCajaChica Check = new AgregarCajaChica(ruc, RegCompra/*,moneda,monedadoc*/);
+                    Check.Show();
+
+                }
+
+                /*condicion para seleccionar el formulario de agregardetracciones*/
+                else if (txt_MovCod.Text.ToString() == "02")
+                {
+                    string ruc = "NN";
+                    bool detraccion = false;
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
+                    {
+                        ruc = txt_SolicitanteCod.Text;
+                        moneda = cmb_Moneda.SelectedValue.ToString();
+                        detraccion = true;
+
+                    }
+
+
+                    if (detraccion == true)
+                    {
+                        AgregarDetracionFactura Check = new AgregarDetracionFactura(ruc);
+                        Check.Show();
                     }
                     else
                     {
-                        monedadoc = "2";
-                    }*/
 
-                }
-                estado = "c";
-                RegCompra = "CARGO";
-                AgregarCajaChica Check = new AgregarCajaChica(ruc, RegCompra/*,moneda,monedadoc*/);
-                Check.Show();
 
-            }
-
-            /*condicion para seleccionar el formulario de agregardetracciones*/
-            else if (TipoMovimiento == "02")
-            {
-                string ruc = "NN";
-                bool detraccion = false;
-                if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
-                {
-                    ruc = txt_SolicitanteCod.Text;
-                    moneda = cmb_Moneda.SelectedValue.ToString();
-                    detraccion = true;
+                        AgregarDetracciones Check1 = new AgregarDetracciones();
+                        Check1.Show();
+                    }
 
                 }
 
-
-                if (detraccion == true)
+                else if (txt_MovCod.Text.ToString() == "03")
                 {
-                    AgregarDetracionFactura Check = new AgregarDetracionFactura(ruc);
+                    AgregarPlanilla Check = new AgregarPlanilla();
                     Check.Show();
                 }
-                else
+                else if (txt_MovCod.Text.ToString() == "04")
                 {
+                    AgregarAFP Check = new AgregarAFP();
+                    Check.Show();
+                }
+                else if (txt_MovCod.Text.ToString() == "05")
+                {
+                    AgregarImpuestos Check = new AgregarImpuestos();
+                    Check.Show();
+                }
+                else if (txt_MovCod.Text.ToString() == "06")
+                {
+                    AgregarCargoBancario Check = new AgregarCargoBancario();
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "01" && txt_MovCod.Text.ToString() == "08")
+                {
+                    InsertarPrestamoBancario Check = new InsertarPrestamoBancario();
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && txt_MovCod.Text.ToString() == "08")
+                {
+                    AgregarPrestamoBancario Check = new AgregarPrestamoBancario(txt_BancoCod.Text, cmb_Moneda.SelectedValue.ToString());
+                    Check.Show();
+                }
+                /*condicion para las cuentas por cobrar*/
+                else if (cmb_Operacion.SelectedValue.ToString() == "01" && txt_MovCod.Text.ToString() == "09")
+                {
+                    string ruc = "NN";
+                    string moneda = "";
+                    string monedadoc = "";
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
+                    {
+                        ruc = txt_SolicitanteCod.Text;
+                        moneda = cmb_Moneda.SelectedValue.ToString();
+                        if (cmb_Moneda.SelectedValue.ToString() == "USD")
+                        {
+                            monedadoc = "03";
+                        }
+                        else if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                        {
+                            monedadoc = "01";
+                        }
+                        else
+                        {
+                            monedadoc = "02";
+                        }
+                    }
+                    AgregarAbonoFactura Check = new AgregarAbonoFactura(ruc/*,moneda,monedadoc*/);
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && txt_MovCod.Text.ToString() == "07" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
+                {
+                    txt_NroOt.Enabled = true;
+                    txt_Descripcion.Enabled = true;
+                    txt_NroDoc.Enabled = false;
+                    txt_RazonSocial.Enabled = false;
+                    txt_Importe.Enabled = true;
+                    btn_Add.Enabled = false;
+                    gridCheke();
+                    btn_Guardar.Enabled = true;
 
+                    /*} else
+                    {
+                        MessageBox.Show("Debe colocar el Monto y el Banco");
+                        habilitaCamposAgregar(true,false);
+                    }*/
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "03" || cmb_Operacion.SelectedValue.ToString() == "02" && txt_MovCod.Text.ToString() == "10" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
+                {
+                    txt_NroOt.Enabled = true;
+                    txt_Descripcion.Enabled = true;
+                    txt_NroDoc.Enabled = false;
+                    txt_RazonSocial.Enabled = false;
+                    txt_Importe.Enabled = true;
+                    btn_Add.Enabled = false;
+                    gridCheke();
+                    btn_Guardar.Enabled = true;
 
-                    AgregarDetracciones Check1 = new AgregarDetracciones();
-                    Check1.Show();
+                    /*} else
+                    {
+                        MessageBox.Show("Debe colocar el Monto y el Banco");
+                        habilitaCamposAgregar(true,false);
+                    }*/
+                }
+                btn_Add.Enabled = true;
+
+            }
+            else
+            {
+                if (TipoMovimiento == "01")
+                {
+                    string ruc = "NN";
+
+                    string moneda = "";
+                    string monedadoc = "";
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "02")
+                    {
+                        ruc = txt_SolicitanteCod.Text;
+                        /*moneda = cmb_Moneda.SelectedValue.ToString();
+                        if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                        {
+                            monedadoc = "1";
+                        }
+                        else
+                        {
+                            monedadoc = "2";
+                        }*/
+
+                    }
+                    estado = "c";
+                    RegCompra = "CARGO";
+                    AgregarCajaChica Check = new AgregarCajaChica(ruc, RegCompra/*,moneda,monedadoc*/);
+                    Check.Show();
+
                 }
 
-            }
-
-            else if (TipoMovimiento == "03")
-            {
-                AgregarPlanilla Check = new AgregarPlanilla();
-                Check.Show();
-            }
-            else if (TipoMovimiento == "04")
-            {
-                AgregarAFP Check = new AgregarAFP();
-                Check.Show();
-            }
-            else if (TipoMovimiento == "05")
-            {
-                AgregarImpuestos Check = new AgregarImpuestos();
-                Check.Show();
-            }
-            else if (TipoMovimiento == "06")
-            {
-                AgregarCargoBancario Check = new AgregarCargoBancario();
-                Check.Show();
-            }
-            else if (cmb_Operacion.SelectedValue.ToString() == "01" && TipoMovimiento == "08")
-            {
-                InsertarPrestamoBancario Check = new InsertarPrestamoBancario();
-                Check.Show();
-            }
-            else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento == "08")
-            {
-                AgregarPrestamoBancario Check = new AgregarPrestamoBancario(txt_BancoCod.Text, cmb_Moneda.SelectedValue.ToString());
-                Check.Show();
-            }
-            /*condicion para las cuentas por cobrar*/
-            else if (cmb_Operacion.SelectedValue.ToString() == "01" && TipoMovimiento == "09")
-            {
-                string ruc = "NN";
-                string moneda = "";
-                string monedadoc = "";
-                if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
+                /*condicion para seleccionar el formulario de agregardetracciones*/
+                else if (TipoMovimiento == "02")
                 {
-                    ruc = txt_SolicitanteCod.Text;
-                    moneda = cmb_Moneda.SelectedValue.ToString();
-                    if (cmb_Moneda.SelectedValue.ToString() == "USD")
+                    string ruc = "NN";
+                    bool detraccion = false;
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
                     {
-                        monedadoc = "03";
+                        ruc = txt_SolicitanteCod.Text;
+                        moneda = cmb_Moneda.SelectedValue.ToString();
+                        detraccion = true;
+
                     }
-                    else if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+
+
+                    if (detraccion == true)
                     {
-                        monedadoc = "01";
+                        AgregarDetracionFactura Check = new AgregarDetracionFactura(ruc);
+                        Check.Show();
                     }
                     else
                     {
-                        monedadoc = "02";
+
+
+                        AgregarDetracciones Check1 = new AgregarDetracciones();
+                        Check1.Show();
                     }
+
                 }
-                AgregarAbonoFactura Check = new AgregarAbonoFactura(ruc/*,moneda,monedadoc*/);
-                Check.Show();
-            }
-            else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento.ToString() == "07" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
-            {
-                txt_NroOt.Enabled = true;
-                txt_Descripcion.Enabled = true;
-                txt_NroDoc.Enabled = false;
-                txt_RazonSocial.Enabled = false;
-                txt_Importe.Enabled = true;
-                btn_Add.Enabled = false;
-                gridCheke();
-                btn_Guardar.Enabled = true;
 
-                /*} else
+                else if (TipoMovimiento == "03")
                 {
-                    MessageBox.Show("Debe colocar el Monto y el Banco");
-                    habilitaCamposAgregar(true,false);
-                }*/
-            }
-            else if (cmb_Operacion.SelectedValue.ToString() == "03" || cmb_Operacion.SelectedValue.ToString() == "02" && TipoMovimiento.ToString() == "10" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
-            {
-                txt_NroOt.Enabled = true;
-                txt_Descripcion.Enabled = true;
-                txt_NroDoc.Enabled = false;
-                txt_RazonSocial.Enabled = false;
-                txt_Importe.Enabled = true;
-                btn_Add.Enabled = false;
-                gridCheke();
-                btn_Guardar.Enabled = true;
+                    AgregarPlanilla Check = new AgregarPlanilla();
+                    Check.Show();
+                }
+                else if (TipoMovimiento == "04")
+                {
+                    AgregarAFP Check = new AgregarAFP();
+                    Check.Show();
+                }
+                else if (TipoMovimiento == "05")
+                {
+                    AgregarImpuestos Check = new AgregarImpuestos();
+                    Check.Show();
+                }
+                else if (TipoMovimiento == "06")
+                {
+                    AgregarCargoBancario Check = new AgregarCargoBancario();
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "01" && TipoMovimiento == "08")
+                {
+                    InsertarPrestamoBancario Check = new InsertarPrestamoBancario();
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento == "08")
+                {
+                    AgregarPrestamoBancario Check = new AgregarPrestamoBancario(txt_BancoCod.Text, cmb_Moneda.SelectedValue.ToString());
+                    Check.Show();
+                }
+                /*condicion para las cuentas por cobrar*/
+                else if (cmb_Operacion.SelectedValue.ToString() == "01" && TipoMovimiento == "09")
+                {
+                    string ruc = "NN";
+                    string moneda = "";
+                    string monedadoc = "";
+                    if (cmb_TipoSolicitante.SelectedValue.ToString() == "05")
+                    {
+                        ruc = txt_SolicitanteCod.Text;
+                        moneda = cmb_Moneda.SelectedValue.ToString();
+                        if (cmb_Moneda.SelectedValue.ToString() == "USD")
+                        {
+                            monedadoc = "03";
+                        }
+                        else if (cmb_Moneda.SelectedValue.ToString() == "PEN")
+                        {
+                            monedadoc = "01";
+                        }
+                        else
+                        {
+                            monedadoc = "02";
+                        }
+                    }
+                    AgregarAbonoFactura Check = new AgregarAbonoFactura(ruc/*,moneda,monedadoc*/);
+                    Check.Show();
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03" && TipoMovimiento.ToString() == "07" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
+                {
+                    txt_NroOt.Enabled = true;
+                    txt_Descripcion.Enabled = true;
+                    txt_NroDoc.Enabled = false;
+                    txt_RazonSocial.Enabled = false;
+                    txt_Importe.Enabled = true;
+                    btn_Add.Enabled = false;
+                    gridCheke();
+                    btn_Guardar.Enabled = true;
 
-                /*} else
+                    /*} else
+                    {
+                        MessageBox.Show("Debe colocar el Monto y el Banco");
+                        habilitaCamposAgregar(true,false);
+                    }*/
+                }
+                else if (cmb_Operacion.SelectedValue.ToString() == "03" || cmb_Operacion.SelectedValue.ToString() == "02" && TipoMovimiento.ToString() == "10" && cmb_TipoSolicitante.SelectedValue.ToString() == "03")
                 {
-                    MessageBox.Show("Debe colocar el Monto y el Banco");
-                    habilitaCamposAgregar(true,false);
-                }*/
+                    txt_NroOt.Enabled = true;
+                    txt_Descripcion.Enabled = true;
+                    txt_NroDoc.Enabled = false;
+                    txt_RazonSocial.Enabled = false;
+                    txt_Importe.Enabled = true;
+                    btn_Add.Enabled = false;
+                    gridCheke();
+                    btn_Guardar.Enabled = true;
+
+                    /*} else
+                    {
+                        MessageBox.Show("Debe colocar el Monto y el Banco");
+                        habilitaCamposAgregar(true,false);
+                    }*/
+                }
+                btn_Add.Enabled = true;
+
             }
-            btn_Add.Enabled = true;
+            
         }
 
         private void btn_Guardar_Click(object sender, EventArgs e)
@@ -1277,7 +1434,7 @@ namespace Contabilidad.Caja
             objVoucher.FechaEmision = dpick_FechaEmision.Value;
             objVoucher.FechaPago = dpick_FechaPago.Value;
             objVoucher.MonedaCod = cmb_Moneda.SelectedValue.ToString();
-            objVoucher.TipoMovimiento = txt_Movimiento.Text;
+            /*objVoucher.TipoMovimiento = txt_Movimiento.Text;*/
             // objVoucher.Monto =  objListaVoucherDet.Sum(x => x.Importe);
             objVoucher.Monto = objVoucherDao.convertToDouble(txt_MontoTotal.Text);
             if (cmb_Operacion.SelectedValue.ToString() == "02" || cmb_Operacion.SelectedValue.ToString() == "03")
@@ -1777,7 +1934,7 @@ namespace Contabilidad.Caja
                     }
                     objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
                     objVoucherReporte.Observacion = objVoucher.Observacion;
-                    objVoucherReporte.Persona = txt_Solicitante.Text;
+                    objVoucherReporte.Persona = objListaVoucherDet[i].RazonSocial.ToString();
                     objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
                     objVoucherReporte.Usuario = Ventas.UsuarioSession;
                     if (objVoucher.TpersonaCod == "04")
