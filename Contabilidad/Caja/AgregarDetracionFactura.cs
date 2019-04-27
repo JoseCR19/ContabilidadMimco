@@ -35,6 +35,7 @@ namespace Contabilidad.Caja
             gridParams();
             objVoucherDao = new VoucherDAO();
             formEmision = EmisionVoucher.formEmision;
+            txt_ruc.Text = ruc;
             objListFacturaAbono = objVoucherDao.listarDocumentosFacturaDetraccion(ruc, Ventas.UNIDADNEGOCIO/*,moneda,monedadoc*/);
             grdDocumento.DataSource = objListFacturaAbono;
             objListBusquedaTotal = objListFacturaAbono;
@@ -212,5 +213,39 @@ namespace Contabilidad.Caja
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(cmb_all.Text=="Todos")
+            {
+                objListFacturaAbono = objVoucherDao.listarDocumentosAbonoVoucher(txt_ruc.Text, Ventas.UNIDADNEGOCIO/*,moneda,monedadoc*/);
+                grdDocumento.DataSource = objListFacturaAbono;
+                objListBusquedaTotal = objListFacturaAbono;
+                txt_BuscarDocumentoD.TextChanged += txt_BuscarDocumentoD_TextChanged;
+                grdDocumento.Refresh();
+                button1.Enabled = true;
+            }
+            else
+            {
+                objListFacturaAbono = objVoucherDao.listarDocumentosFacturaDetraccion(txt_ruc.Text, Ventas.UNIDADNEGOCIO/*,moneda,monedadoc*/);
+                grdDocumento.DataSource = objListFacturaAbono;
+                objListBusquedaTotal = objListFacturaAbono;
+                txt_BuscarDocumentoD.TextChanged += txt_BuscarDocumentoD_TextChanged;
+                grdDocumento.Refresh();
+
+            }
+        }
+
+        /*private void button2_Click(object sender, EventArgs e)
+        {
+            if(cmb_all.SelectedValue.ToString()=="Todos")
+            {
+                MessageBox.Show("Seleccionar todo los documentos");
+            }else if(cmb_all.SelectedValue.ToString() == "Detracciones")
+            {
+                MessageBox.Show("Seleccionar todo los documentos con detraccion");
+            }
+
+        }*/
     }
 }

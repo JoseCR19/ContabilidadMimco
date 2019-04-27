@@ -50,7 +50,7 @@
             this.txt_BuscarDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_BuscarDocumento.Location = new System.Drawing.Point(8, 22);
             this.txt_BuscarDocumento.Name = "txt_BuscarDocumento";
-            this.txt_BuscarDocumento.Size = new System.Drawing.Size(943, 20);
+            this.txt_BuscarDocumento.Size = new System.Drawing.Size(1222, 20);
             this.txt_BuscarDocumento.TabIndex = 13;
             // 
             // grdDocumento
@@ -60,7 +60,7 @@
             this.grdDocumento.Location = new System.Drawing.Point(8, 45);
             this.grdDocumento.Name = "grdDocumento";
             this.grdDocumento.RowHeadersVisible = false;
-            this.grdDocumento.Size = new System.Drawing.Size(943, 316);
+            this.grdDocumento.Size = new System.Drawing.Size(1222, 316);
             this.grdDocumento.TabIndex = 12;
             this.grdDocumento.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDocumento_CellContentClick);
             this.grdDocumento.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDocumento_CellValueChanged);
@@ -69,7 +69,7 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(804, 367);
+            this.btn_Aceptar.Location = new System.Drawing.Point(1083, 367);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(147, 29);
             this.btn_Aceptar.TabIndex = 15;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 399);
+            this.ClientSize = new System.Drawing.Size(1242, 399);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_BuscarDocumento);

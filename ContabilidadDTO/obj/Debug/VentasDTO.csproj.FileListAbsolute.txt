@@ -89,3 +89,4 @@ C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\Contabilida
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\bin\Debug\UnityEngine.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.dll
 C:\Users\HP\Documents\GitHub\ContabilidadMimco2019\ContabilidadMimco\ContabilidadDTO\obj\Debug\ContabilidadDTO.pdb
+G:\sistema\Version11\Contabilidad\ContabilidadDTO\obj\Debug\VentasDTO.csprojResolveAssemblyReference.cache

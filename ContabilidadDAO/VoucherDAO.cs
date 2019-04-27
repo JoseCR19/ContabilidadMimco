@@ -566,6 +566,8 @@ namespace ContabilidadDAO
                     obj.NroOt = dataReader["NroOt"].ToString().Trim();
                     obj.MonedaCod = dataReader["Moneda"].ToString().Trim();
                     obj.TipoCambio = convertToDouble(dataReader["Cambio"].ToString().Trim());
+                    obj.ImporteDetraccion = convertToDouble(dataReader["Detraccion"].ToString());
+                    obj.SaldoDetraccion = convertToDouble(dataReader["SaldoDetraccion"].ToString());
                     objList.Add(obj);
                 }
             }
@@ -1012,24 +1014,7 @@ namespace ContabilidadDAO
                 return false;
             }
         }
-        public bool insertarVoucherCab(Voucher obj, String Usuario)
-        {
-            Database db = DatabaseFactory.CreateDatabase("Conta");
-            DbCommand dbCommand = db.GetStoredProcCommand("sp_insertVoucherCab",
-                   new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
-                       obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
-                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento/*,obj.TipVou*/});
-             try
-            {
-                db.ExecuteScalar(dbCommand);
-         
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
+
         public bool insertarLetraRCDet(LetraDetalle obj)
         {
             Database db = DatabaseFactory.CreateDatabase("Conta");
@@ -1128,7 +1113,25 @@ namespace ContabilidadDAO
             DbCommand dbCommand = db.GetStoredProcCommand("sp_updateVoucherCab",
                    new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
                        obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
-                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion});
+                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.TipoMovimiento});
+            try
+            {
+                db.ExecuteScalar(dbCommand);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool insertarVoucherCab(Voucher obj, String Usuario)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_insertVoucherCab",
+                   new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
+                       obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
+                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento/*,obj.TipVou*/});
             try
             {
                 db.ExecuteScalar(dbCommand);

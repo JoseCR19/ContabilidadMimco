@@ -31,6 +31,8 @@ namespace ContabilidadDTO
         public Double Total_soles { get; set; }
         public Double Total_dolares { get; set; }
         public Double Cambio { get; set; }
+        public Double ImporteDetraccion { get; set; }
+        public Double SaldoDetraccion { get; set; }
       
     }
 }

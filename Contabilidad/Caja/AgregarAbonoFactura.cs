@@ -22,15 +22,10 @@ namespace Contabilidad.Caja
         public static List<FacturaAbono> objListBusquedaRazon = new List<FacturaAbono>();
         public static List<FacturaAbono> objListBusquedaRuc = new List<FacturaAbono>();
         public static List<FacturaAbono> objListBusquedaNdoc = new List<FacturaAbono>();
-
-
-
-        FacturaAbono objFacturaAbono;
-
         VoucherDAO objVoucherDao;
+        String monedavalor = "";
 
-
-        public AgregarAbonoFactura(String ruc/*,String moneda,String monedadoc*/)
+        public AgregarAbonoFactura(String ruc/*,String moneda*/,String monedadoc)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
@@ -42,6 +37,7 @@ namespace Contabilidad.Caja
             grdDocumento.DataSource = objListFacturaAbono;
             objListBusquedaTotal = objListFacturaAbono;
             txt_BuscarDocumento.TextChanged += Txt_BuscarDocumento_TextChanged;
+            monedavalor = monedadoc;
             grdDocumento.Refresh();
             btn_Aceptar.Enabled = true;
         }
@@ -97,36 +93,53 @@ namespace Contabilidad.Caja
             idColumn2.Width = 240;
             grdDocumento.Columns.Add(idColumn2);
             /*06*/
+            DataGridViewTextBoxColumn idColumn9 = new DataGridViewTextBoxColumn();
+            idColumn9.Name = "Importe Facturado";
+            idColumn9.DataPropertyName = "Total";
+            idColumn9.DefaultCellStyle.Format = "0.00";
+            idColumn9.Width = 100;
+            grdDocumento.Columns.Add(idColumn9);
+            /*07*/
             DataGridViewTextBoxColumn idColumn3 = new DataGridViewTextBoxColumn();
-            idColumn3.Name = "Importe";
+            idColumn3.Name = "Saldo Facturado";
             idColumn3.DataPropertyName = "Saldo";
             idColumn3.DefaultCellStyle.Format = "0.00";
-            idColumn3.Width = 80;
+            idColumn3.Width = 100;
             grdDocumento.Columns.Add(idColumn3);
+            /*08*/
+            DataGridViewTextBoxColumn idColumn10 = new DataGridViewTextBoxColumn();
+            idColumn10.Name = "Importe Detración";
+            idColumn10.DataPropertyName = "ImporteDetraccion";
+            idColumn10.DefaultCellStyle.Format = "0.00";
+            idColumn10.Width = 100;
+            grdDocumento.Columns.Add(idColumn10);
             /*09*/
+            DataGridViewTextBoxColumn idColumn11 = new DataGridViewTextBoxColumn();
+            idColumn11.Name = "Saldo Detración";
+            idColumn11.DataPropertyName = "SaldoDetraccion";
+            idColumn11.DefaultCellStyle.Format = "0.00";
+            idColumn11.Width = 100;
+            grdDocumento.Columns.Add(idColumn11);
+            /*10*/
             DataGridViewTextBoxColumn idColumn6 = new DataGridViewTextBoxColumn();
             idColumn6.Name = "Moneda";
             idColumn6.DataPropertyName = "MonedaCod";
             idColumn6.Width = 60;
-            /*07*/
+            grdDocumento.Columns.Add(idColumn6);
+            /*11*/
             DataGridViewTextBoxColumn idColumn8 = new DataGridViewTextBoxColumn();
             idColumn8.Name = "Cambio";
             idColumn8.DataPropertyName = "TipoCambio";
             idColumn3.DefaultCellStyle.Format = "0.000";
             idColumn8.Width = 60;
             grdDocumento.Columns.Add(idColumn8);
-            /*08*/
+            /*12*/
             DataGridViewTextBoxColumn idColumnPago = new DataGridViewTextBoxColumn();
             idColumnPago.Name = "Pago";
             idColumnPago.DataPropertyName = "Pago";
             idColumnPago.DefaultCellStyle.Format = "0.00";
             idColumnPago.Width = 80;
             grdDocumento.Columns.Add(idColumnPago);
-
-
-
-
-            grdDocumento.Columns.Add(idColumn6);
             grdDocumento.Columns[1].ReadOnly = true;
             grdDocumento.Columns[2].ReadOnly = true;
             grdDocumento.Columns[3].ReadOnly = true;
@@ -148,38 +161,62 @@ namespace Contabilidad.Caja
             bool hola;
             decimal total = 0;
             decimal cambio = 0;
+            decimal detraccion = 0;
             foreach (DataGridViewRow row in grdDocumento.Rows)
             {
                 hola = Convert.ToBoolean(row.Cells[0].Value);
-                if(row.Cells[9].Value.ToString() == "USD")
+                /*comparamos si la moneda que viene del emisor voucher es dolares o soles que no convierta pero si la moneda es diferente que lo convierta*/
+                if(monedavalor == row.Cells[10].Value.ToString())
                 {
                     if (hola)
                     {
-                        total = Convert.ToDecimal(row.Cells[6].Value);
-                        cambio = Convert.ToDecimal(row.Cells[7].Value);
-                        row.Cells[8].Value = total * cambio;
-                        //row.Cells[7].Value = row.Cells[6].Value;
+                        total = Convert.ToDecimal(row.Cells[7].Value);
+                        detraccion = Convert.ToDecimal(row.Cells[9].Value);
+                        row.Cells[12].Value = total+ detraccion;
                     }
                     else
                     {
-                        row.Cells[8].Value = "0.00";
-                        row.Cells[7].Value = "0.00";
+
+
+                        row.Cells[12].Value = "0.00";
                     }
                 }
                 else
                 {
-                    if (hola)
+                    if (row.Cells[9].Value.ToString() == "USD")
                     {
-                        row.Cells[8].Value = row.Cells[6].Value;
+                        if (hola)
+                        {
+                            total = Convert.ToDecimal(row.Cells[7].Value);
+                            detraccion = Convert.ToDecimal(row.Cells[9].Value);
+                            cambio = Convert.ToDecimal(row.Cells[11].Value);
+                            row.Cells[12].Value = total * cambio;
+                            //row.Cells[7].Value = row.Cells[6].Value;
+                        }
+                        else
+                        {
+
+                            row.Cells[12].Value = "0.00";
+                        }
                     }
                     else
                     {
-                        row.Cells[8].Value = "0.00";
-                        row.Cells[7].Value = "0.00";
-                    }
-                }
-                
+                        if (hola)
+                        {
+                            total = Convert.ToDecimal(row.Cells[7].Value);
+                            detraccion = Convert.ToDecimal(row.Cells[9].Value);
+                            cambio = Convert.ToDecimal(row.Cells[11].Value);
+                            row.Cells[12].Value = total / cambio;
+                            //row.Cells[7].Value = row.Cells[6].Value;
+                        }
+                        else
+                        {
 
+                            row.Cells[12].Value = "0.00";
+                        }
+                    }
+
+                }
             }
 
         }

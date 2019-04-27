@@ -457,6 +457,7 @@
             this.txt_Observacion.Name = "txt_Observacion";
             this.txt_Observacion.Size = new System.Drawing.Size(341, 75);
             this.txt_Observacion.TabIndex = 110;
+            this.txt_Observacion.TextChanged += new System.EventHandler(this.txt_Observacion_TextChanged);
             // 
             // txt_MovCod
             // 
@@ -799,6 +800,7 @@
             // 
             this.cmb_OperacionesBanc.DisplayMember = "Descripcion";
             this.cmb_OperacionesBanc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_OperacionesBanc.Enabled = false;
             this.cmb_OperacionesBanc.FormattingEnabled = true;
             this.cmb_OperacionesBanc.Location = new System.Drawing.Point(114, 325);
             this.cmb_OperacionesBanc.Name = "cmb_OperacionesBanc";
