@@ -108,6 +108,21 @@ namespace ContabilidadDAO
                 return false;
             }
         }
+        public bool registrarAbonoDetraccionFactura(String Serie, String Nro, Double Abono)
+        {
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_RegistrarAbonoDetraccionFactura",
+                   new object[] { Serie, Nro, Abono });
+            try
+            {
+                db.ExecuteScalar(dbCommand);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public bool ActualizarAbono(String Serie, String Nro, Double Abono)
         {
             Database db = DatabaseFactory.CreateDatabase("Conta");

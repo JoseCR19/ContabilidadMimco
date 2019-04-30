@@ -568,6 +568,7 @@ namespace ContabilidadDAO
                     obj.TipoCambio = convertToDouble(dataReader["Cambio"].ToString().Trim());
                     obj.ImporteDetraccion = convertToDouble(dataReader["Detraccion"].ToString());
                     obj.SaldoDetraccion = convertToDouble(dataReader["SaldoDetraccion"].ToString());
+                    obj.Total_Detraccion = convertToDouble(dataReader["Total-Detraccion"].ToString());
                     objList.Add(obj);
                 }
             }
@@ -1131,7 +1132,7 @@ namespace ContabilidadDAO
             DbCommand dbCommand = db.GetStoredProcCommand("sp_insertVoucherCab",
                    new object[] {  obj.NumeroVoucher, obj.CodEnt,  obj.FechaPago,
                        obj.FechaEmision, obj.NumeroCheque, obj.NumeroCuenta, obj.MonedaCod,obj.TpersonaCod,
-                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento/*,obj.TipVou*/});
+                      obj.SolicitaCod, obj.CuentaContable, obj.BancoCod, obj.Monto,Usuario, obj.Observacion,obj.Ejercicio,obj.Periodo,obj.TipoMovimiento,obj.TipVou});
             try
             {
                 db.ExecuteScalar(dbCommand);

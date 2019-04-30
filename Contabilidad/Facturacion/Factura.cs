@@ -825,7 +825,6 @@ namespace Contabilidad
             if(cmb_tipoFac.SelectedValue.ToString()=="20")
             {
                 txt_Serie.Text = "FX01";
-               
                 correlativoparse =Convert.ToInt32(objDocumento.correlativoFactura("01", Ventas.UNIDADNEGOCIO, txt_Serie.Text));
                 if(correlativoparse>4)
                 {
@@ -835,7 +834,6 @@ namespace Contabilidad
                 {
                     txt_Numero.Text = "00000004";
                 }
-
                 txt_intercorp.Visible = true;
             }
             else

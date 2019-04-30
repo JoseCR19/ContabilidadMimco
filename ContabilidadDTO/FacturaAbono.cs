@@ -33,6 +33,7 @@ namespace ContabilidadDTO
         public Double Cambio { get; set; }
         public Double ImporteDetraccion { get; set; }
         public Double SaldoDetraccion { get; set; }
+        public Double Total_Detraccion{ get; set;}
       
     }
 }

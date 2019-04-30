@@ -58,7 +58,6 @@ namespace Contabilidad.Reporte
             chkColumn.Width = 50;
             chkColumn.DataPropertyName = "chkSelc";
             grd_Voucher.Columns.Add(chkColumn);
-
             DataGridViewTextBoxColumn idColumn0 = new DataGridViewTextBoxColumn();
             idColumn0.Name = "FechaDoc";
             idColumn0.Width = 70;
