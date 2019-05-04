@@ -78,6 +78,8 @@
     <Compile Include="DocumentoReporte.cs" />
     <Compile Include="DocumentoReporteExcel.cs" />
     <Compile Include="Ejercicio.cs" />
+    <Compile Include="EnvioMasivoContinental.cs" />
+    <Compile Include="EnvioMasivoContinentalCab.cs" />
     <Compile Include="EstadoSunat.cs" />
     <Compile Include="EstadoVoucher.cs" />
     <Compile Include="FacturaAbono.cs" />

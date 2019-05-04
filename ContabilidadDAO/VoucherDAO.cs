@@ -1287,5 +1287,39 @@ namespace ContabilidadDAO
                 return false;
             }
         }
+        public List<EnvioMasivoContinental> getEnvioMasivoContinental(String NumeroVoucher)
+        {
+            DateTime daux, daux2;
+            List<EnvioMasivoContinental> objLista = new List<EnvioMasivoContinental>();
+            EnvioMasivoContinental obj;
+            Database db = DatabaseFactory.CreateDatabase("Conta");
+            DbCommand dbCommand = db.GetStoredProcCommand("sp_getEnvioMasivoContinental",
+                   new object[] { NumeroVoucher });
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    obj = new EnvioMasivoContinental();
+                    obj.DOITipoDocumento = dataReader["DOITipoDocumento"].ToString().Trim();
+                    obj.DOINumeroDocumento = dataReader["DOINumeroDocumento"].ToString().Trim();
+                    obj.TipoAbono = dataReader["TipoAbono"].ToString().Trim();
+                    obj.NumeroCuenta = dataReader["NumeroCuenta"].ToString().Trim();
+                    obj.ImporteAbonar = Convert.ToDouble(dataReader["ImporteAbonar"].ToString());
+                    obj.TipoDocumento = dataReader["TipoDocumento"].ToString().Trim();
+                    obj.NumeroDocumento = dataReader["NumeroDocumento"].ToString().Trim();
+                    obj.AbonoAgrupado = dataReader["AbonoAgrupado"].ToString().Trim();
+                    obj.Referencia = dataReader["Referencia"].ToString().Trim();
+                    obj.IndicadorAviso = dataReader["IndicadorAviso"].ToString().Trim();
+                    obj.MedioAviso = dataReader["MedioAviso"].ToString().Trim();
+                    obj.PersonaContacto = dataReader["PersonaContacto"].ToString().Trim();
+                    obj.IndicadorProceso = dataReader["IndicadorProceso"].ToString().Trim();
+                    obj.Descripcion = dataReader["Descripcion"].ToString().Trim();
+                    obj.Filler = dataReader["Filler"].ToString().Trim();
+                    objLista.Add(obj);
+                }
+            }
+
+            return objLista;
+        }
     }
 }

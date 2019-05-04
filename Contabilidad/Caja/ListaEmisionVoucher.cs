@@ -23,19 +23,23 @@ namespace Contabilidad.Caja
 {
     public partial class ListaEmisionVoucher : Form
     {
-        public List<Voucher> objListVoucher = new List<Voucher>();
-        List<VoucherDet> objListaVoucherDet = new List<VoucherDet>();
+        public static List<Voucher> objListVoucher = new List<Voucher>();
+        public List<VoucherDet> objListaVoucherDet = new List<VoucherDet>();
         ChequeImpresion objCheque = new ChequeImpresion();
         List<ChequeImpresion> objListCheque = new List<ChequeImpresion>();
-
-
+        List<EstadoVoucher> objLista = new List<EstadoVoucher>();
         public static Voucher objVoucher = new Voucher();
-
-
+        public static List<VoucherReporte> objListaVoucherReporte = new List<VoucherReporte>();
+        public static List<Voucher> objListBusquedaTotal = new List<Voucher>();
+        public static List<EnvioMasivoContinental> objListEnvioMasivoContinentalDet = new List<EnvioMasivoContinental>();
+        public static EnvioMasivoContinentalCab objEnvioMasivoContinentalCab = new EnvioMasivoContinentalCab();
         VoucherDAO objVoucherDao;
+        string rutaCompleta = @"N:\TXT\20300166611-";
         PagoVoucherDAO objPagoVoucherDao;
         DocumentoDAO objDocumentoDAO;
-
+        EstadoVoucher objEstado;
+        MonedaDAO objMonedaDao;
+        public static String numeroVoucher = "";
         public static String operacionVoucher = "Q";
         int index = 0;
         public ListaEmisionVoucher()
@@ -45,30 +49,32 @@ namespace Contabilidad.Caja
             this.Text = "LISTA CAJA BANCO";
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(50, 20);
+            objMonedaDao = new MonedaDAO();
             DateTime d1, d2;
             d2 = DateTime.Now;
             d1 = new DateTime(d2.Year, d2.Month, 1);
             dpickerInicio.Value = d1;
             gridParams();
+            objEstado = new EstadoVoucher();
             //objVoucher = new Voucher();
             objVoucherDao = new VoucherDAO();
             objPagoVoucherDao = new PagoVoucherDAO();
             objDocumentoDAO = new DocumentoDAO();
             objListVoucher = objVoucherDao.listarVoucher(Ventas.UNIDADNEGOCIO,dpickerInicio.Value, dpickerFin.Value,"NN");
+            
             grd_Voucher.DataSource = objListVoucher;
+            objListBusquedaTotal = objListVoucher;
             grd_Voucher.Refresh();
             grd_Voucher.DoubleClick += Grd_Voucher_DoubleClick;
-            grd_Voucher.CellClick += Grd_Voucher_CellClick;
-
             cmbEstado();
-        }
 
+        }
         private void Grd_Voucher_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            objVoucher = new Voucher();
-            operacionVoucher = "V";
-            index = grd_Voucher.SelectedCells[0].RowIndex;
-            objVoucher = objListVoucher[index];
+            //objVoucher = new Voucher();
+            //operacionVoucher = "V";
+            //index = grd_Voucher.SelectedCells[0].RowIndex;
+            //objVoucher = objListVoucher[index];
            // if (objVoucher.EstadoCheque=="F")
            // {
            ///     btn_ImprimirCheque.Enabled = true;
@@ -78,7 +84,6 @@ namespace Contabilidad.Caja
             //}
 
         }
-
         private void Grd_Voucher_DoubleClick(object sender, EventArgs e)
         {
             index = grd_Voucher.SelectedCells[0].RowIndex;
@@ -110,6 +115,11 @@ namespace Contabilidad.Caja
         public void gridParams()
         {
             grd_Voucher.AutoGenerateColumns = false;
+            DataGridViewCheckBoxColumn chkColumn = new DataGridViewCheckBoxColumn();
+            chkColumn.HeaderText = "Selec";
+            chkColumn.Width = 50;
+            chkColumn.DataPropertyName = "chkSelc";
+            grd_Voucher.Columns.Add(chkColumn);
             DataGridViewTextBoxColumn idColumn1 = new DataGridViewTextBoxColumn();
             idColumn1.Name = "N° Voucher";
             idColumn1.DataPropertyName = "NumeroVoucher";
@@ -148,14 +158,8 @@ namespace Contabilidad.Caja
             idColumn7.DataPropertyName = "Anulado";
             idColumn7.Width = 90;
             grd_Voucher.Columns.Add(idColumn7);
-
-            foreach (DataGridViewColumn col in grd_Voucher.Columns)
-            {
-                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                //col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
-            }
-
         }
+
         void cmbEstado()
         {
             List<EstadoVoucher> objLista = new List<EstadoVoucher>();
@@ -175,8 +179,8 @@ namespace Contabilidad.Caja
             cmb_Estado.ValueMember = "Codigo";
             cmb_Estado.DisplayMember = "Descripcion";
             cmb_Estado.Refresh();
- 
         }
+        
         void formatearCheque(Voucher objVoucher)
         {
             objCheque = new ChequeImpresion();
@@ -201,6 +205,7 @@ namespace Contabilidad.Caja
             objListVoucher = objVoucherDao.listarVoucher(Ventas.UNIDADNEGOCIO, dpickerInicio.Value, dpickerFin.Value,cmb_Estado.SelectedValue.ToString());
             grd_Voucher.DataSource = null;
             grd_Voucher.DataSource = objListVoucher;
+            objListBusquedaTotal = objListVoucher;
             grd_Voucher.Refresh();
         }
 
@@ -292,9 +297,6 @@ namespace Contabilidad.Caja
 
                 objVoucher = objListVoucher[index];
                 String nombreArchivo = "Cheque-"+objVoucher.BancoCod+"-"+objVoucher.NumeroCheque;
-
-
-
                 formatearCheque(objVoucher);
                 if (objVoucher.BancoCod =="02")
                 {
@@ -305,8 +307,6 @@ namespace Contabilidad.Caja
                     {
                         File.Delete(rut);
                     }
-
-
                     cr.SetDataSource(objListCheque);
 
                     ExportOptions exportOpts = new ExportOptions();
@@ -498,7 +498,7 @@ namespace Contabilidad.Caja
 
         private void grd_Voucher_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void btn_excel_Click(object sender, EventArgs e)
@@ -578,9 +578,195 @@ namespace Contabilidad.Caja
 
         }
 
-        private void btn_pdf_Click(object sender, EventArgs e)
+        void formatearVoucher()
+        {
+            objListaVoucherDet = new List<VoucherDet>();
+            objListaVoucherReporte = new List<VoucherReporte>();
+            objListaVoucherDet = objVoucherDao.listarVoucherDet(objVoucher.NumeroVoucher, Ventas.UNIDADNEGOCIO);
+
+            if (objListaVoucherDet.Count >= 1)
+            {
+                for (int i = 0; i < objListaVoucherDet.Count; i++)
+                {
+                    VoucherReporte objVoucherReporte;
+                    objVoucherReporte = new VoucherReporte();
+                    objVoucherReporte.Banco = objVoucher.Banco;
+                    objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
+                    objVoucherReporte.Monto =objVoucher.Monto.ToString("G");
+
+                    if (objVoucher.MonedaCod.ToString() == "PEN")
+                    {
+                        objVoucher.Moneda = "SOLES";
+                        objVoucherReporte.simbolo = "S./";
+                    }
+                    else if (objVoucher.MonedaCod.ToString() == "USD")
+                    {
+                        objVoucher.Moneda = "DOLARES AMERICANOS";
+                        objVoucherReporte.simbolo = "$";
+                    }
+                    else if (objVoucher.MonedaCod.ToString() == "EUR")
+                    {
+                        objVoucher.Moneda = "EUROS";
+                    }
+
+                    objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda;
+                    objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
+                    objVoucherReporte.Observacion = objVoucher.Observacion;
+                    objVoucherReporte.Persona = objVoucher.Solicitante.Trim();
+                    objVoucherReporte.RazonSocial = objListaVoucherDet[i].RazonSocial.ToString().Trim();
+                    objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
+                    objVoucherReporte.Usuario = Ventas.UsuarioSession;
+                    if (objVoucher.TpersonaCod == "04")
+                    {
+                        objVoucherReporte.PersonaDocumento = "";
+                    }
+                    else
+                    {
+                        objVoucherReporte.PersonaDocumento = objVoucher.SolicitaCod;
+                    }
+                    if (objVoucher.Estado == "A")
+                    {
+                        objVoucherReporte.Anulado = "A N U L A D O";
+                    }
+                    objVoucherReporte.Descripcion = objListaVoucherDet[i].TAOB.ToString();
+                    objVoucherReporte.FechaEmision = objListaVoucherDet[i].FechaEmiRef.ToString();
+                    objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("0.00"); 
+                    objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
+                    objVoucherReporte.Ruc = objListaVoucherDet[i].NroOt + " " + "-" + " " + objListaVoucherDet[i].DirOt;
+                    objListaVoucherReporte.Add(objVoucherReporte);
+                }
+            }
+            else
+            {
+                VoucherReporte objVoucherReporte;
+                // for (int i = 0; i < objListaVoucherDet.Count; i++)
+                // {
+                objVoucherReporte = new VoucherReporte();
+                objVoucherReporte.Banco = objVoucher.Banco;
+                //objVoucherReporte.Descripcion = objListaVoucherDet[i].Descripcion;
+                objVoucherReporte.Fecha = objVoucher.FechaPago.ToString("dd/MM/yyyy");
+                //objVoucherReporte.ImporteDetalle = objListaVoucherDet[i].Importe.ToString("C").Substring(3);
+                objVoucherReporte.Monto = objVoucher.Monto.ToString("G")/*.Substring(3)*/;
+                objVoucherReporte.MontoLetras = objDocumentoDAO.numeroALetras(objVoucher.Monto) + " " + objVoucher.Moneda.TrimEnd();
+                objVoucherReporte.NroCheque = objVoucher.NumeroCheque;
+                //objVoucherReporte.NroDocumento = objListaVoucherDet[i].NroDocumento;
+                
+                if (objVoucher.MonedaCod.ToString() == "PEN")
+                {
+
+                    objVoucherReporte.simbolo = "S./";
+                }
+                else if (objVoucher.MonedaCod.ToString() == "USD")
+                {
+
+                    objVoucherReporte.simbolo = "$";
+                }
+                objVoucherReporte.NroVoucher = objVoucher.NumeroVoucher;
+                objVoucherReporte.Observacion = objVoucher.Observacion;
+                objVoucherReporte.Persona = objVoucher.Solicitante;
+                if (objVoucher.TpersonaCod == "04")
+                {
+                    objVoucherReporte.PersonaDocumento = "";
+                }
+                else
+                {
+                    objVoucherReporte.PersonaDocumento = objVoucher.SolicitaCod;
+                }
+                if (objVoucher.Estado == "A")
+                {
+                    objVoucherReporte.Anulado = "A N U L A D O";
+                }
+
+                //objVoucherReporte.RazonSocial = objListaVoucherDet[i].
+                //objVoucherReporte.Ruc = objListaVoucherDet[i].
+                objVoucherReporte.TipoCambio = objMonedaDao.getTipoCambioVenta(objVoucher.FechaPago.ToShortDateString()).ToString().PadRight(5, '0');
+                objVoucherReporte.Usuario = Ventas.UsuarioSession;
+                objListaVoucherReporte.Add(objVoucherReporte);
+                // }
+            }
+        }
+        public string generartext(List<EnvioMasivoContinental> objListDetalle)
         {
 
+            objEnvioMasivoContinentalCab.Descripcion = "PRUEBA";
+            Random r = new Random();
+            string root = @"W:\public\TXT";
+            rutaCompleta = @"W:\public\TXT\20300166611-";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            string t1, t2;
+            rutaCompleta = rutaCompleta + DateTime.Now.ToString("dd-MM-yyyy") + ".txt";
+            //if(File.Exists(rutaCompleta))
+            //{
+            //    File.Delete(rutaCompleta);
+            //}
+            t1 = "operacion|" + objEnvioMasivoContinentalCab.Descripcion;
+            using (StreamWriter mylogs = File.AppendText(rutaCompleta))
+            {
+                //mylogs.WriteLine(t1);
+                for(int i =0; i<objListDetalle.Count;i++)
+                {
+                    t2 = "001-003|" + "001"+"|"+ "004-004"+"|"+objListDetalle[i].DOITipoDocumento+"|"+"005-016"+"|"+ objListDetalle[i].DOINumeroDocumento+"|"+"017-017"+ objListDetalle[i].TipoAbono+"|"+"018-037"+"|"+objListDetalle[i].NumeroCuenta+"|"+"038-077"+"|"+objListDetalle[i].NombreBeneficiario+"|"+"078-092"+"|"+objListDetalle[i].ImporteAbonar+"|"+"093-093"+"|"+objListDetalle[i].TipoDocumento+"|"+"094-105"+"|"+objListDetalle[i].NumeroDocumento+"|"+"106-106"+"|"+objListDetalle[i].AbonoAgrupado+"|"+"107-146"+"|"+objListDetalle[i].Referencia+"|"+"147-147"+"|"+objListDetalle[i].IndicadorAviso+"|"+"148-197"+"|"+objListDetalle[i].MedioAviso+"|"+"198-227"+"|"+objListDetalle[i].PersonaContacto+"|"+"228-229"+"|"+objListDetalle[i].IndicadorProceso+"|"+"230-259"+"|"+objListDetalle[i].Descripcion+"|"+"260-278"+"|"+objListDetalle[i].Filler;
+                    mylogs.WriteLine(t2);
+                }
+                mylogs.Close();
+            }
+            return rutaCompleta;
+        }
+
+
+
+        private void btn_pdf_Click(object sender, EventArgs e)
+        {
+            bool hola;
+             
+            foreach(DataGridViewRow row in grd_Voucher.Rows)
+            {
+                hola = Convert.ToBoolean(row.Cells[0].Value);
+                if(hola)
+                {
+                    string root = @"W:\public\PDF";
+                    if (!Directory.Exists(root))
+                    {
+                        Directory.CreateDirectory(root);
+                    }
+                    try
+                    {
+                        int index = row.Cells[0].RowIndex;
+                        numeroVoucher = objListVoucher[index].NumeroVoucher;
+                        objVoucher = objListVoucher[index];
+                        objListEnvioMasivoContinentalDet = objVoucherDao.getEnvioMasivoContinental(numeroVoucher);
+                        String rutatext = generartext(objListEnvioMasivoContinentalDet);
+                        //objListBusquedaTotal = objListBusquedaTotal.Where(x => x.chkSelc == true).ToList();
+                        formatearVoucher();
+                        VoucherRpt cr = new VoucherRpt();
+                        string rut = @"W:\public\PDF\20300166611-" + objVoucher.NumeroVoucher + "-" + objVoucher.Solicitante + ".pdf";
+                        if (File.Exists(rut))
+                        {
+                            File.Delete(rut);
+                        }
+                        cr.SetDataSource(objListaVoucherReporte);
+                        cr.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, rut);
+                        btn_pdf.Enabled = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                        btn_pdf.Enabled = true;
+                    }
+                }
+            }
+            
+        }
+        private void grd_Voucher_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (grd_Voucher.IsCurrentCellDirty)
+            {
+                grd_Voucher.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
     }
 }

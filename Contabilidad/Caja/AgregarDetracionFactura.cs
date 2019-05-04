@@ -73,7 +73,6 @@ namespace Contabilidad.Caja
             chkColumn.DataPropertyName = "chkSelc";
             grdDocumento.Columns.Add(chkColumn);
             DataGridViewTextBoxColumn idColumn0 = new DataGridViewTextBoxColumn();
-
             idColumn0.Name = "Serie";
             idColumn0.DataPropertyName = "Serie";
             idColumn0.Width = 60;

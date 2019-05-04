@@ -649,6 +649,7 @@ namespace Contabilidad
                 }
                 cr.SetDataSource(objListFacturaReporte);
                 cr.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, rut);
+
                 using (PrintDialog Dialog = new PrintDialog())
                 {
                     Dialog.ShowDialog();

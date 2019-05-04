@@ -52,10 +52,10 @@
             this.grd_Voucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grd_Voucher.Location = new System.Drawing.Point(12, 119);
             this.grd_Voucher.Name = "grd_Voucher";
-            this.grd_Voucher.ReadOnly = true;
-            this.grd_Voucher.Size = new System.Drawing.Size(757, 285);
+            this.grd_Voucher.Size = new System.Drawing.Size(815, 285);
             this.grd_Voucher.TabIndex = 36;
             this.grd_Voucher.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Voucher_CellContentClick);
+            this.grd_Voucher.CurrentCellDirtyStateChanged += new System.EventHandler(this.grd_Voucher_CurrentCellDirtyStateChanged);
             this.grd_Voucher.Click += new System.EventHandler(this.grd_Voucher_Click);
             // 
             // label2
@@ -197,7 +197,7 @@
             // btn_Cerrar
             // 
             this.btn_Cerrar.Image = global::Contabilidad.Properties.Resources.close;
-            this.btn_Cerrar.Location = new System.Drawing.Point(673, 420);
+            this.btn_Cerrar.Location = new System.Drawing.Point(759, 420);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(49, 43);
             this.btn_Cerrar.TabIndex = 35;
@@ -208,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 479);
+            this.ClientSize = new System.Drawing.Size(839, 479);
             this.Controls.Add(this.btn_ImprimirCheque);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmb_Estado);

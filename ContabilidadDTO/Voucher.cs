@@ -36,6 +36,7 @@ namespace ContabilidadDTO
         public String Ejercicio { get; set; }
         public String Periodo { get; set; }
         public String TipoMovimiento { get; set; }
-        
+        public Boolean chkSelc { get; set; }
+
     }
 }

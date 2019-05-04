@@ -1634,6 +1634,8 @@ namespace ContabilidadDAO
             return objLista;
         }
 
+
+
         public bool updateEstadoEnviado(String serie, String numero)
         {
             Database db = DatabaseFactory.CreateDatabase("Conta");
