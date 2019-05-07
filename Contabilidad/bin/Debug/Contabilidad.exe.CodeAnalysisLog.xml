@@ -12,7 +12,7 @@
          <Members>
           <Member Name="#btn_SaveData_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="DependsOnFix">
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="DependsOnFix">
              <Issue Certainty="75" Level="Warning" Path="G:\sistema\Version11\Contabilidad\Contabilidad\Caja" File="EmisionVoucher.cs" Line="1789">El objeto 'this' admite Dispose más de una vez en el método 'EmisionVoucher.btn_SaveData_Click(object, EventArgs)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 1789</Issue>
             </Message>
            </Messages>
@@ -23,7 +23,7 @@
          <Members>
           <Member Name="#generartext(System.Collections.Generic.List`1&lt;ContabilidadDTO.EnvioMasivoContinental&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="DependsOnFix">
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="DependsOnFix">
              <Issue Certainty="75" Level="Warning" Path="G:\sistema\Version11\Contabilidad\Contabilidad\Caja" File="ListaEmisionVoucher.cs" Line="716">El objeto 'mylogs' admite Dispose más de una vez en el método 'ListaEmisionVoucher.generartext(List&lt;EnvioMasivoContinental&gt;)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 716</Issue>
             </Message>
            </Messages>
@@ -36,77 +36,77 @@
        <Types>
         <Type Name="DataSet1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+ChequeRepDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.ChequeRepDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+DocumentoExcelDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.DocumentoExcelDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+DocumentoPorFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.DocumentoPorFechaDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+FacturaFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.FacturaFechaDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+LetraReporteDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.LetraReporteDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+LetraRepRCDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.LetraRepRCDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+NotaCreditoFechaDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.NotaCreditoFechaDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+PendientexFacturarDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.PendientexFacturarDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+ReporteDiarioDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.ReporteDiarioDataTable'.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="DataSet1+VoucherRepDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Certainty="60" Level="Error">Agregue una implementación de GetObjectData al tipo 'DataSet1.VoucherRepDataTable'.</Issue>
           </Message>
          </Messages>
@@ -117,7 +117,7 @@
        <Types>
         <Type Name="ShanuDGVHelper" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-05-03 16:12:45Z" FixCategory="NonBreaking">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2019-05-06 14:16:22Z" FixCategory="NonBreaking">
            <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implemente IDisposable en 'ShanuDGVHelper' porque crea miembros de los tipos IDisposable siguientes: 'DataGridView', 'DateTimePicker'.</Issue>
           </Message>
          </Messages>
